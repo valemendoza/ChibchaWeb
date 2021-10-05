@@ -16,18 +16,18 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="Img/login.jpg" alt="login" class="login-card-img">
+            <img src="Img/log.png" alt="login" class="login-card-img">
           </div>
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="Img/logo.png" alt="logo" width="25%">
               </div>
+              <center>
               <p class="login-card-description">Inicio de Sesión:</p>
               <form action="#!">
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Clave</label>
@@ -37,7 +37,7 @@
                 </form>
                 <a href="#!" class="forgot-password-link">?</a>
                 <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
-                
+                <center>
             </div>
           </div>
         </div>
