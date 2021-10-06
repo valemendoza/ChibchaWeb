@@ -21,7 +21,7 @@ body {
     -o-object-fit: cover;
        object-fit: cover; }
   .login-card .card-body {
-    padding: 5px 60px 60px; }
+    padding: 15px 60px 10px; }
     @media (max-width: 422px) {
       .login-card .card-body {
         padding: 35px 24px; } }
@@ -52,7 +52,7 @@ body {
       color: #919aa3; }
   .login-card .login-btn {
     padding: 13px 20px 12px;
-    background-color: #000;
+    background-color: rgb(12, 105, 0);
     border-radius: 4px;
     font-size: 17px;
     font-weight: bold;
@@ -69,8 +69,10 @@ body {
     margin-bottom: 12px; }
   .login-card-footer-text {
     font-size: 16px;
-    color: #0d2366;
-    margin-bottom: 60px; }
+    color: #145e05; }
+    .login-card-back {
+      font-size: 16px;
+      color: #ff9100; }
     @media (max-width: 767px) {
       .login-card-footer-text {
         margin-bottom: 24px; } }
