@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login Template</title>
+  <title>Iniciar Sesión</title>
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="Css/login.css">
+  <link rel="shortcut icon" href="Img/logo.png" />
 
+  <!-- ALERTIFY -->
   <link rel="stylesheet" type="text/css" href="Librerias/Alertify/css/alertify.css">
   <link rel="stylesheet" type="text/css" href="Librerias/Alertify/css/themes/default.css">
   <script src="Librerias/Alertify/alertify.js"></script>
@@ -29,7 +31,7 @@
               </div>
               <center>
               <p class="login-card-description">Inicio de Sesión:</p>
-              <form action="#!" method="POST" onsubmit="return miFuncion(this)">
+              <form action="inicioCliente.php" method="POST" onsubmit="return miFuncion(this)">
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" autofocus required="True">
