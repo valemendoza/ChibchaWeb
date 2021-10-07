@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="paquetes.php">
             <i class="bi bi-bag-check"></i>
               <p>Selección de Paquete</p>
             </a>
