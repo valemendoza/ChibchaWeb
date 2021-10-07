@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href="paquetes.php">
                         <i class="bi bi-bag-check"></i>
                         <p>Selección de Paquete</p>
                     </a>
@@ -108,13 +108,13 @@
 
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="../Img/plata.png" alt="LogoOro" style="width:70% ">
+                    <img src="../Img/plata_preview_rev_1.png" alt="LogoOro" style="width:70% ">
                     <h2>Chibcha-Plata</h2>
                     <p>5000 mensual - 50.000 anual.<br>  1 cuenta de correo - 2 bases de datos.<br> 1 solo sitio web - 50 gigas almacenamiento.<br></p>
                     <!--        <p><a class="btn btn-success" href="#">Obtener &raquo;</a></p>-->
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img src="../Img/oro.png" alt="LogoOro" style="width:70% ">
+                    <img src="../Img/oro_preview_rev_1.png" alt="LogoOro" style="width:70% ">
                     <h2>Chibcha-Oro</h2>
                     <p>10.000 mensual - 100.000 anual <br>100 cuentas de correo - 5 bases de datos.<br> 10 sitios web - 100 gigas almacenamiento. </p>
                     <!--        <p><a class="btn btn-success" href="#">Obtener &raquo;</a></p>-->
@@ -149,7 +149,7 @@
                     <button type="button" class="btn btn-success">Adquirir</button>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img src="../Img/platino.png" alt="LogoOro" style="width:70% ">
+                    <img src="../Img/platino_preview_rev_1.png" alt="LogoOro" style="width:70% ">
                     <h2>Chibcha-Platino</h2>
                     <p>15.000 mensual - 120.000 anual <br> &infin; cuentas de correo - &infin; bases de datos.<br> 200 sitios web - 200 gigas almacenamiento. </p>
                     <!--        <p><a class="btn btn-success" href="#">Obtener &raquo;</a></p>-->
