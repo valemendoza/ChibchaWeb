@@ -20,4 +20,9 @@ $usuario = $query->fetchAll(PDO::FETCH_OBJ);
             </script>";
         }
 
+        //foreach( $clientes as $cliente) 
+      //{
+        //$cant_clientes = $cliente["count"];
+      //}    
+
 ?>
