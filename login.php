@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
               </div>
               <center>
               <p class="login-card-description">Inicio de Sesión:</p>
-              <form action="inicioCliente.php" method="POST" onsubmit="return miFuncion(this)">
+              <form action="pruebaSql.php" name="inicio" method="POST">
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" autofocus required="True">
