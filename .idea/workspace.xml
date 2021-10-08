@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio de paquete">
-      <change afterPath="$PROJECT_DIR$/Img/oro_preview_rev_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/plata_preview_rev_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/platino_preview_rev_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paquetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/paquetes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistencia/conexion.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
       <workItem from="1633493939971" duration="2298000" />
       <workItem from="1633536797891" duration="1870000" />
       <workItem from="1633630534163" duration="3303000" />
-      <workItem from="1633634321977" duration="440000" />
+      <workItem from="1633634321977" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -98,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633631681545</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Archivos phpStorm, Cambio de paquete">
+      <created>1633634890250</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633634890250</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
