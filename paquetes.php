@@ -35,13 +35,13 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active ">
+                <li>
                     <a href="inicioCliente.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
                     </a>
                 </li>
-                <li>
+                <li  class="active ">
                     <a href="paquetes.php">
                         <i class="bi bi-bag-check"></i>
                         <p>Selección de Paquete</p>
