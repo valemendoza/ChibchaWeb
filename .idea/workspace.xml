@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio de paquete">
+      <change afterPath="$PROJECT_DIR$/tabladominio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inicioCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/inicioCliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebaSql.php" beforeDir="false" afterPath="$PROJECT_DIR$/pruebaSql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inicioAdmon.php" beforeDir="false" afterPath="$PROJECT_DIR$/inicioAdmon.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -75,7 +83,7 @@
       <workItem from="1633536797891" duration="1870000" />
       <workItem from="1633630534163" duration="3303000" />
       <workItem from="1633634321977" duration="5823000" />
-      <workItem from="1633735177540" duration="2384000" />
+      <workItem from="1633735177540" duration="9855000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -105,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633634890250</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Archivos phpStorm, Cambio de paquete">
+      <created>1633739538797</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633739538797</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
