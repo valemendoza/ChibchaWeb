@@ -60,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="./editarCliente.php">
               <i class="nc-icon nc-single-02"></i>
               <p>Editar Información</p>
             </a>

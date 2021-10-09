@@ -17,7 +17,7 @@ $clave=$_POST["password"];
 $email=$_POST["email"];
 $Tipo_Usuario="C";
 $sentencia-> execute();
-include "pruebaSql.php";}
+}
 catch (PDOException $e){
         echo "Error: " . $e->getMessage();
 }
