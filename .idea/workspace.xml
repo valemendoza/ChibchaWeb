@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio de paquete">
-      <change afterPath="$PROJECT_DIR$/tabladominio.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inicioAdmon.php" beforeDir="false" afterPath="$PROJECT_DIR$/inicioAdmon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentacion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +69,10 @@
       <recent name="D:\wamp64\www\ChibchaWeb\Img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\ChibchaWeb\Img" />
       <recent name="D:\wamp64\www\ChibchaWeb\presentacion" />
+      <recent name="D:\wamp64\www\ChibchaWeb\presentacion\Administrador" />
+      <recent name="D:\wamp64\www\ChibchaWeb" />
+      <recent name="D:\wamp64\www\ChibchaWeb\Img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
