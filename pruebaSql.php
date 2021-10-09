@@ -5,7 +5,7 @@ include_once "conexion.php";
 $user=$_POST["email"];
 $pass=$_POST["password"];
 
-$query = $bd->prepare('SELECT * FROM "Administrador" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Correo"=:user AND "Clave"=:pass'  );
 $query -> bindParam(":user",$user);
 $query -> bindParam(":pass",$pass);
 $query -> execute();
