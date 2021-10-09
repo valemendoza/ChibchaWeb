@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio de paquete">
-      <change afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
+    <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio varios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paquetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/paquetes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +85,7 @@
       <workItem from="1633630534163" duration="3303000" />
       <workItem from="1633634321977" duration="5823000" />
       <workItem from="1633735177540" duration="9855000" />
+      <workItem from="1633797580986" duration="1125000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -124,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633739538797</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Archivos phpStorm, Cambio varios">
+      <created>1633796461259</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633796461259</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +151,7 @@
     <MESSAGE value="Archivos phpStorm" />
     <MESSAGE value="Archivos phpStorm, comentarios XD" />
     <MESSAGE value="Archivos phpStorm, Cambio de paquete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Archivos phpStorm, Cambio de paquete" />
+    <MESSAGE value="Archivos phpStorm, Cambio varios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Archivos phpStorm, Cambio varios" />
   </component>
 </project>

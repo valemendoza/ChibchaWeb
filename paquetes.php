@@ -132,17 +132,21 @@
                     <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione
                         <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option class="dropdown-item">Chibcha plata</option>
-                        <option class="dropdown-item">Chibcha oro</option>
-                        <option class="dropdown-item">Chibcha platino</option>
+                        <option value="1" class="dropdown-item">Chibcha plata</option>
+                        <option value="2" class="dropdown-item">Chibcha oro</option>
+                        <option value="3" class="dropdown-item">Chibcha platino</option>
                     </select>
+                    <?php
+                        include_once ("conexion.php");
+
+                    ?>
                     <br>
                     <br>
                     <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione
                         <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option class="dropdown-item">Mensual</option>
-                        <option class="dropdown-item">Anual</option>
+                        <option value="1" class="dropdown-item">Mensual</option>
+                        <option value="2" class="dropdown-item">Anual</option>
                     </select>
                     <br>
                     <br>
