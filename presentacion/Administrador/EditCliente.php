@@ -227,19 +227,37 @@
                                     <div class="col-md-4 pr-1">
                                         <div class="form-group">
                                             <label>Forma de Pago</label>
-                                            <input name="FP" type="text" class="form-control" placeholder="Forma de Pago">
+                                            <br>
+                                            <select class="btn btn-secondary dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <option value="1" class="dropdown-item">Credito</option>
+                                                <option value="2" class="dropdown-item">Contado</option>
+                                            </select>
+                                            <!--<label>Forma de Pago</label>
+                                            <input name="FP" type="text" class="form-control" placeholder="Forma de Pago">-->
                                         </div>
                                     </div>
                                     <div class="col-md-4 px-1">
                                         <div class="form-group">
                                             <label>Tipo de Plan</label>
-                                            <input name="TP" type="text" class="form-control" placeholder="Tipo de Plan">
+                                            <br>
+                                            <select class="btn btn-secondary dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <option value="1" class="dropdown-item">Mensual</option>
+                                                <option value="2" class="dropdown-item">Anual</option>
+                                            </select>
+                                            <!--<label>Tipo de Plan</label>
+                                            <input name="TP" type="text" class="form-control" placeholder="Tipo de Plan">-->
                                         </div>
                                     </div>
-                                    <div class="col-md-4 pl-1">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Tipo de Paquete</label>
-                                            <input name="TPK" type="text" class="form-control" placeholder="Tipo de Paquete">
+                                            <select class="btn btn-secondary dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <option value="1" class="dropdown-item">Chibcha Plata</option>
+                                                <option value="2" class="dropdown-item">Chibcha Oro</option>
+                                                <option value="3" class="dropdown-item">Chibcha Platino</option>
+                                            </select>
+                                            <!--<label>Tipo de Paquete</label>
+                                            <input name="TPK" type="text" class="form-control" placeholder="Tipo de Paquete">-->
                                         </div>
                                     </div>
                                 </div>
