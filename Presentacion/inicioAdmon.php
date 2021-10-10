@@ -1,3 +1,18 @@
+<?php
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+  $usuarioActual=$_SESSION['emailUsuario'];
+  echo $usuarioActual;
+}else{
+  header('location: login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+  session_destroy();
+  header('location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,8 +105,9 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                  <button type="button" onclick="location.href='../index.html'"class="btn btn-link" >Cerrar Sesión</button>
-                </a>
+              <form method="POST">
+                  <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form> </a>
               </li>
             </ul>
           </div>

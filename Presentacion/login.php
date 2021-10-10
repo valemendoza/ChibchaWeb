@@ -77,7 +77,14 @@
 <?php 
 session_start();
 if(isset($_SESSION['emailUsuario'])){
-  header("location:../Presentacion/inicioCliente.php");     
+  if($_SESSION['tipoUsuario']=="C"){
+    header("location:../Presentacion/inicioCliente.php");  
+  }elseif($_SESSION['tipoUsuario']=="A"){
+    header("location:../Presentacion/inicioAdmon.php");  
+  }elseif($_SESSION['tipoUsuario']=="E"){
+    header("location:../Presentacion/inicioEmpleado.php");  
+  }
+     
 }
 
 if(isset($_POST['login'])){
@@ -87,15 +94,27 @@ include_once "../Persistencia/conexion.php";
 $user=$_POST["email"];
 $pass=$_POST["password"];
 
-$query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query = $bd->prepare('SELECT "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
 $query -> bindParam(":user",$user);
 $query -> bindParam(":pass",$pass);
 $query -> execute();
-$usuario = $query->fetchAll(PDO::FETCH_OBJ);
+$usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 if(!isset($_SESSION['emailUsuario'])){
           if ($usuario) {
           $_SESSION['emailUsuario']=$user;
-            header("location:../Presentacion/inicioCliente.php");     
+          $_SESSION['tipoUsuario']=$usuario['Tipo_Usuario'];
+          foreach( $usuarios as $usuario){
+            if($usuario['Tipo_Usuario']=="C"){
+              $_SESSION['tipoUsuario']="C";
+              header("location:../Presentacion/inicioCliente.php");     
+            }elseif($usuario['Tipo_Usuario']=="A"){
+              $_SESSION['tipoUsuario']="A";
+              header("location:../Presentacion/inicioAdmon.php");     
+            }elseif($usuario['Tipo_Usuario']=="E"){
+              $_SESSION['tipoUsuario']="E";
+              header("location:../Presentacion/inicioEmpleado.php");     
+            }
+          }  
         }else{
             echo "<script>
             alert('Email o Clave Erroneos');
@@ -108,6 +127,5 @@ if(!isset($_SESSION['emailUsuario'])){
       //{
         //$cant_clientes = $cliente["count"];
       //}    
- 
-    }
+      }
 ?>

@@ -44,7 +44,7 @@ if(isset($_POST['btcerrarS'])){
           <!-- <p>CT</p> -->
         </a>
         <a class="simple-text logo-normal">
-          Nombre del Cliente
+          <php? $usuarioActual ?>
         </a>
       </div>
       <div class="sidebar-wrapper">

@@ -17,11 +17,7 @@ $clave=$_POST["password"];
 $email=$_POST["email"];
 $Tipo_Usuario="C";
 $sentencia-> execute();
-<<<<<<< HEAD:Presentacion/registro.php
 include "../Logica/pruebaSql.php";}
-=======
-}
->>>>>>> 1302ffdb42e23d70eaa893f1bdd03f3efa2eb247:registro.php
 catch (PDOException $e){
         echo "Error: " . $e->getMessage();
 }
