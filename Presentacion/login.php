@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="Css/login.css">
-  <link rel="shortcut icon" href="Img/logo.png" />
+  <link rel="stylesheet" href="../Css/login.css">
+  <link rel="shortcut icon" href="../Img/logo.png" />
 
   <!-- ALERTIFY -->
-  <link rel="stylesheet" type="text/css" href="Librerias/Alertify/css/alertify.css">
-  <link rel="stylesheet" type="text/css" href="Librerias/Alertify/css/themes/default.css">
-  <script src="Librerias/Alertify/alertify.js"></script>
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/themes/default.css">
+  <script src="../Librerias/Alertify/alertify.js"></script>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="Img/log.png" alt="login" class="login-card-img">
+            <img src="../Img/log.png" alt="login" class="login-card-img">
           </div>
           <div class="col-md-7">
             <div class="card-body">
@@ -32,7 +32,7 @@
               </div>
               <center>
               <p class="login-card-description">Inicio de Sesión:</p>
-              <form action="pruebaSql.php" name="inicio" method="POST">
+              <form action="../Logica/pruebaSql.php" name="inicio" method="POST">
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" autofocus required="True">
@@ -47,7 +47,7 @@
                 </form>
                 <p class="login-card-footer-text"><a href="registro.php" class="text-reset">No tengo cuenta. Registrarme Ahora.</a></p>
                
-                <p class="login-card-back"><a href="index.html" class="text-reset">Regresar a la Página Principal.</a></p>
+                <p class="login-card-back"><a href="../index.html" class="text-reset">Regresar a la Página Principal.</a></p>
                 <center>
             </div>
           </div>

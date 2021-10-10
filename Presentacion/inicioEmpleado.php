@@ -9,13 +9,13 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- CSS Files -->
-  <link href="Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link href="../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
    <!-- Bootstrap -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <script src="Librerias/Bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="Librerias/Bootstrap/css/bootstrap.css">
+   <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
     
-  <link rel="shortcut icon" href="Img/logo.png" />
+  <link rel="shortcut icon" href="../Img/logo.png" />
 
 </head>
 
@@ -25,7 +25,7 @@
       <div class="logo">
         <a class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="Img/logo.png">
+            <img src="../Img/logo.png">
           </div>
           <!-- <p>CT</p> -->
         </a>
@@ -60,7 +60,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                  <button type="button" onclick="location.href='index.html'"class="btn btn-link" >Cerrar Sesión</button>
+                  <button type="button" onclick="location.href='../index.html'"class="btn btn-link" >Cerrar Sesión</button>
                 </a>
               </li>
             </ul>
@@ -69,18 +69,7 @@
       </nav>
       <!-- End Navbar -->
 
-      <?php 
-
-    include_once "conexion.php";
-    $query = $bd->prepare('SELECT "Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre"
-    from "Ticket", "Nivel_Ticket","Estado"
-    WHERE "Nivel_Ticket"."Id_Nivel_Ticket"="Ticket"."Nivel_Ticket_Id_Nivel_Ticket" AND
-          "Estado"."id_estado" = "Ticket"."Estado";'  );
-    $query -> execute();
-    while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-        $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
-        
-    ?>
+     
     
       <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
@@ -119,6 +108,17 @@
                       <th>
                         Cambiar Nivel
                       </th>
+                      <?php 
+
+                        include_once "../Persistencia/conexion.php";
+                        $query = $bd->prepare('SELECT "Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre"
+                        from "Ticket", "Nivel_Ticket","Estado"
+                        WHERE "Nivel_Ticket"."Id_Nivel_Ticket"="Ticket"."Nivel_Ticket_Id_Nivel_Ticket" AND
+                              "Estado"."id_estado" = "Ticket"."Estado";'  );
+                        $query -> execute();
+                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                            $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
+                      ?>
                     </tr>
                       <tr>
                         <td>

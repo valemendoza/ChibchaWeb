@@ -1,5 +1,5 @@
 <?php
-include_once "conexion.php";
+include_once "../Persistencia/conexion.php";
 try{ 
 $sentencia = $bd->prepare('INSERT INTO "Cliente" 
 VALUES (:cedula, :nombre, :apellido,:clave,:email,1,0,0,0,:Tipo_Usuario)');
@@ -17,7 +17,7 @@ $clave=$_POST["password"];
 $email=$_POST["email"];
 $Tipo_Usuario="C";
 $sentencia-> execute();
-include "pruebaSql.php";}
+include "../Logica/pruebaSql.php";}
 catch (PDOException $e){
         echo "Error: " . $e->getMessage();
 }

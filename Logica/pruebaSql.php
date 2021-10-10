@@ -1,6 +1,6 @@
 <?php 
 
-include_once "conexion.php";
+include_once "../Persistencia/conexion.php";
 
 $user=$_POST["email"];
 $pass=$_POST["password"];
@@ -11,12 +11,12 @@ $query -> bindParam(":pass",$pass);
 $query -> execute();
 $usuario = $query->fetchAll(PDO::FETCH_OBJ);
         if ($usuario) {
-                    header("location:inicioCliente.php");
+                    header("location:../Presentacion/inicioCliente.php");
                                
         }else{
             echo "<script>
             alert('Email o Clave Erroneos');
-            window.location= 'login.php'
+            window.location= '../Presentacion/login.php'
             </script>";
         }
 
