@@ -129,7 +129,7 @@
                         <li><option class="dropdown-item" value="3">Chibcha platino</option></li>
                       </ul>
                     </div>-->
-                    <form action="paqueteE.php" method="post">
+                    <form action="../logica/paqueteE.php" method="post">
                         <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Seleccione
                             <!--          <option class="dropdown-item">Seleccione</option>-->

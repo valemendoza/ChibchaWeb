@@ -180,7 +180,7 @@
                         <h5 class="card-title">Editar Cliente</h5>
                     </div>
                     <div class="card-body">
-                        <form action="../../EC.php" method="post">
+                        <form action="../../logica/EC.php" method="post">
                             <div class="row">
                                 <!--<div class="col-md-5 pr-1">
                                     <div class="form-group">

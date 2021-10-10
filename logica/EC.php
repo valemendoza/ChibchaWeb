@@ -1,5 +1,17 @@
 <?php
 include_once "persistencia/conexion.php";
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+    $usuarioActual=$_SESSION['emailUsuario'];
+    echo $usuarioActual;
+}else{
+    header('location: login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+    session_destroy();
+    header('location: login.php');
+}
 $nombre = $_POST ['Nombre'];
 $apellido = $_POST ['Apellido'];
 $correo = $_POST ['Correo'];
