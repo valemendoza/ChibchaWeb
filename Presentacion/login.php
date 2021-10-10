@@ -32,7 +32,7 @@
               </div>
               <center>
               <p class="login-card-description">Inicio de Sesión:</p>
-              <form action="../Logica/pruebaSql.php" name="inicio" method="POST">
+              <form  name="inicio" method="POST" onsubmit="return miFuncion(this)">
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" autofocus required="True">
@@ -74,3 +74,40 @@
 
 </body>
 </html>
+<?php 
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+  header("location:../Presentacion/inicioCliente.php");     
+}
+
+if(isset($_POST['login'])){
+
+include_once "../Persistencia/conexion.php";
+
+$user=$_POST["email"];
+$pass=$_POST["password"];
+
+$query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query -> bindParam(":user",$user);
+$query -> bindParam(":pass",$pass);
+$query -> execute();
+$usuario = $query->fetchAll(PDO::FETCH_OBJ);
+if(!isset($_SESSION['emailUsuario'])){
+          if ($usuario) {
+          $_SESSION['emailUsuario']=$user;
+            header("location:../Presentacion/inicioCliente.php");     
+        }else{
+            echo "<script>
+            alert('Email o Clave Erroneos');
+            window.location= '../Presentacion/login.php'
+            </script>";
+        }
+      }
+
+        //foreach( $clientes as $cliente) 
+      //{
+        //$cant_clientes = $cliente["count"];
+      //}    
+ 
+    }
+?>

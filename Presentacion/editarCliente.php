@@ -1,3 +1,6 @@
+<?php
+    echo $_SESSION;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +33,7 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-                Nombre del Cliente
+            <?php echo $user->getNombre(); ?>
             </a>
         </div>
         <div class="sidebar-wrapper">
