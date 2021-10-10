@@ -90,7 +90,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                  <button type="button" onclick="location.href='index.html'"class="btn btn-link" >Cerrar Sesión</button>
+                  <button type="button" onclick="location.href='../index.html'"class="btn btn-link" >Cerrar Sesión</button>
                 </a>
               </li>
             </ul>

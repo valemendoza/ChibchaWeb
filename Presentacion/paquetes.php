@@ -137,7 +137,7 @@
                         <option value="3" class="dropdown-item">Chibcha platino</option>
                     </select>
                     <?php
-                        include_once ("conexion.php");
+                        include_once ("../Persistencia/conexion.php");
 
                     ?>
                     <br>

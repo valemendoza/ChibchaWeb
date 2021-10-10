@@ -9,7 +9,7 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!-- CSS Files -->
-    <link href="Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
@@ -25,7 +25,7 @@
         <div class="logo">
             <a class="simple-text logo-mini">
                 <div class="logo-image-small">
-                    <img src="Img/logo.png">
+                    <img src="../Img/logo.png">
                 </div>
                 <!-- <p>CT</p> -->
             </a>
@@ -35,7 +35,7 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active ">
+                <li >
                     <a href="inicioCliente.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
@@ -59,7 +59,7 @@
                         <p>Mis Dominios</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="editarCliente.php">
                         <i class="nc-icon nc-single-02"></i>
                         <p>Editar Información</p>
@@ -90,7 +90,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <button type="button" onclick="location.href='index.html'"class="btn btn-link" >Cerrar Sesión</button>
+                            <button type="button" onclick="location.href='../index.html'"class="btn btn-link" >Cerrar Sesión</button>
                             </a>
                         </li>
                     </ul>
