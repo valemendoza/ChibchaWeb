@@ -25,6 +25,6 @@ $query ->bindParam(":correo",$correo);
 $query ->bindParam(":formaP", $Forma_P);
 $query->bindParam(":plan", $Tipo_P);
 $query->bindParam(":paquete", $Tipo_PK);
-//$query -> bindParam(":correo", $correo);
 $query->execute();
 echo "HECHO";
+header('location: ../presentacion/inicioAdmon.php');

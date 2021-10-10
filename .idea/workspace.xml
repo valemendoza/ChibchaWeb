@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio varios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logica/EC.php" beforeDir="false" afterPath="$PROJECT_DIR$/logica/EC.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,7 @@
       <workItem from="1633634321977" duration="5823000" />
       <workItem from="1633735177540" duration="9855000" />
       <workItem from="1633797580986" duration="1125000" />
-      <workItem from="1633810042924" duration="16610000" />
+      <workItem from="1633810042924" duration="17000000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -161,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633900372348</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Archivos phpStorm, Cambio varios">
+      <created>1633902023269</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633902023269</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
