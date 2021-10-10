@@ -42,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a href="paquetes.php">
+            <a href="#">
             <i class="bi bi-people"></i>
               <p>Clientes</p>
             </a>

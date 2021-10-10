@@ -45,9 +45,13 @@
                   <br>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Ingresar">
                 </form>
-                <p class="login-card-footer-text"><a href="registro.php" class="text-reset">No tengo cuenta. Registrarme Ahora.</a></p>
+                <p class="login-card-footer-text"><a href="registro.html" class="text-reset">No tengo cuenta. Registrarme Ahora.</a></p>
                
+<<<<<<< HEAD:Presentacion/login.php
                 <p class="login-card-back"><a href="../index.html" class="text-reset">Regresar a la Página Principal.</a></p>
+=======
+                <p class="login-card-back"><a href="presentacion/index.html" class="text-reset">Regresar a la Página Principal.</a></p>
+>>>>>>> 1302ffdb42e23d70eaa893f1bdd03f3efa2eb247:login.php
                 <center>
             </div>
           </div>
