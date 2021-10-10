@@ -100,7 +100,7 @@
         <!-- End Navbar -->
         <?php
 
-        include_once "../../conexion.php";
+        include_once "../../persistencia/conexion.php";
         $query = $bd->prepare('SELECT * from "Cliente"'  );
         $query -> execute();
         $clientes = $query->fetchAll(PDO::FETCH_OBJ);

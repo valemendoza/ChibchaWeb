@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio varios">
-      <change afterPath="$PROJECT_DIR$/EC.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paqueteE.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paquetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/paquetes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EC.php" beforeDir="false" afterPath="$PROJECT_DIR$/EC.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentacion/paquetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/paquetes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paqueteE.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/paqueteE.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +89,7 @@
       <workItem from="1633634321977" duration="5823000" />
       <workItem from="1633735177540" duration="9855000" />
       <workItem from="1633797580986" duration="1125000" />
-      <workItem from="1633810042924" duration="9442000" />
+      <workItem from="1633810042924" duration="13261000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -133,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633796461259</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Archivos phpStorm, Cambio varios">
+      <created>1633839273078</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633839273078</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Archivos phpStorm, Cambio varios">
+      <created>1633839291961</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633839291961</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -9,11 +9,11 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!-- CSS Files -->
-    <link href="../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="../../../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
+    <script src="../../../Librerias/Bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../Librerias/Bootstrap/css/bootstrap.css">
 
     <link rel="shortcut icon" href="../Img/logo.png" />
 
@@ -130,32 +130,22 @@
                       </ul>
                     </div>-->
                     <form action="paqueteE.php" method="post">
-                    <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Seleccione
-                        <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option  value="1" class="dropdown-item">Chibcha plata</option>
-                        <option  value="2" class="dropdown-item">Chibcha oro</option>
-                        <option  value="3" class="dropdown-item">Chibcha platino</option>
-                    </select>
-<<<<<<< Updated upstream:Presentacion/paquetes.php
-                    <?php
-                        include_once ("../Persistencia/conexion.php");
-
-                    ?>
-                    <br>
-                    <br>
-                    <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-=======
-                        <br>
-                    <select class="btn btn-secondary dropdown-toggle" name="plan" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
->>>>>>> Stashed changes:paquetes.php
-                        Seleccione
-                        <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option value="1" class="dropdown-item" >Mensual</option>
-                        <option value="2" class="dropdown-item" >Anual</option>
-                    </select>
-                        <br>
-                    <button type="submit" class="btn btn-success">Adquirir</button>
+                        <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Seleccione
+                            <!--          <option class="dropdown-item">Seleccione</option>-->
+                            <option  value="1" class="dropdown-item">Chibcha plata</option>
+                            <option  value="2" class="dropdown-item">Chibcha oro</option>
+                            <option  value="3" class="dropdown-item">Chibcha platino</option>
+                        </select>
+                            <br>
+                        <!--<select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">-->
+                        <select class="btn btn-secondary dropdown-toggle" name="plan" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!--          <option class="dropdown-item">Seleccione</option>-->
+                            <option value="1" class="dropdown-item" >Mensual</option>
+                            <option value="2" class="dropdown-item" >Anual</option>
+                        </select>
+                            <br>
+                        <button type="submit" class="btn btn-success">Adquirir</button>
                     </form>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
