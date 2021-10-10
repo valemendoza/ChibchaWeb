@@ -129,13 +129,15 @@
                         <li><option class="dropdown-item" value="3">Chibcha platino</option></li>
                       </ul>
                     </div>-->
+                    <form action="paqueteE.php" method="post">
                     <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione
                         <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option value="1" class="dropdown-item">Chibcha plata</option>
-                        <option value="2" class="dropdown-item">Chibcha oro</option>
-                        <option value="3" class="dropdown-item">Chibcha platino</option>
+                        <option  value="1" class="dropdown-item">Chibcha plata</option>
+                        <option  value="2" class="dropdown-item">Chibcha oro</option>
+                        <option  value="3" class="dropdown-item">Chibcha platino</option>
                     </select>
+<<<<<<< Updated upstream:Presentacion/paquetes.php
                     <?php
                         include_once ("../Persistencia/conexion.php");
 
@@ -143,14 +145,18 @@
                     <br>
                     <br>
                     <select class="btn btn-secondary dropdown-toggle" name="paquetes" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+=======
+                        <br>
+                    <select class="btn btn-secondary dropdown-toggle" name="plan" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+>>>>>>> Stashed changes:paquetes.php
                         Seleccione
                         <!--          <option class="dropdown-item">Seleccione</option>-->
-                        <option value="1" class="dropdown-item">Mensual</option>
-                        <option value="2" class="dropdown-item">Anual</option>
+                        <option value="1" class="dropdown-item" >Mensual</option>
+                        <option value="2" class="dropdown-item" >Anual</option>
                     </select>
-                    <br>
-                    <br>
-                    <button type="button" class="btn btn-success">Adquirir</button>
+                        <br>
+                    <button type="submit" class="btn btn-success">Adquirir</button>
+                    </form>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img src="../Img/platino_preview_rev_1.png" alt="LogoOro" style="width:70% ">

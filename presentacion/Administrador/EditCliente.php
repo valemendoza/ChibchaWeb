@@ -85,7 +85,7 @@
         <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">BIENVENIDO</a>
+                    <a class="navbar-brand" href="javascript:;">EDITAR CLIENTE</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
@@ -127,114 +127,142 @@
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
 
-        <div class="content">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-5 col-md-4">
-                                    <div class="icon-big text-center icon-warning">
-                                        <i class="bi bi-people text-warning"></i>
-                                    </div>
-                                </div>
-                                <div class="col-7 col-md-8">
-                                    <div class="numbers">
-                                        <p class="card-category">Clientes</p>
-                                        <p class="card-title"><?php echo $cant_clientes ?><p>
-                                    </div>
-                                </div>
-                            </div>
+        <br><br><br><br>
+        <div class="row">
+            <!--<div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="../../Img/fondo2.png" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <div class="author">
+                            <p href="#">
+                                <img class="avatar border-gray" src="../../Img/iconoPerfil.png" alt="...">
+                            <h5 class="title">Nombre</h5>
+                            </p>
+                            <br>
+                            <p class="description">
+                                Correo
+                            </p>
                         </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-refresh"></i>
-
+                        <p class="description text-center">
+                            "I like the way you work it <br>
+                            No diggity <br>
+                            I wanna bag it up"
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <hr>
+                        <div class="button-container">
+                            <div class="row">
+                                <div class="col-lg-3 ml-auto">
+                                    <h5>1<br><small>Correos</small></h5>
+                                </div>
+                                <div class="col-lg-4 ml-auto mr-auto">
+                                    <h5>2<br><small>Bases de datos</small></h5>
+                                </div>
+                                <div class="col-lg-3 ml-auto">
+                                    <h5>1<br><small>Almacenamiento</small></h5>
+                                </div>
+                                <div class="col-lg-2 ml-auto mr-auto ">
+                                    <h5>1<br><small>Correos</small></h5>
+                                </div>
+                                <h5>Paquete Chibcha Oro</h5>
+                                <h5>Mensual</h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-5 col-md-4">
-                                    <div class="icon-big text-center icon-warning">
-                                        <i class="bi bi-person-square text-success"></i>
-                                    </div>
-                                </div>
-                                <div class="col-7 col-md-8">
-                                    <div class="numbers">
-                                        <p class="card-category">Empleados</p>
-                                        <p class="card-title"><?php echo $cant_empleados ?><p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-calendar-o"></i>
-
-                            </div>
-                        </div>
+            </div>-->
+            <div class="col-md-8">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title">Editar Cliente</h5>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-body ">
+                    <div class="card-body">
+                        <form action="../../EC.php" method="post">
                             <div class="row">
-                                <div class="col-5 col-md-4">
-                                    <div class="icon-big text-center icon-warning">
-                                        <i class="bi bi-truck text-warning"></i>
+                                <!--<div class="col-md-5 pr-1">
+                                    <div class="form-group">
+                                        <label>Company (disabled)</label>
+                                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                                    </div>
+                                </div>-->
+                                <div class="col-md-3 px-1">
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input name="Nombre" type="text" class="form-control" placeholder="Nombre">
                                     </div>
                                 </div>
-                                <div class="col-7 col-md-8">
-                                    <div class="numbers">
-                                        <p class="card-category">Distribuidores </p>
-                                        <p class="card-title"><?php echo $cant_distribuidores ?><p>
+                                <div class="col-md-4 pl-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Apellido</label>
+                                        <input name="Apellido" type="text" class="form-control" placeholder="Apellido">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-clock-o"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-body ">
                             <div class="row">
-                                <div class="col-5 col-md-4">
-                                    <div class="icon-big text-center icon-warning">
-                                        <i class="bi bi-receipt-cutoff text-success"></i>
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Correo</label>
+                                        <input name="Correo" type="text" class="form-control" placeholder="Correo">
+                                    </div>
+                                    <!--</div>
+                                    <div class="col-md-6 pl-1">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                                        </div>
+                                    </div>-->
+                                </div>
+                                <!--<div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input type="password" class="form-control" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="row">
+                                    <div class="col-md-4 pr-1">
+                                        <div class="form-group">
+                                            <label>Forma de Pago</label>
+                                            <input name="FP" type="text" class="form-control" placeholder="Forma de Pago">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 px-1">
+                                        <div class="form-group">
+                                            <label>Tipo de Plan</label>
+                                            <input name="TP" type="text" class="form-control" placeholder="Tipo de Plan">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 pl-1">
+                                        <div class="form-group">
+                                            <label>Tipo de Paquete</label>
+                                            <input name="TPK" type="text" class="form-control" placeholder="Tipo de Paquete">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-7 col-md-8">
-                                    <div class="numbers">
-                                        <p class="card-category">Tickets</p>
-                                        <p class="card-title"><?php echo $cant_tickets ?><p>
+                                <!--<div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>About Me</label>
+                                            <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="row">
+                                    <div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
+                                    </div>
+                                    <div class="update ml-auto mr-auto">
+                                        <button type="button" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-refresh"></i>
-
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- ===============================================MODIFICAN HASTA ACA ============================================
        ================================================================================================================ -->
