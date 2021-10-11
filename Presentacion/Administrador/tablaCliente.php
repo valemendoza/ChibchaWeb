@@ -9,11 +9,11 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!-- CSS Files -->
-    <link href="../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="../../Css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
+    <script src="../../Librerias/Bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../Librerias/Bootstrap/css/bootstrap.css">
 
     <link rel="shortcut icon" href="../Img/logo.png" />
 
@@ -108,20 +108,38 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Tabla de Dominios</h4>
+                            <h4 class="card-title"> Tabla de Clientes</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
+                                        Id
+                                    </th>
+                                    <th>
                                         Nombre
                                     </th>
                                     <th>
-                                        Cliente
+                                        Apellido
                                     </th>
                                     <th>
-                                        Distribuidor
+                                        Correo
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <th>
+                                        Forma de Pago
+                                    </th>
+                                    <th>
+                                        Tipo de Plan
+                                    </th>
+                                    <th>
+                                        Tipo de Paquete
+                                    </th>
+                                    <th>
+                                        Accion
                                     </th>
                                     <!--<th class="text-right">
                                         Salary
@@ -129,15 +147,24 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                        include_once "../persistencia/conexion.php";
-                                        $query = $bd->prepare('SELECT * FROM "Dominio"');
-                                        $query->execute();
-                                        foreach ($query as $row){
-                                           ?> <tr><td> <?php echo $row['Nombre']; ?> </td>
-                                                <td> <?php echo $row['Cliente_Id_Cliente']; ?> </td>
-                                                <td> <?php echo $row['Distribuidor_Id_Distribuidor']; ?> </td></tr>
-                                        <?php }
+                                    include_once "../../persistencia/conexion.php";
+                                    $query = $bd->prepare('SELECT * FROM "Cliente"');
+                                    $query->execute();
+                                    foreach ($query as $row){
+                                        ?> <tr>
+                                            <td> <?php echo $row['Id']; ?> </td>
+                                            <td> <?php echo $row['Nombre']; ?> </td>
+                                            <td> <?php echo $row['Apellido']; ?> </td>
+                                            <td> <?php echo $row['Correo']; ?> </td>
+                                            <td> <?php echo $row['Estado']; ?> </td>
+                                            <td> <?php echo $row['Forma_Pago_Id_Forma_Pago']; ?> </td>
+                                            <td> <?php echo $row['Tipo_Plan_Id_Tipo_Plan']; ?> </td>
+                                            <td> <?php echo $row['Tipo_Paquete_Id_Tipo_Paquete']; ?> </td>
+                                            <td><i class="fa-solid fa-pen"></i><!--<button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>--></td>
+                                        </tr>
+                                    <?php }
                                     ?>
+
                                     </tbody>
                                 </table>
                             </div>
