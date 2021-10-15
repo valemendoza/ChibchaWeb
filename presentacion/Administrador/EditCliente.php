@@ -42,13 +42,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="tablaCliente.php">
                         <i class="bi bi-people"></i>
                         <p>Clientes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./map.html">
+                    <a href="tablaEmpleado.php">
                         <i class="bi bi-person-square"></i>
                         <p>Empleados</p>
                     </a>

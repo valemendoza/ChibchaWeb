@@ -158,6 +158,12 @@ if(isset($_POST['btcerrarS'])){
                                         Id
                                     </th>
                                     <th>
+                                        Nivel Empleado
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <th>
                                         Nombre
                                     </th>
                                     <th>
@@ -166,18 +172,12 @@ if(isset($_POST['btcerrarS'])){
                                     <th>
                                         Correo
                                     </th>
-                                    <th>
-                                        Estado
-                                    </th>
-                                    <th>
-                                        Forma de Pago
-                                    </th>
-                                    <th>
-                                        Tipo de Plan
+                                    <!--<th>
+                                        Tipo de an
                                     </th>
                                     <th>
                                         Tipo de Paquete
-                                    </th>
+                                    </th>-->
                                     <th>
                                         Accion
                                     </th>
@@ -188,18 +188,18 @@ if(isset($_POST['btcerrarS'])){
                                     <tbody>
                                     <?php
                                     include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1;');
+                                    $query = $bd->prepare('SELECT * FROM "Empleado"');
                                     $query->execute();
                                     foreach ($query as $row){
                                         ?> <tr>
                                             <td> <?php echo $row['Id']; ?> </td>
+                                            <td> <?php echo $row['Tipo_Empleado_Id_Tipo_Empleado']; ?> </td>
+                                            <td> <?php echo $row['Estado']; ?> </td>
                                             <td> <?php echo $row['Nombre']; ?> </td>
                                             <td> <?php echo $row['Apellido']; ?> </td>
                                             <td> <?php echo $row['Correo']; ?> </td>
-                                            <td> <?php echo $row['Estado']; ?> </td>
-                                            <td> <?php echo $row['Forma_Pago_Id_Forma_Pago']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Plan_Id_Tipo_Plan']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Paquete_Id_Tipo_Paquete']; ?> </td>
+                                            <!--<td> <?php /*echo $row['Tipo_Usuario']; */?> </td>-->
+                                            <!--<td> <?php /*echo $row['Tipo_Paquete_Id_Tipo_Paquete']; */?> </td>-->
                                             <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
                                         </tr>
                                     <?php }

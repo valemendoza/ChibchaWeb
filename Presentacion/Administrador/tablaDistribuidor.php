@@ -161,12 +161,12 @@ if(isset($_POST['btcerrarS'])){
                                         Nombre
                                     </th>
                                     <th>
-                                        Apellido
+                                        Cantidad Dominios
                                     </th>
                                     <th>
-                                        Correo
+                                        Extencion
                                     </th>
-                                    <th>
+                                    <!--<th>
                                         Estado
                                     </th>
                                     <th>
@@ -177,7 +177,7 @@ if(isset($_POST['btcerrarS'])){
                                     </th>
                                     <th>
                                         Tipo de Paquete
-                                    </th>
+                                    </th>-->
                                     <th>
                                         Accion
                                     </th>
@@ -188,18 +188,18 @@ if(isset($_POST['btcerrarS'])){
                                     <tbody>
                                     <?php
                                     include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1;');
+                                    $query = $bd->prepare('SELECT * FROM "Distribuidor"');
                                     $query->execute();
                                     foreach ($query as $row){
                                         ?> <tr>
-                                            <td> <?php echo $row['Id']; ?> </td>
+                                            <td> <?php echo $row['Id_Distribuidor']; ?> </td>
                                             <td> <?php echo $row['Nombre']; ?> </td>
-                                            <td> <?php echo $row['Apellido']; ?> </td>
-                                            <td> <?php echo $row['Correo']; ?> </td>
-                                            <td> <?php echo $row['Estado']; ?> </td>
-                                            <td> <?php echo $row['Forma_Pago_Id_Forma_Pago']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Plan_Id_Tipo_Plan']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Paquete_Id_Tipo_Paquete']; ?> </td>
+                                            <td> <?php echo $row['Cant_Dom']; ?> </td>
+                                            <td> <?php echo $row['Extencion']; ?> </td>
+                                            <!--<td> <?php /*echo $row['Estado']; */?> </td>
+                                            <td> <?php /*echo $row['Forma_Pago_Id_Forma_Pago']; */?> </td>
+                                            <td> <?php /*echo $row['Tipo_Plan_Id_Tipo_Plan']; */?> </td>
+                                            <td> <?php /*echo $row['Tipo_Paquete_Id_Tipo_Paquete']; */?> </td>-->
                                             <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
                                         </tr>
                                     <?php }

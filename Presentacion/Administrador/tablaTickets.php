@@ -158,25 +158,25 @@ if(isset($_POST['btcerrarS'])){
                                         Id
                                     </th>
                                     <th>
-                                        Nombre
+                                        Titulo
                                     </th>
                                     <th>
-                                        Apellido
-                                    </th>
-                                    <th>
-                                        Correo
+                                        Descripción
                                     </th>
                                     <th>
                                         Estado
                                     </th>
                                     <th>
-                                        Forma de Pago
+                                        Nivel Ticket
                                     </th>
                                     <th>
-                                        Tipo de Plan
+                                        Usuario
                                     </th>
                                     <th>
-                                        Tipo de Paquete
+                                        Dominio
+                                    </th>
+                                    <th>
+                                        Fecha de ingreso
                                     </th>
                                     <th>
                                         Accion
@@ -188,18 +188,18 @@ if(isset($_POST['btcerrarS'])){
                                     <tbody>
                                     <?php
                                     include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1;');
+                                    $query = $bd->prepare('SELECT * FROM "Ticket"');
                                     $query->execute();
                                     foreach ($query as $row){
                                         ?> <tr>
-                                            <td> <?php echo $row['Id']; ?> </td>
-                                            <td> <?php echo $row['Nombre']; ?> </td>
-                                            <td> <?php echo $row['Apellido']; ?> </td>
-                                            <td> <?php echo $row['Correo']; ?> </td>
+                                            <td> <?php echo $row['Id_Ticket']; ?> </td>
+                                            <td> <?php echo $row['Titulo']; ?> </td>
+                                            <td> <?php echo $row['Descripcion']; ?> </td>
                                             <td> <?php echo $row['Estado']; ?> </td>
-                                            <td> <?php echo $row['Forma_Pago_Id_Forma_Pago']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Plan_Id_Tipo_Plan']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Paquete_Id_Tipo_Paquete']; ?> </td>
+                                            <td> <?php echo $row['Nivel_Ticket_Id_Nivel_Ticket']; ?> </td>
+                                            <td> <?php echo $row['Cliente_Id_Cliente']; ?> </td>
+                                            <td> <?php echo $row['Id_Dominio']; ?> </td>
+                                            <td> <?php echo $row['fecha_ingreso']; ?> </td>
                                             <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
                                         </tr>
                                     <?php }
@@ -236,3 +236,4 @@ if(isset($_POST['btcerrarS'])){
 </body>
 
 </html>
+
