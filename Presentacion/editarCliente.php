@@ -1,5 +1,41 @@
 <?php
-    echo $_SESSION;
+    include_once "../Persistencia/conexion.php";
+    session_start();
+    $user = $_SESSION['emailUsuario'];
+    $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Cliente" WHERE "Correo"=:user ' );
+    $query -> bindParam(":user",$user);
+    $query -> execute();
+    $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+    if(!empty($_POST)){
+        print_r($_POST);
+        if(!empty($_POST["password"])) {
+            $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo, "Clave"=:Clave WHERE "Id"=:Id');
+            $query1 -> bindParam(":Clave",$_POST["password"]);
+            $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo, "Clave"=:Clave WHERE "Correo"=:CorreoAntiguo');
+            $query2 -> bindParam(":Clave",$_POST["password"]);
+                
+        }
+        else{
+            $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo WHERE "Id"=:Id');
+            $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo WHERE "Correo"=:CorreoAntiguo');
+            
+        }
+        $query1-> bindParam(":Nombre",$_POST["Nombre"] );
+        $query1-> bindParam(":Apellido",$_POST["Apellido"] );
+        $query1-> bindParam(":Correo",$_POST["Correo"] );
+        $query1-> bindParam(":Id",$usuarios[0]["Id"] );
+        $query1 -> execute();
+        $query2-> bindParam(":Nombre",$_POST["Nombre"] );
+        $query2-> bindParam(":Correo",$_POST["Correo"] );
+        $query2-> bindParam(":CorreoAntiguo",$usuarios[0]["Correo"] );
+        $query2 -> execute();
+        $_SESSION['emailUsuario'] = $_POST["Correo"];
+        $user = $_SESSION['emailUsuario'];
+        $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Cliente" WHERE "Correo"=:user ' );
+    $query -> bindParam(":user",$user);
+    $query -> execute();
+    $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +69,7 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-            <?php echo $user->getNombre(); ?>
+            <?php echo $usuarioActual ?> 
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -117,11 +153,13 @@
                         <div class="author">
                             <p href="#">
                                 <img class="avatar border-gray" src="../Img/iconoPerfil.png" alt="...">
-                                <h5 class="title">Nombre</h5>
+                                <h5 class="title"><?php echo $usuarios[0]["Nombre"]  ?></h5>
                             </p>
                             <br>
                             <p class="description">
-                                Correo
+                               <?php echo $usuarios[0]["Correo"]  ?>
+
+                              
                             </p>
                         </div>
                         <!--<p class="description text-center">
@@ -159,7 +197,7 @@
                     <h5 class="card-title">Editar Perfil</h5>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form method = "POST">
                         <div class="row">
                             <!--<div class="col-md-5 pr-1">
                                 <div class="form-group">
@@ -170,13 +208,13 @@
                             <div class="col-md-3 px-1">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" value="<?php echo $usuarios[0]["Nombre"]  ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="email" class="form-control" placeholder="Apellido">
+                                    <input type="text" name="Apellido" class="form-control" placeholder="Apellido" value="<?php echo $usuarios[0]["Apellido"]  ?>">
                                 </div>
                             </div>
                         </div>
@@ -184,7 +222,7 @@
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Correo</label>
-                                    <input type="text" class="form-control" placeholder="Correo">
+                                    <input type="text" name="Correo" class="form-control" placeholder="Correo" value= "<?php echo $usuarios[0]["Correo"]  ?>">
                                 </div>
                             <!--</div>
                             <div class="col-md-6 pl-1">
@@ -198,7 +236,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" class="form-control" placeholder="Contraseña">
+                                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
                                 </div>
                             </div>
                         </div>

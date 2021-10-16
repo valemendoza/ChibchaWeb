@@ -21,4 +21,5 @@ include "../Logica/pruebaSql.php";}
 catch (PDOException $e){
         echo "Error: " . $e->getMessage();
 }
+header("location:../Presentacion/login.php");  
 ?>
