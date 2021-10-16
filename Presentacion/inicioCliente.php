@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
   $usuarioActual=$_SESSION['emailUsuario'];
-  echo $usuarioActual;
 }else{
   header('location: login.php');
 }
@@ -19,7 +18,7 @@ if(isset($_POST['btcerrarS'])){
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Bienvenido
+    Cliente
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- CSS Files -->
@@ -44,7 +43,7 @@ if(isset($_POST['btcerrarS'])){
           <!-- <p>CT</p> -->
         </a>
         <a class="simple-text logo-normal">
-          <php? $usuarioActual ?>
+          <?php echo $usuarioActual ?> 
         </a>
       </div>
       <div class="sidebar-wrapper">

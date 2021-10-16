@@ -78,6 +78,7 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
   if($_SESSION['tipoUsuario']=="C"){
+    $_SESSION['nombreUsuario']="hola";
     header("location:../Presentacion/inicioCliente.php");  
   }elseif($_SESSION['tipoUsuario']=="A"){
     header("location:../Presentacion/inicioAdmon.php");  
@@ -94,17 +95,19 @@ include_once "../Persistencia/conexion.php";
 $user=$_POST["email"];
 $pass=$_POST["password"];
 
-$query = $bd->prepare('SELECT "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query = $bd->prepare('SELECT "Nombre", "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
 $query -> bindParam(":user",$user);
 $query -> bindParam(":pass",$pass);
 $query -> execute();
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 if(!isset($_SESSION['emailUsuario'])){
-          if ($usuario) {
+          if ($usuarios) {
           $_SESSION['emailUsuario']=$user;
-          $_SESSION['tipoUsuario']=$usuario['Tipo_Usuario'];
+          $_SESSION['tipoUsuario']=$usuarios['Tipo_Usuario'];
+          $_SESSION['nombreUsuario']=$usuarios['nombreUsuario'];
           foreach( $usuarios as $usuario){
             if($usuario['Tipo_Usuario']=="C"){
+              $_SESSION['nombreUsuario']="hola";
               $_SESSION['tipoUsuario']="C";
               header("location:../Presentacion/inicioCliente.php");     
             }elseif($usuario['Tipo_Usuario']=="A"){
