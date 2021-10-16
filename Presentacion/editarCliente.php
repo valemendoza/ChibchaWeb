@@ -7,7 +7,6 @@
     $query -> execute();
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
     if(!empty($_POST)){
-        print_r($_POST);
         if(!empty($_POST["password"])) {
             $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo, "Clave"=:Clave WHERE "Id"=:Id');
             $query1 -> bindParam(":Clave",$_POST["password"]);
