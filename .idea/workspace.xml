@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
-      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaDistribuidor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaEmpleado.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaTickets.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentacion/Administrador/tablaCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaCliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +90,8 @@
       <workItem from="1633810042924" duration="21363000" />
       <workItem from="1633953849088" duration="675000" />
       <workItem from="1634225044677" duration="986000" />
-      <workItem from="1634320801312" duration="1565000" />
+      <workItem from="1634320801312" duration="2361000" />
+      <workItem from="1634435774028" duration="1755000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -189,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633994572864</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Archivos phpStorm, Cambio Varios">
+      <created>1634322579669</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634322579669</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
