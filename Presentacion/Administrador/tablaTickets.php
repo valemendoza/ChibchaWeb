@@ -188,14 +188,16 @@ if(isset($_POST['btcerrarS'])){
                                     <tbody>
                                     <?php
                                     include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Ticket"');
+                                    $query = $bd->prepare('SELECT * FROM "Ticket" WHERE "Estado" = 1');
                                     $query->execute();
                                     foreach ($query as $row){
                                         ?> <tr>
                                             <td> <?php echo $row['Id_Ticket']; ?> </td>
                                             <td> <?php echo $row['Titulo']; ?> </td>
                                             <td> <?php echo $row['Descripcion']; ?> </td>
-                                            <td> <?php echo $row['Estado']; ?> </td>
+                                            <td> <?php if ($row['Estado'] == 1){
+                                                echo "Activo";
+                                                }?> </td>
                                             <td> <?php echo $row['Nivel_Ticket_Id_Nivel_Ticket']; ?> </td>
                                             <td> <?php echo $row['Cliente_Id_Cliente']; ?> </td>
                                             <td> <?php echo $row['Id_Dominio']; ?> </td>

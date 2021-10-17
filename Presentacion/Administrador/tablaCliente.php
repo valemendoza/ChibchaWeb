@@ -40,7 +40,7 @@ if(isset($_POST['btcerrarS'])){
         <div class="logo">
             <a class="simple-text logo-mini">
                 <div class="logo-image-small">
-                    <img src="../Img/logo.png">
+                    <img src="../../Img/logo.png">
                 </div>
                 <!-- <p>CT</p> -->
             </a>
@@ -196,10 +196,32 @@ if(isset($_POST['btcerrarS'])){
                                             <td> <?php echo $row['Nombre']; ?> </td>
                                             <td> <?php echo $row['Apellido']; ?> </td>
                                             <td> <?php echo $row['Correo']; ?> </td>
-                                            <td> <?php echo $row['Estado']; ?> </td>
-                                            <td> <?php echo $row['Forma_Pago_Id_Forma_Pago']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Plan_Id_Tipo_Plan']; ?> </td>
-                                            <td> <?php echo $row['Tipo_Paquete_Id_Tipo_Paquete']; ?> </td>
+                                            <td> <?php if ($row['Estado'] == 1){
+                                                echo "Activo";
+                                                }?> </td>
+                                            <td> <?php if ($row['Forma_Pago_Id_Forma_Pago'] == 0){
+                                                echo "Sin seleccionar";
+                                                }if ($row['Forma_Pago_Id_Forma_Pago'] == 1){
+                                                echo "Credito";
+                                                }if ($row['Forma_Pago_Id_Forma_Pago'] == 2){
+                                                echo "Contado";
+                                                }?> </td>
+                                            <td> <?php if ($row['Tipo_Plan_Id_Tipo_Plan'] == 0){
+                                                echo "Sin Seleccionar";
+                                                }if ($row['Tipo_Plan_Id_Tipo_Plan'] == 1){
+                                                echo "Mensual";
+                                                }if ($row['Tipo_Plan_Id_Tipo_Plan'] == 2){
+                                                echo "Anual";
+                                                }?> </td>
+                                            <td> <?php if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 0){
+                                                echo "Sin seleccionar";
+                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 1){
+                                                echo "Chibcha-Plata";
+                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 2){
+                                                echo "Chibcha-Oro";
+                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 3){
+                                                echo "Chibcha-Platino";
+                                                }?> </td>
                                             <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
                                         </tr>
                                     <?php }

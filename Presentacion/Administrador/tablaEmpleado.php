@@ -30,7 +30,7 @@ if(isset($_POST['btcerrarS'])){
     <script src="../../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../../Librerias/Bootstrap/css/bootstrap.css">
 
-    <link rel="shortcut icon" href="../Img/logo.png" />
+    <link rel="shortcut icon" href="../../Img/logo.png" />
 
 </head>
 
@@ -148,7 +148,7 @@ if(isset($_POST['btcerrarS'])){
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Tabla de Clientes</h4>
+                            <h4 class="card-title"> Tabla de Empleados</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -194,7 +194,9 @@ if(isset($_POST['btcerrarS'])){
                                         ?> <tr>
                                             <td> <?php echo $row['Id']; ?> </td>
                                             <td> <?php echo $row['Tipo_Empleado_Id_Tipo_Empleado']; ?> </td>
-                                            <td> <?php echo $row['Estado']; ?> </td>
+                                            <td> <?php if ($row['Estado'] == 1){
+                                                echo "Activo";
+                                                }; ?> </td>
                                             <td> <?php echo $row['Nombre']; ?> </td>
                                             <td> <?php echo $row['Apellido']; ?> </td>
                                             <td> <?php echo $row['Correo']; ?> </td>
