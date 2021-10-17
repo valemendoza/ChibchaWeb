@@ -250,7 +250,7 @@
   .navbar .navbar-nav > a.btn.dropdown-toggle:focus,
   .show >
   .navbar .navbar-nav > a.btn.dropdown-toggle:hover {
-    background-color: #403D39 !important;
+    background-color: #067902 !important;
     color: #FFFFFF !important;
     box-shadow: none !important; }
   .btn:not([data-action]):hover,
@@ -1554,7 +1554,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     display: none; }
   .offline-doc .navbar.navbar-transparent .navbar-brand,
   .offline-doc .navbar.navbar-transparent .collapse .navbar-nav .nav-link {
-    color: #FFFFFF !important; }
+    color: #ffffff !important; }
 
 .offline-doc .footer {
   z-index: 3 !important; }
@@ -1888,7 +1888,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     .navbar.navbar-transparent .button-bar {
       background: #66615B; }
     .navbar.navbar-transparent .nav-item .nav-link:not(.btn) {
-      color: #66615B; }
+      color: #61665b; }
     .navbar.navbar-transparent .nav-item.active .nav-link:not(.btn),
     .navbar.navbar-transparent .nav-item .nav-link:not(.btn):focus,
     .navbar.navbar-transparent .nav-item .nav-link:not(.btn):hover,

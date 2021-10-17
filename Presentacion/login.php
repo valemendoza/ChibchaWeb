@@ -95,7 +95,7 @@ include_once "../Persistencia/conexion.php";
 $user=$_POST["email"];
 $pass=$_POST["password"];
 
-$query = $bd->prepare('SELECT "Nombre", "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query = $bd->prepare('SELECT id_usuario, "Nombre", "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
 $query -> bindParam(":user",$user);
 $query -> bindParam(":pass",$pass);
 $query -> execute();
@@ -104,17 +104,23 @@ if(!isset($_SESSION['emailUsuario'])){
           if ($usuarios) {
           $_SESSION['emailUsuario']=$user;
           $_SESSION['tipoUsuario']=$usuarios['Tipo_Usuario'];
-          $_SESSION['nombreUsuario']=$usuarios['nombreUsuario'];
+          $_SESSION['nombreUsuario']=$usuarios['Nombre'];
+          $_SESSION['idUsuario']=$usuarios['id_usuario'];
           foreach( $usuarios as $usuario){
             if($usuario['Tipo_Usuario']=="C"){
-              $_SESSION['nombreUsuario']="hola";
+              $_SESSION['nombreUsuario']=$usuario['Nombre'];
               $_SESSION['tipoUsuario']="C";
+              $_SESSION['idUsuario']=$usuario['id_usuario'];
               header("location:../Presentacion/inicioCliente.php");     
             }elseif($usuario['Tipo_Usuario']=="A"){
               $_SESSION['tipoUsuario']="A";
+              $_SESSION['nombreUsuario']=$usuario['Nombre'];
+              $_SESSION['idUsuario']=$usuario['id_usuario'];
               header("location:../Presentacion/inicioAdmon.php");     
             }elseif($usuario['Tipo_Usuario']=="E"){
               $_SESSION['tipoUsuario']="E";
+              $_SESSION['nombreUsuario']=$usuario['Nombre'];
+              $_SESSION['idUsuario']=$usuario['id_usuario'];
               header("location:../Presentacion/inicioEmpleado.php");     
             }
           }  
