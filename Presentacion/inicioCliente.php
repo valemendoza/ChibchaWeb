@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['emailUsuario'])){
-  $usuarioActual=$_SESSION['emailUsuario'];
+  $usuarioActual=$_SESSION['nombreUsuario'];
 }else{
   header('location: login.php');
 }
@@ -79,13 +79,13 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="generarTicket.php">
             <i class="bi bi-receipt-cutoff"></i>
               <p>Generar Ticket</p>
             </a>
           </li>
           <li>
-            <a href="./typography.html">
+          <a href="misTickets.php">
             <i class="bi bi-question-octagon"></i>
               <p>Seguimiento de Tickets</p>
             </a>

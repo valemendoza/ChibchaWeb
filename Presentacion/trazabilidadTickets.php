@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
   $usuarioActual=$_SESSION['nombreUsuario'];
-  echo $usuarioActual;
 }else{
   header('location: login.php');
 }
@@ -29,6 +28,17 @@ if(isset($_POST['btcerrarS'])){
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
    <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
     
   <link rel="shortcut icon" href="../Img/logo.png" />
 
@@ -50,7 +60,7 @@ if(isset($_POST['btcerrarS'])){
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li >
             <a href="inicioAdmon.php">
             <i class="bi bi-house-door-fill"></i>
               <p>Inicio</p>
@@ -80,14 +90,14 @@ if(isset($_POST['btcerrarS'])){
               <p>Tickets</p>
             </a>
           </li>
-          <li>
+          <li >
             <a href="trazabilidadUsuarios.php">
             <i class="bi bi-layout-text-window"></i>
               <p>Trazabilidad Usuarios</p>
             </a>
           </li>
-          <li>
-            <a href="./typography.html">
+          <li class="active ">
+            <a href="trazabilidadTickets.php">
             <i class="bi bi-menu-up"></i>
               <p>Trazabilidad Tickets</p>
             </a>
@@ -100,7 +110,7 @@ if(isset($_POST['btcerrarS'])){
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">BIENVENIDO ADMINISTRADOR</a>
+            <a class="navbar-brand" href="javascript:;">Trazabilidad de Usuarios</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
@@ -140,117 +150,63 @@ if(isset($_POST['btcerrarS'])){
       ?>
 
 
-      <!-- ===============================================MODIFICAN DESDE ACA ============================================
+        <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
-      
       <div class="content">
         <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                  <div class="icon-big text-center icon-warning">
-                  <i class="bi bi-people text-warning"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Clientes</p>
-                      <p class="card-title"><?php echo $cant_clientes ?><p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  
-                </div>
-              </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class=" card-body table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="myTable">
+                <thead>
+                <tr class=" text-success">
+                    <th>Fecha de Modificación</th>
+                    <th>Usuario</th>
+                    <th>Accion</th>
+                    <th>Ip</th>
+                    <th>Valor Anterior</th>
+                    <th>Valor Actual</th>
+                </tr>
+                </thead>
+                <?php 
+
+                        include_once "../Persistencia/conexion.php";
+                        $query = $bd->prepare('SELECT "Fecha_Mod", "Id_Usu","Accion","IP", "Valor_Anterior","Valor_Actual"
+                        from "Auditoria_Usuario";');
+                        $query -> execute();
+                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                      ?>
+                <tbody>
+                <tr>
+                    <td>
+                      <?php echo $fila[0] ?>
+                    </td>
+                    <td>
+                      <?php echo $fila[1] ?>
+                    </td>
+                    <td >
+                      <?php echo $fila[2] ?>
+                    </td>
+                    <td >
+                      <?php echo $fila[3] ?>
+                    </td>
+                    <td >
+                      <?php echo $fila[4] ?>
+                    </td>
+                    <td >
+                      <?php echo $fila[5] ?>
+                    </td>
+                </tr>
+               <?php } ?>
+                </tbody>
+                </table>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                    <i class="bi bi-person-square text-success"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Empleados</p>
-                      <p class="card-title"><?php echo $cant_empleados ?><p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                    <i class="bi bi-truck text-warning"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Distribuidores </p>
-                      <p class="card-title"><?php echo $cant_distribuidores ?><p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                    <i class="bi bi-receipt-cutoff text-success"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Tickets</p>
-                      <p class="card-title"><?php echo $cant_tickets ?><p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <script>
+            $(document).ready( function () {
+            $('#myTable').DataTable();
+            } );
+        </script>
 
        <!-- ===============================================MODIFICAN HASTA ACA ============================================
       ================================================================================================================ -->
