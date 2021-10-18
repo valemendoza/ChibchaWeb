@@ -148,66 +148,83 @@ if(isset($_POST['btcerrarS'])){
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Tabla de Clientes</h4>
+                            <h4 class="card-title"> Tabla de Tickets</h4>
                         </div>
+                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar..." onkeyup="myFunction()">
+                        </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead class=" text-primary">
-                                    <th>
-                                        Id
-                                    </th>
-                                    <th>
-                                        Titulo
-                                    </th>
-                                    <th>
-                                        Descripción
-                                    </th>
-                                    <th>
-                                        Estado
-                                    </th>
-                                    <th>
-                                        Nivel Ticket
-                                    </th>
-                                    <th>
-                                        Usuario
-                                    </th>
-                                    <th>
-                                        Dominio
-                                    </th>
-                                    <th>
-                                        Fecha de ingreso
-                                    </th>
-                                    <th>
-                                        Accion
-                                    </th>
-                                    <!--<th class="text-right">
-                                        Salary
-                                    </th>-->
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Ticket" WHERE "Estado" = 1');
-                                    $query->execute();
-                                    foreach ($query as $row){
-                                        ?> <tr>
-                                            <td> <?php echo $row['Id_Ticket']; ?> </td>
-                                            <td> <?php echo $row['Titulo']; ?> </td>
-                                            <td> <?php echo $row['Descripcion']; ?> </td>
-                                            <td> <?php if ($row['Estado'] == 1){
-                                                echo "Activo";
-                                                }?> </td>
-                                            <td> <?php echo $row['Nivel_Ticket_Id_Nivel_Ticket']; ?> </td>
-                                            <td> <?php echo $row['Cliente_Id_Cliente']; ?> </td>
-                                            <td> <?php echo $row['Id_Dominio']; ?> </td>
-                                            <td> <?php echo $row['fecha_ingreso']; ?> </td>
-                                            <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
-                                        </tr>
-                                    <?php }
-                                    ?>
+                                <table id="myTable" class="table table-striped table-bordered table-hover">
+                                    <tr class=" text-success" id="row">
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Titulo
+                                        </th>
+                                        <th>
+                                            Discrepcion
+                                        </th>
+                                        <th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Nivel Ticket
+                                        </th>
+                                        <th>
+                                            Cliente Ticket
+                                        </th>
+                                        <th>
+                                            Dominio
+                                        </th>
+                                        <th>
+                                            Fecha Ingreso
+                                        </th>
+                                        <th>
+                                            Accion
+                                        </th>
+                                        <?php
 
-                                    </tbody>
+                                        include_once "../../persistencia/conexion.php";
+                                        $query = $bd->prepare('SELECT * FROM "Ticket" WHERE "Estado" = 1');
+                                        $query -> execute();
+                                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                                        /*$datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";*/
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php echo $fila[0] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $fila[1] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[2] ?>
+                                        </td>
+                                        <td >
+                                            <?php if ($fila[3] == 1){
+                                                echo "Activo";
+                                            }?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[4] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[5] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[6] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[7] ?>
+                                        </td>
+                                        <td >
+                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
                                 </table>
                             </div>
                         </div>
@@ -238,4 +255,25 @@ if(isset($_POST['btcerrarS'])){
 </body>
 
 </html>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0 ];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 

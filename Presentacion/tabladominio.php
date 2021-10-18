@@ -103,42 +103,112 @@
 
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
+
         <div class="content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Tabla de Dominios</h4>
+                            <h4 class="card-title"> Tabla de Clientes</h4>
                         </div>
+                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar..." onkeyup="myFunction()">
+                        </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead class=" text-primary">
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Cliente
-                                    </th>
-                                    <th>
-                                        Distribuidor
-                                    </th>
-                                    <!--<th class="text-right">
-                                        Salary
-                                    </th>-->
-                                    </thead>
-                                    <tbody>
-                                    <?php
+                                <table id="myTable" class="table table-striped table-bordered table-hover">
+                                    <tr class=" text-success" id="row">
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            Cliente
+                                        </th>
+                                        <th>
+                                            Distribuidor
+                                        </th>
+                                        <!--<th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Forma de Pago
+                                        </th>
+                                        <th>
+                                            Tipo de Plan
+                                        </th>
+                                        <th>
+                                            Tipo de Paquete
+                                        </th>-->
+                                        <th>
+                                            Accion
+                                        </th>
+                                        <?php
+
                                         include_once "../persistencia/conexion.php";
                                         $query = $bd->prepare('SELECT * FROM "Dominio"');
-                                        $query->execute();
-                                        foreach ($query as $row){
-                                           ?> <tr><td> <?php echo $row['Nombre']; ?> </td>
-                                                <td> <?php echo $row['Cliente_Id_Cliente']; ?> </td>
-                                                <td> <?php echo $row['Distribuidor_Id_Distribuidor']; ?> </td></tr>
-                                        <?php }
-                                    ?>
-                                    </tbody>
+                                        $query -> execute();
+                                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                                        /*$datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";*/
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php echo $fila[0] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $fila[1] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[2] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[3] ?>
+                                        </td>
+                                        <!--<td >
+                                            <?php /*echo $fila[4] */?>
+                                        </td>
+                                        <td >
+                                            <?php /*if ($fila[5] == 1){
+                                                echo "Activo";
+                                            }*/?>
+                                        </td>
+                                        <td >
+                                            <?php /*if ($fila[6] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[6] == 1){
+                                                echo "Credito";
+                                            }elseif ($fila[6] == 2){
+                                                echo "Contado";
+                                            }*/?>
+                                        </td>
+                                        <td >
+                                            <?php /*if ($fila[7] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[7] == 1){
+                                                echo "Mensual";
+                                            }elseif ($fila[7] == 2){
+                                                echo "Anual";
+                                            }*/?>
+                                        </td>
+                                        <td >
+                                            <?php /*if ($fila[8] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[8] == 1){
+                                                echo "Chibcha-Plata";
+                                            }elseif ($fila[8] == 2){
+                                                echo "Chibcha-Oro";
+                                            }elseif ($fila[8] == 3){
+                                                echo "Chibcha-Platino";
+                                            }*/?>
+                                        </td>-->
+                                        <td >
+                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
                                 </table>
                             </div>
                         </div>
@@ -188,3 +258,24 @@
 </body>
 
 </html>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0 ];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

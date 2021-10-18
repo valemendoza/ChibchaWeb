@@ -150,84 +150,101 @@ if(isset($_POST['btcerrarS'])){
                         <div class="card-header">
                             <h4 class="card-title"> Tabla de Clientes</h4>
                         </div>
+                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar..." onkeyup="myFunction()">
+                        </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead class=" text-primary">
-                                    <th>
-                                        Id
-                                    </th>
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Apellido
-                                    </th>
-                                    <th>
-                                        Correo
-                                    </th>
-                                    <th>
-                                        Estado
-                                    </th>
-                                    <th>
-                                        Forma de Pago
-                                    </th>
-                                    <th>
-                                        Tipo de Plan
-                                    </th>
-                                    <th>
-                                        Tipo de Paquete
-                                    </th>
-                                    <th>
-                                        Accion
-                                    </th>
-                                    <!--<th class="text-right">
-                                        Salary
-                                    </th>-->
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    include_once "../../persistencia/conexion.php";
-                                    $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1;');
-                                    $query->execute();
-                                    foreach ($query as $row){
-                                        ?> <tr>
-                                            <td> <?php echo $row['Id']; ?> </td>
-                                            <td> <?php echo $row['Nombre']; ?> </td>
-                                            <td> <?php echo $row['Apellido']; ?> </td>
-                                            <td> <?php echo $row['Correo']; ?> </td>
-                                            <td> <?php if ($row['Estado'] == 1){
-                                                echo "Activo";
-                                                }?> </td>
-                                            <td> <?php if ($row['Forma_Pago_Id_Forma_Pago'] == 0){
-                                                echo "Sin seleccionar";
-                                                }if ($row['Forma_Pago_Id_Forma_Pago'] == 1){
-                                                echo "Credito";
-                                                }if ($row['Forma_Pago_Id_Forma_Pago'] == 2){
-                                                echo "Contado";
-                                                }?> </td>
-                                            <td> <?php if ($row['Tipo_Plan_Id_Tipo_Plan'] == 0){
-                                                echo "Sin Seleccionar";
-                                                }if ($row['Tipo_Plan_Id_Tipo_Plan'] == 1){
-                                                echo "Mensual";
-                                                }if ($row['Tipo_Plan_Id_Tipo_Plan'] == 2){
-                                                echo "Anual";
-                                                }?> </td>
-                                            <td> <?php if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 0){
-                                                echo "Sin seleccionar";
-                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 1){
-                                                echo "Chibcha-Plata";
-                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 2){
-                                                echo "Chibcha-Oro";
-                                                }if ($row['Tipo_Paquete_Id_Tipo_Paquete'] == 3){
-                                                echo "Chibcha-Platino";
-                                                }?> </td>
-                                            <td><i class="fa-solid fa-pen"></i><button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button></td>
-                                        </tr>
-                                    <?php }
-                                    ?>
+                                <table id="myTable" class="table table-striped table-bordered table-hover">
+                                    <tr class=" text-success" id="row">
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            Apellido
+                                        </th>
+                                        <th>
+                                            Correo
+                                        </th>
+                                        <th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Forma de Pago
+                                        </th>
+                                        <th>
+                                            Tipo de Plan
+                                        </th>
+                                        <th>
+                                            Tipo de Paquete
+                                        </th>
+                                        <th>
+                                            Accion
+                                        </th>
+                                        <?php
 
-                                    </tbody>
+                                        include_once "../../persistencia/conexion.php";
+                                        $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1');
+                                        $query -> execute();
+                                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                                        /*$datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";*/
+                                        ?>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php echo $fila[0] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $fila[1] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[2] ?>
+                                        </td>
+                                        <td >
+                                            <?php echo $fila[4] ?>
+                                        </td>
+                                        <td >
+                                            <?php if ($fila[5] == 1){
+                                                echo "Activo";
+                                            }?>
+                                        </td>
+                                        <td >
+                                            <?php if ($fila[6] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[6] == 1){
+                                                echo "Credito";
+                                            }elseif ($fila[6] == 2){
+                                                echo "Contado";
+                                            }?>
+                                        </td>
+                                        <td >
+                                            <?php if ($fila[7] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[7] == 1){
+                                                echo "Mensual";
+                                            }elseif ($fila[7] == 2){
+                                                echo "Anual";
+                                            }?>
+                                        </td>
+                                        <td >
+                                            <?php if ($fila[8] == 0){
+                                                echo "Sin Seleccionar";
+                                            }elseif ($fila[8] == 1){
+                                                echo "Chibcha-Plata";
+                                            }elseif ($fila[8] == 2){
+                                                echo "Chibcha-Oro";
+                                            }elseif ($fila[8] == 3){
+                                                echo "Chibcha-Platino";
+                                            }?>
+                                        </td>
+                                        <td >
+                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
                                 </table>
                             </div>
                         </div>
@@ -258,3 +275,24 @@ if(isset($_POST['btcerrarS'])){
 </body>
 
 </html>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0 ];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
