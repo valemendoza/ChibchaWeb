@@ -1,8 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['emailUsuario'])){
-    $usuarioActual=$_SESSION['emailUsuario'];
-    echo $usuarioActual;
+    $usuarioActual=$_SESSION['nombreUsuario'];
 }else{
     header('location: login.php');
 }
@@ -30,7 +29,7 @@ if(isset($_POST['btcerrarS'])){
     <script src="../../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../../Librerias/Bootstrap/css/bootstrap.css">
 
-    <link rel="shortcut icon" href="../Img/logo.png" />
+    <link rel="shortcut icon" href="../../Img/logo.png" />
 
 </head>
 
@@ -40,17 +39,17 @@ if(isset($_POST['btcerrarS'])){
         <div class="logo">
             <a class="simple-text logo-mini">
                 <div class="logo-image-small">
-                    <img src="../Img/logo.png">
+                    <img src="../../Img/logo.png">
                 </div>
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-                Nombre del Admon
+                <?php echo $usuarioActual ?>
             </a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active ">
+                <li >
                     <a href="../inicioAdmon.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
@@ -74,7 +73,7 @@ if(isset($_POST['btcerrarS'])){
                         <p>Distribuidores</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="./user.html">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Tickets</p>
@@ -97,23 +96,24 @@ if(isset($_POST['btcerrarS'])){
     </div>
     <div class="main-panel">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-            <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">BIENVENIDO</a>
-                </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <form method="POST">
-                                <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                            </form> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- End Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand"style="color: white">TICKETS</a>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <form method="POST">
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
         <?php
 
         include_once "../../persistencia/conexion.php";

@@ -98,16 +98,17 @@ if(isset($_POST['btcerrarS'])){
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">BIENVENIDO ADMINISTRADOR</a>
+            <a class="navbar-brand"style="color: white">BIENVENIDO ADMINISTRADOR</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-              <form method="POST">
-                  <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                  </form> </a>
+                <form method="POST">
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
               </li>
             </ul>
           </div>
@@ -250,6 +251,7 @@ if(isset($_POST['btcerrarS'])){
             </div>
           </div>
         </div>
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
       </div>
 
        <!-- ===============================================MODIFICAN HASTA ACA ============================================
@@ -274,3 +276,9 @@ if(isset($_POST['btcerrarS'])){
 </body>
 
 </html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="../Js/dashboard.js"></script>
+

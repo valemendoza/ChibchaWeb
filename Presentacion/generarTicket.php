@@ -49,12 +49,12 @@ if(isset($_POST['btcerrarS'])){
           <?php echo $usuarioActual ?> 
         </a>
       </div>
-      <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper" style="background-color: #D7FFCF;">
         <ul class="nav">
           <li >
             <a href="inicioCliente.php">
             <i class="bi bi-house-door-fill"></i>
-              <p>Inicio</p>
+              <p style="color:black">Inicio</p>
             </a>
           </li>
           <li>

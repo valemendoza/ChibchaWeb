@@ -43,7 +43,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Bienvenido
+        Editar Cliente
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!-- CSS Files -->
@@ -104,13 +104,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
+                    <a href="generarTicket.php">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Generar Ticket</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./typography.html">
+                    <a href="misTickets.php">
                         <i class="bi bi-question-octagon"></i>
                         <p>Seguimiento de Tickets</p>
                     </a>
@@ -118,23 +118,25 @@
             </ul>
         </div>
     </div>
-    <div class="main-panel">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-            <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">BIENVENIDO</a>
-                </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button type="button" onclick="location.href='../index.html'"class="btn btn-link" >Cerrar Sesión</button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <div class="main-panel" style="background-color: #188E00;">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand"style="color: white">BIENVENIDO</a>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <form method="POST">
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
         <!-- End Navbar -->
 
 

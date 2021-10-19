@@ -32,7 +32,7 @@ if(isset($_POST['btcerrarS'])){
 
 </head>
 
-<body class="">
+<body class="" style="background-color: #CA5B09;">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
@@ -46,7 +46,7 @@ if(isset($_POST['btcerrarS'])){
           <?php echo $usuarioActual ?> 
         </a>
       </div>
-      <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper" style="background-color: white;">
         <ul class="nav">
           <li class="active ">
             <a href="inicioCliente.php">
@@ -94,17 +94,17 @@ if(isset($_POST['btcerrarS'])){
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">BIENVENIDO</a>
+            <a class="navbar-brand"style="color: white">BIENVENIDO</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <form method="POST">
-                  <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
                   </form>
                 </a>
               </li>
@@ -224,7 +224,9 @@ if(isset($_POST['btcerrarS'])){
                 </div>
               </div>
             </div>
+            
           </div>
+          <img src="../Img/ipic.png" style="width:100% " >
         </div>
       </div>
 
@@ -236,6 +238,7 @@ if(isset($_POST['btcerrarS'])){
           <div class="row">
             <div class="credits ml-auto">
               <span class="copyright">
+              
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>, Desarrollado por <i class="fa fa-heart heart"></i> BraWeb Solutions.
@@ -245,7 +248,10 @@ if(isset($_POST['btcerrarS'])){
         </div>
       </footer>
     </div>
+    
   </div>
+
+  
  
 </body>
 
