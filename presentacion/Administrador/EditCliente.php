@@ -126,11 +126,14 @@
 
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
+        <?php
+            include_once "../../persistencia/conexion.php";
 
+        ?>
         <br><br><br><br>
         <div class="row">
-            <!--<div class="col-md-4">
-                <div class="card card-user">
+            <div class="col-md-2">
+                <!--<div class="card card-user">
                     <div class="image">
                         <img src="../../Img/fondo2.png" alt="...">
                     </div>
@@ -172,8 +175,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>-->
+                </div>-->
+            </div>
             <div class="col-md-8">
                 <div class="card card-user">
                     <div class="card-header">
@@ -182,12 +185,12 @@
                     <div class="card-body">
                         <form action="../../logica/EC.php" method="post">
                             <div class="row">
-                                <!--<div class="col-md-5 pr-1">
+                                <div class="col-md-5 pr-1">
                                     <div class="form-group">
-                                        <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                                        <label>ID</label>
+                                        <input name="ID" type="text" class="form-control" placeholder="Ingrese el Id del cliente a editar">
                                     </div>
-                                </div>-->
+                                </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
@@ -228,7 +231,7 @@
                                         <div class="form-group">
                                             <label>Forma de Pago</label>
                                             <br>
-                                            <select class="btn btn-secondary dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <option value="1" class="dropdown-item">Credito</option>
                                                 <option value="2" class="dropdown-item">Contado</option>
                                             </select>
@@ -240,7 +243,7 @@
                                         <div class="form-group">
                                             <label>Tipo de Plan</label>
                                             <br>
-                                            <select class="btn btn-secondary dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <option value="1" class="dropdown-item">Mensual</option>
                                                 <option value="2" class="dropdown-item">Anual</option>
                                             </select>
@@ -251,7 +254,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Tipo de Paquete</label>
-                                            <select class="btn btn-secondary dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <option value="1" class="dropdown-item">Chibcha Plata</option>
                                                 <option value="2" class="dropdown-item">Chibcha Oro</option>
                                                 <option value="3" class="dropdown-item">Chibcha Platino</option>

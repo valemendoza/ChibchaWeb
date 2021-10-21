@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['nombreUsuario'];
+    $idActual=$_SESSION['idUsuario'];
 }else{
     header('location: ../login.php');
 }
@@ -99,7 +100,7 @@ if(isset($_POST['btcerrarS'])){
        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand"style="color: white">BIENVENIDO</a>
+            <a class="navbar-brand"style="color: white">BIENVENIDO <?php echo $idActual ?></a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
@@ -181,16 +182,16 @@ if(isset($_POST['btcerrarS'])){
                                         <th>
                                             Tipo de Paquete
                                         </th>
-                                        <th>
+                                        <!--<th>
                                             Accion
-                                        </th>
+                                        </th>-->
                                         <?php
 
                                         include_once "../../persistencia/conexion.php";
                                         $query = $bd->prepare('SELECT * FROM "Cliente" WHERE "Estado" = 1');
                                         $query -> execute();
                                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-                                        /*$datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";*/
+                                        $datos = $fila[0];
                                         ?>
                                     </tr>
                                     <tr>
@@ -240,12 +241,14 @@ if(isset($_POST['btcerrarS'])){
                                                 echo "Chibcha-Platino";
                                             }?>
                                         </td>
-                                        <td >
-                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
-                                        </td>
+                                        <!--<td>
+                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'" id="<?php /*/*echo fila[0] */?>">Editar</button>
+                                            <input type="submit" class="btn btn-success" value="Editar">
+                                        </td>-->
                                     </tr>
                                     <?php } ?>
                                 </table>
+                                <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
                             </div>
                         </div>
                     </div>

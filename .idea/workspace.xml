@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/tabladominio.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/tabladominio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentacion/Administrador/tablaCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaCliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentacion/misDominios.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/misDominios.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logica/EC.php" beforeDir="false" afterPath="$PROJECT_DIR$/logica/EC.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +96,9 @@
       <workItem from="1634225044677" duration="986000" />
       <workItem from="1634320801312" duration="2361000" />
       <workItem from="1634435774028" duration="2361000" />
-      <workItem from="1634569777684" duration="2647000" />
+      <workItem from="1634569777684" duration="4000000" />
+      <workItem from="1634658206762" duration="10858000" />
+      <workItem from="1634792526189" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
