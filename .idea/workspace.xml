@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/misDominios.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/misDominios.php" afterDir="false" />
-    </list>
+    <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +93,7 @@
       <workItem from="1634569777684" duration="4000000" />
       <workItem from="1634658206762" duration="10858000" />
       <workItem from="1634792526189" duration="927000" />
-      <workItem from="1634851341487" duration="581000" />
+      <workItem from="1634851341487" duration="801000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -218,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634793449056</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Archivos phpStorm, Cambio Varios">
+      <created>1634852130331</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1634852130331</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
