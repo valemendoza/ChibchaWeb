@@ -61,7 +61,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="#">
             <i class="bi bi-window"></i>
               <p>Agregar Dominio</p>
             </a>

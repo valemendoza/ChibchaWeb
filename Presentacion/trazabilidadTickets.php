@@ -85,7 +85,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="Administrador/tablaTickets.php">
             <i class="bi bi-receipt-cutoff"></i>
               <p>Tickets</p>
             </a>

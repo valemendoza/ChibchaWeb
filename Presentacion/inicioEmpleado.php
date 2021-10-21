@@ -50,13 +50,13 @@ if(isset($_POST['btcerrarS'])){
       <div class="sidebar-wrapper">
         <ul class="nav">
         <li class="active">
-            <a href="./tables.html">
+            <a href="#">
             <i class="bi bi-receipt-cutoff"></i>
               <p>Ticket Asignados</p>
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="#">
               <i class="nc-icon nc-single-02"></i>
               <p>Editar Información</p>
             </a>
