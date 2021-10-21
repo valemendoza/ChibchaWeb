@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
   $usuarioActual=$_SESSION['nombreUsuario'];
-  echo $usuarioActual;
 }else{
   header('location: login.php');
 }

@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['nombreUsuario'];
-    $idActual=$_SESSION['id_usuario'];
 }else{
     header('location: login.php');
 }
@@ -82,13 +81,13 @@ if(isset($_POST['btcerrarS'])){
                         <p>Editar Información</p>
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="generarTicket.php">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Generar Ticket</p>
                     </a>
                 </li>
-                <li class="active ">
+                <li>
                     <a href="misTickets.php">
                         <i class="bi bi-question-octagon"></i>
                         <p>Seguimiento de Tickets</p>
@@ -152,7 +151,6 @@ if(isset($_POST['btcerrarS'])){
                                             Estado
                                         </th>-->
                                         <?php
-                                        echo $idActual;
                                         include_once "../Persistencia/conexion.php";
                                         $query = $bd->prepare('SELECT * FROM "Dominio"');
                                         $query -> execute();

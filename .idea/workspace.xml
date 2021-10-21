@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
-      <change beforePath="$PROJECT_DIR$/presentacion/inicioEmpleado.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/inicioEmpleado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/tabladominio.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/tabladominio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/inicioAdmon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentacion/misDominios.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/misDominios.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +96,8 @@
       <workItem from="1634435774028" duration="2361000" />
       <workItem from="1634569777684" duration="4000000" />
       <workItem from="1634658206762" duration="10858000" />
-      <workItem from="1634792526189" duration="881000" />
+      <workItem from="1634792526189" duration="927000" />
+      <workItem from="1634851341487" duration="581000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
@@ -202,7 +204,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634437704680</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Archivos phpStorm, Cambio Varios">
+      <created>1634793428734</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1634793428734</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Archivos phpStorm, Cambio Varios">
+      <created>1634793449056</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1634793449056</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
