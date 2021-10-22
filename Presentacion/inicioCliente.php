@@ -61,7 +61,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="agregarDominio.php">
             <i class="bi bi-window"></i>
               <p>Agregar Dominio</p>
             </a>
@@ -114,7 +114,29 @@ if(isset($_POST['btcerrarS'])){
       </nav>
       <!-- End Navbar -->
 
+        <?php 
 
+            include_once "../Persistencia/conexion.php";
+            $query = $bd->prepare('SELECT "Almacenamieto", "Cant_DB", "Correos", "Cant_Sitios_Web" FROM "Paquete", "Cliente"
+            where  "Paquete"."Id_Paquete"="Cliente"."Tipo_Paquete_Id_Tipo_Paquete" AND
+                  "Cliente"."Id"=:id'  );
+                  
+            $query -> bindParam(":id", $_SESSION['idUsuario']);
+            $query -> execute();
+            while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+              $capacidad=$fila[0];
+              $cant_bd=$fila[1];
+              $correos=$fila[2];
+              $sitios=$fila[3];
+              if($correos==999){
+                $correos='inf';
+              }
+              if($cant_bd==999){
+                $cant_bd='inf';
+              }
+              
+            }
+        ?>
 
       <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
@@ -133,7 +155,7 @@ if(isset($_POST['btcerrarS'])){
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Capacidad</p>
-                      <p class="card-title">50GB<p>
+                      <p class="card-title"> <?php echo $capacidad ?> GB<p>
                     </div>
                   </div>
                 </div>
@@ -159,7 +181,7 @@ if(isset($_POST['btcerrarS'])){
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Bases de Datos</p>
-                      <p class="card-title">2<p>
+                      <p class="card-title"><?php echo $cant_bd ?><p>
                     </div>
                   </div>
                 </div>
@@ -168,7 +190,7 @@ if(isset($_POST['btcerrarS'])){
                 <hr>
                 <div class="stats">
                   <i class="fa fa-calendar-o"></i>
-                  Last day
+                  <br>
                 </div>
               </div>
             </div>
@@ -185,7 +207,7 @@ if(isset($_POST['btcerrarS'])){
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Cuentas </p>
-                      <p class="card-title">1<p>
+                      <p class="card-title"><?php echo $correos ?><p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +216,7 @@ if(isset($_POST['btcerrarS'])){
                 <hr>
                 <div class="stats">
                   <i class="fa fa-clock-o"></i>
-                  In the last hour
+                  <br>
                 </div>
               </div>
             </div>
@@ -211,7 +233,7 @@ if(isset($_POST['btcerrarS'])){
                   <div class="col-7 col-md-8">
                     <div class="numbers">
                       <p class="card-category">Sitios Web</p>
-                      <p class="card-title">1<p>
+                      <p class="card-title"><?php echo $sitios ?><p>
                     </div>
                   </div>
                 </div>
@@ -220,7 +242,7 @@ if(isset($_POST['btcerrarS'])){
                 <hr>
                 <div class="stats">
                   <i class="fa fa-refresh"></i>
-                  Update now
+                  <br>
                 </div>
               </div>
             </div>
