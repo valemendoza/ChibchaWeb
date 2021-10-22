@@ -49,7 +49,7 @@ if(isset($_POST['btcerrarS'])){
           <?php echo $usuarioActual ?> 
         </a>
       </div>
-      <div class="sidebar-wrapper" style="background-color: #D7FFCF;">
+      <div class="sidebar-wrapper" >
         <ul class="nav">
           <li >
             <a href="inicioCliente.php">
@@ -129,11 +129,11 @@ if(isset($_POST['btcerrarS'])){
         <img src="../Img/PQR.png" alt=""></center>
         <form method="POST" >
             <label >Titulo: </label>
-            <input type="text" class="form-control" id="titulo" name="titulo">
+            <input type="text" class="form-control" id="titulo" name="titulo" autofocus required="True">
             <label for="exampleFormControlTextarea1">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True"></textarea>
             <label>Dominio: </label>
-              <select name="dominio" class="form-control" style="color:black" id="dominio" >
+              <select name="dominio" class="form-control" style="color:black" id="dominio" autofocus required="True">
               <option disabled selected>Selecciona una opción</option>
                 <?php   
                     include_once "../Persistencia/conexion.php";
@@ -152,6 +152,87 @@ if(isset($_POST['btcerrarS'])){
             
             <center><input name="enviart" id="enviart" class="btn btn-success" type="submit" value="Enviar"></center>
         </form>
+
+
+        <?php 
+
+          if(isset($_POST['enviart'])){
+
+              include_once "../Persistencia/conexion.php";
+              $dominio=$_POST["dominio"];
+              $titulo=$_POST["titulo"];
+              $descripcion=$_POST["descripcion"];
+              //Encontrar el empleado con menor cantidad de tickets
+              $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado"  GROUP BY "Id" ORDER BY "min" DESC;'  );
+              $queryEmpleado -> execute();
+              while ($fila = $queryEmpleado->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                $empleadoId= $fila[0];
+                $empleadoCant=$fila[1]; 
+              }
+
+              $date=date("Y-m-d");
+              
+              //Insertar Ticket a ese empleado
+              $queryTicket = $bd->prepare('INSERT INTO "Ticket" ("Titulo", "Descripcion", "Estado", "Nivel_Ticket_Id_Nivel_Ticket", "Cliente_Id_Cliente", "Id_Dominio", fecha_ingreso)
+              VALUES (:titulo, :descripcion, 1, 1, :id, :dominio, :fecha);');
+              $queryTicket -> bindParam(":dominio",$dominio);
+              $queryTicket -> bindParam(":titulo",$titulo);
+              $queryTicket -> bindParam(":descripcion",$descripcion);
+              $queryTicket -> bindParam(":id", $_SESSION['idUsuario']);
+              $queryTicket -> bindParam(":fecha", $date);
+              $queryTicket -> execute();
+
+
+              $queryId = $bd->prepare('SELECT "Id_Ticket" FROM "Ticket" GROUP BY "Id_Ticket" ORDER BY "Id_Ticket" ASC;'  );
+              $queryId -> execute();
+              while ($fila = $queryId->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                $ticketId= $fila[0]; 
+              }
+
+              //INSERT en Detalle Ticket
+              $queryDetalle = $bd->prepare('INSERT INTO "Detalle_Ticket" 
+              ("Fecha", "Empleado_Id_Empleado", "Ticket_Id_Ticket")
+              values (:fecha, :empleadoId, :ticketId);'  );
+               $queryDetalle -> bindParam(":fecha", $date);
+               $queryDetalle -> bindParam(":empleadoId", $empleadoId);
+               $queryDetalle -> bindParam(":ticketId", $ticketId);
+               $queryDetalle -> execute();
+
+               $cantTicket= $empleadoCant +1;
+               //Sumar 1 a la cantidad de tickets del empleado seleccionado
+               $queryCantTicket = $bd->prepare('UPDATE "Empleado" set "cant_tickets"=:cant WHERE "Id"=:empleadoId;');
+               $queryCantTicket -> bindParam(":cant", $cantTicket);
+               $queryCantTicket -> bindParam(":empleadoId", $empleadoId);
+               $queryCantTicket -> execute();
+               
+
+               //INSERTAR EN LA AUDITORIA DE TICKETS
+               $date=date("Y-m-d");
+               $comentario="NA";
+               $accion="Creacion";
+               $queryAudi = $bd->prepare('INSERT INTO "Auditoria_Tickets" 
+               ("Id_Ticket", "Fecha_Mod", "Accion", nivel_actual,"comentario", "id_Emp") 
+               VALUES (:ticketId, :fecha, :creacion, 1, :comentario, :empleadoId );');
+               $queryAudi -> bindParam(":ticketId", $ticketId);
+               $queryAudi -> bindParam(":fecha", $date);
+               $queryAudi -> bindParam(":empleadoId", $empleadoId);
+               $queryAudi -> bindParam(":ticketId", $ticketId);
+               $queryAudi -> bindParam(":creacion", $accion);
+               $queryAudi -> bindParam(":comentario", $comentario);
+               
+               $queryAudi -> execute();
+
+
+              echo "<script>
+                      alertify.success('Ticket Generado');
+                      </script>";
+
+              
+              }
+        ?>
+
+
+
     </div>
     </div>
        <!-- ===============================================MODIFICAN HASTA ACA============================================
@@ -164,49 +245,3 @@ if(isset($_POST['btcerrarS'])){
 
 </html>
 
-<?php 
-
-if(isset($_POST['enviart'])){
-
-    include_once "../Persistencia/conexion.php";
-    $dominio=$_POST["dominio"];
-    $titulo=$_POST["titulo"];
-    $descripcion=$_POST["descripcion"];
-    //Encontrar el empleado con menor cantidad de tickets
-    $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado"  GROUP BY "Id" ORDER BY "min" DESC;'  );
-    $queryEmpleado -> execute();
-    $empleado= "kjfnkjf";
-    while ($fila = $queryEmpleado->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-       $empleadoId= $fila[0];
-       $empleadoCant=$fila[1];
-    }
-
-    $date=date("Y-m-d");
-    
-    //Insertar Ticket a ese empleado
-    $queryTicket = $bd->prepare('INSERT INTO "Ticket" ("Titulo", "Descripcion", "Estado", "Nivel_Ticket_Id_Nivel_Ticket", "Cliente_Id_Cliente", "Id_Dominio", fecha_ingreso)
-    VALUES (:titulo, :descripcion, 1, 1, :id, :dominio, :fecha);');
-    $queryTicket -> bindParam(":dominio",$dominio);
-    $queryTicket -> bindParam(":titulo",$titulo);
-    $queryTicket -> bindParam(":descripcion",$descripcion);
-    $queryTicket -> bindParam(":id", $_SESSION['idUsuario']);
-    $queryTicket -> bindParam(":fecha", $date);
-    //$queryTicket -> execute();
-
-    //Obtener Id del ticket
-    $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado"  GROUP BY "Id" ORDER BY "min" DESC;'  );
-    $queryEmpleado -> execute();
-    $empleado= "kjfnkjf";
-    while ($fila = $queryEmpleado->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-       $empleadoId= $fila[0];
-       $empleadoCant=$fila[1];
-    }
-
-
-    echo "<script>
-            alertify.success('Ticket Generado');
-            </script>";
-
-    
-     }
-?>

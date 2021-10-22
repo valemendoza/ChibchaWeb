@@ -65,24 +65,24 @@ if(isset($_POST['btcerrarS'])){
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Empleado</a>
+            <a class="navbar-brand" style="color: white" >MIS TICKETS</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-              <form method="POST">
-                  <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                  </form></a>
+            <ul class="navbar-nav"  >
+              <li class="nav-item" >
+                <form method="POST">
+                  <input type="submit" class="btn" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
 
      
     
@@ -126,10 +126,14 @@ if(isset($_POST['btcerrarS'])){
                       <?php 
 
                         include_once "../Persistencia/conexion.php";
-                        $query = $bd->prepare('SELECT "Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre"
-                        from "Ticket", "Nivel_Ticket","Estado"
+                        $query = $bd->prepare('SELECT "Ticket"."Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre", "Auditoria_Tickets".comentario
+                        from "Ticket", "Nivel_Ticket","Estado", "Detalle_Ticket", "Auditoria_Tickets"
                         WHERE "Nivel_Ticket"."Id_Nivel_Ticket"="Ticket"."Nivel_Ticket_Id_Nivel_Ticket" AND
-                              "Estado"."id_estado" = "Ticket"."Estado";'  );
+                              "Estado"."id_estado" = "Ticket"."Estado" AND
+                              "Auditoria_Tickets"."Id_Ticket" = "Ticket"."Id_Ticket" AND
+                              "Ticket"."Id_Ticket" = "Detalle_Ticket"."Ticket_Id_Ticket" AND
+                              "Detalle_Ticket"."Empleado_Id_Empleado"=:id;'  );
+                        $query -> bindParam(":id", $_SESSION['idUsuario']);
                         $query -> execute();
                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                             $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
@@ -152,10 +156,10 @@ if(isset($_POST['btcerrarS'])){
                         <?php echo $fila[4] ?>
                         </td>
                         <td >
-                        
+                        <?php echo $fila[5] ?>
                         </td>
                         <td >
-                        
+                        <center><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="transferir">Transferir</button></center>
                         </td>
                       </tr>
                       <?php } ?>
@@ -164,6 +168,28 @@ if(isset($_POST['btcerrarS'])){
               </div>
             </div>
           </div>
+
+          <!-- Modal -->
+          <form method="POST" >
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Comentario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <label for="exampleFormControlTextarea1">Debe agregar un comentario sobre su transferencia:</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
       
 
        <!-- ===============================================MODIFICAN HASTA ACA ============================================
