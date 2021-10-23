@@ -13,8 +13,7 @@ if(isset($_POST['btcerrarS'])){
 ?>
 <?php
 include_once "../Persistencia/conexion.php";
-    session_start();
-    $user = $_SESSION['emailUsuario'];
+        $user = $_SESSION['emailUsuario'];
     $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user ' );
     $query -> bindParam(":user",$user);
     $query -> execute();
