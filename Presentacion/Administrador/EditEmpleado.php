@@ -97,23 +97,24 @@ if(isset($_POST['btcerrarS'])){
     </div>
     <div class="main-panel">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-            <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">EDITAR EMPLEADO</a>
-                </div>
-                <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <form method="POST">
-                                <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- End Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand"style="color: white">EDITAR EMPLEADO </a>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <form method="POST">
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
         <?php
 
         include_once "../../persistencia/conexion.php";

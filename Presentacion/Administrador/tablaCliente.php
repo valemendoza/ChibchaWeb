@@ -56,7 +56,7 @@ if(isset($_POST['btcerrarS'])){
                         <p>Inicio</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="tablaCliente.php">
                         <i class="bi bi-people"></i>
                         <p>Clientes</p>
@@ -100,7 +100,7 @@ if(isset($_POST['btcerrarS'])){
        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand"style="color: white">BIENVENIDO <?php echo $idActual ?></a>
+            <a class="navbar-brand"style="color: white">BIENVENIDO </a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">

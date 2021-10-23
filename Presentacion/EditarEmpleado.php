@@ -46,7 +46,7 @@ include_once "../Persistencia/conexion.php";
 
         $_SESSION['emailUsuario'] = $_POST["Correo"];
         $user = $_SESSION['emailUsuario'];
-        $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user ' );
+        $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user' );
     $query -> bindParam(":user",$user);
     $query -> execute();
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -133,11 +133,11 @@ include_once "../Persistencia/conexion.php";
                         <div class="author">
                             <p href="#">
                                 <img class="avatar border-gray" src="../Img/iconoPerfil.png" alt="...">
-                                <h5 class="title"><?php echo $empleados[0]["Nombre"]  ?></h5>
+                                <h5 class="title"><?php echo $usuarios[0]["Nombre"]  ?></h5>
                             </p>
                             <br>
                             <p class="description">
-                               <?php echo $empleados[0]["Correo"]  ?>                             
+                               <?php echo $usuarios[0]["Correo"]  ?>                             
                             </p>
                         </div>
                         <!--<p class="description text-center">

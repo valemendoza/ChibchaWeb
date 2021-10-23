@@ -74,19 +74,19 @@ if(isset($_POST['btcerrarS'])){
                     </a>
                 </li>
                 <li>
-                    <a href="./user.html">
+                    <a href="tablaTickets.php">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Tickets</p>
                     </a>
                 </li>
                 <li>
-                    <a href="../trazabilidadTickets.php">
+                    <a href="../trazabilidadUsuarios.php">
                         <i class="bi bi-layout-text-window"></i>
                         <p>Trazabilidad Usuarios</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./typography.html">
+                    <a href="../trazabilidadTickets.php">
                         <i class="bi bi-menu-up"></i>
                         <p>Trazabilidad Tickets</p>
                     </a>

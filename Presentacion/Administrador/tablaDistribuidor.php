@@ -80,13 +80,13 @@ if(isset($_POST['btcerrarS'])){
                     </a>
                 </li>
                 <li>
-                    <a href="../trazabilidadUsuarios">
+                    <a href="../trazabilidadUsuarios.php">
                         <i class="bi bi-layout-text-window"></i>
                         <p>Trazabilidad Usuarios</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./typography.html">
+                    <a href="../trazabilidadTickets.php">
                         <i class="bi bi-menu-up"></i>
                         <p>Trazabilidad Tickets</p>
                     </a>
