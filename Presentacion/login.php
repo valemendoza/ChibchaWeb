@@ -95,7 +95,7 @@ include_once "../Persistencia/conexion.php";
 $user=$_POST["email"];
 $pass=$_POST["password"];
 
-$query = $bd->prepare('SELECT id_usuario, "Nombre", "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass'  );
+$query = $bd->prepare('SELECT id_usuario, "Nombre", "Correo", "Clave", "Tipo_Usuario" FROM "Usuario" WHERE "Correo"=:user AND "Clave"=:pass AND estado=1'  );
 $query -> bindParam(":user",$user);
 $query -> bindParam(":pass",$pass);
 $query -> execute();

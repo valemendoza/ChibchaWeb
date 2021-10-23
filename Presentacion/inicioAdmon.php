@@ -279,5 +279,28 @@ if(isset($_POST['btcerrarS'])){
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-<script src="../Js/dashboard.js"></script>
+<script >
+/* globals Chart:false, feather:false */
+(function () {
+  'use strict'
+  feather.replace({ 'aria-hidden': 'true' })
+  // Graphs
+  var ctx = document.getElementById('myChart')
+  // eslint-disable-next-line no-unused-vars
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Clientes','Distribuidores','Empleados','Tickets'],
+      datasets: [{
+        data: [<?php echo $cant_clientes ?> ,<?php echo $cant_distribuidores ?>,
+        <?php echo $cant_empleados ?>, <?php echo $cant_tickets ?>],
+        lineTension: 0,
+        backgroundColor: ["#EB851F","#84FF63","#ECA534","#13840B"],
+        pointBackgroundColor: '#E16510'
+      }]
+    },
+    options: { scales: { yAxes: [{  ticks: {  beginAtZero: false   }  }] },
+      legend: { display: true }  }  }) })()
+
+</script>
 

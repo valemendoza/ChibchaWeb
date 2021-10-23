@@ -123,6 +123,10 @@ if(isset($_POST['btcerrarS'])){
                   
             $query -> bindParam(":id", $_SESSION['idUsuario']);
             $query -> execute();
+            $capacidad="--";
+            $cant_bd="--";
+            $correos="--";
+            $sitios="--";
             while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
               $capacidad=$fila[0];
               $cant_bd=$fila[1];

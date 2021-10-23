@@ -8,7 +8,7 @@
   var ctx = document.getElementById('myChart')
   // eslint-disable-next-line no-unused-vars
   var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'pie',
     data: {
       labels: [
         'Clientes',
@@ -24,9 +24,13 @@
           3
         ],
         lineTension: 0,
-        backgroundColor: '#439D31',
-        borderColor: '#E16510',
-        borderWidth: 5,
+        backgroundColor: [
+                "#FF6384",
+                "#63FF84",
+                "#84FF63",
+                "#8463FF",
+                "#6384FF"
+            ],
         pointBackgroundColor: '#E16510'
       }]
     },
@@ -39,7 +43,7 @@
         }]
       },
       legend: {
-        display: false
+        display: true
       }
     }
   })

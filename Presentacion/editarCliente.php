@@ -32,9 +32,9 @@ if(isset($_POST['btcerrarS'])){
             $query2 -> bindParam(":Clave",$_POST["password"]);
         }
         else{
-            if(($_POST["delete"]=="delete")){
-                $querydelete= $bd-> prepare('UPDATE "Cliente" SET "Estado"=2 WHERE "Correo"=:correo  ');
-                $querydelete-> bindParam(":correo",$user);
+            if(isset ($_POST["del"])){
+                $querydelete= $bd-> prepare('UPDATE "Cliente" SET "Estado"=2 WHERE "Id"=:id ');
+                $querydelete-> bindParam(":id",$_SESSION['idUsuario']);
                 $querydelete -> execute();
             }
             $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo,
@@ -43,6 +43,14 @@ if(isset($_POST['btcerrarS'])){
             "Tipo_Paquete_Id_Tipo_Paquete"=:paquete WHERE "Id"=:Id');
             $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo WHERE "Correo"=:CorreoAntiguo');
             
+            $queryEstadoUsu = $bd ->prepare('UPDATE "Usuario" SET estado=2 WHERE id_usuario=:id');
+            $queryEstadoUsu-> bindParam(":id",$_SESSION['idUsuario']);
+            $queryEstadoUsu -> execute();
+            echo "<script>
+            alert('Eliminado');
+            </script>";
+            session_destroy();
+
         }
         //cliente
         $query1-> bindParam(":Nombre",$_POST["Nombre"] );
@@ -86,6 +94,10 @@ if(isset($_POST['btcerrarS'])){
     <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
 
+  <!-- ALERTIFY -->
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/themes/default.css">
+  <script src="../Librerias/Alertify/alertify.js"></script>
     <link rel="shortcut icon" href="../Img/logo.png" />
 
 </head>
@@ -101,7 +113,7 @@ if(isset($_POST['btcerrarS'])){
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-            <?php echo $usuarios[0]["Correo"]  ?>
+            <?php echo $usuarios[0]["Nombre"]  ?>
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -417,7 +429,7 @@ if(isset($_POST['btcerrarS'])){
                                 <button type="submit" class="btn btn-primary btn-round" style="background: green; border-color: green">Actualizar Perfil</button>
                             </div>
                             <div class="update ml-auto mr-auto">
-                                <button type="submit" name="delete" value= "delete" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                <button type="submit" id="del" name="del" value= "del" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                             </div>
                         </div>
                     </form>
