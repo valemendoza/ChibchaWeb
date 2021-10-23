@@ -227,13 +227,17 @@ if(isset($_POST['btcerrarS'])){
                                         <label>Correo</label>
                                         <input name="Correo" type="text" class="form-control" placeholder="Correo">
                                     </div>
-                                    <!--</div>
+                                    </div>
                                     <div class="col-md-6 pl-1">
                                         <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                                            <label>Nivel Empleado</label>
+                                            <select class="btn btn-neutral dropdown-toggle" name="nivel" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <option value="1" class="dropdown-item">Nivel 1</option>
+                                                <option value="2" class="dropdown-item">Nivel 2</option>
+                                                <option value="3" class="dropdown-item">Nivel 3</option>
+                                            </select>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
                                 <!--<div class="row">
                                     <div class="col-md-6">

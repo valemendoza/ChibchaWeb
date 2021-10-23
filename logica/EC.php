@@ -29,13 +29,19 @@ $query ->bindParam(":formaP", $Forma_P);
 $query->bindParam(":plan", $Tipo_P);
 $query->bindParam(":paquete", $Tipo_PK);
 $query->execute();
-echo "HECHO";
+$query3 = $bd->prepare('UPDATE "Usuario" SET "Correo"=:correou, "Nombre"=:nombreu WHERE id_usuario=:idu;');
+$query3->bindParam("idu", $Id);
+$query3->bindParam(":correou", $correo);
+$query3->bindParam(":nombreu", $nombre);
+$query3->execute();
 header('location: ../presentacion/Administrador/tablaCliente.php');
 }if (isset($_POST['borrar'])){
     $Id = $_POST['ID'];
     $query2 = $bd->prepare('UPDATE "Cliente" SET "Estado" = 2 WHERE "Id"=:id;');
     $query2 -> bindParam(":id",$Id);
     $query2->execute();
+    $query4 = $bd->prepare('UPDATE "Usuario" SET "Estado" = 2 WHERE id_usuario=:idu;');
+    $query4->bindParam(":idu", $Id);
     header('location: ../presentacion/Administrador/tablaCliente.php');
 
 }
