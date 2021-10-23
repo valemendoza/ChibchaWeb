@@ -223,6 +223,12 @@ if(isset($_POST['btcerrarS'])){
                 }
                 $nivelId= $nivelId+1;
 
+                if($nivelId==3){
+                  echo "<script>
+                alert('No puede transferir el ticket.');
+                </script>";
+                }else{
+
 
                 //AUDITORIA DEL TICKET
                 $date=date("Y-m-d");
@@ -280,7 +286,7 @@ if(isset($_POST['btcerrarS'])){
                 window.location= 'inicioEmpleado.php'
                 </script>";
               }
-
+            }
             
         }
         ?>
