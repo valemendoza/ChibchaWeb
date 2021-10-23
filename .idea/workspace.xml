@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentacion/misTickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/misTickets.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635012887853</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Archivos phpStorm, Cambio Varios">
+      <created>1635014074545</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1635014074545</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

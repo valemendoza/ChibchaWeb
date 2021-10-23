@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+    $usuarioActual=$_SESSION['nombreUsuario'];
+}else{
+    header('location: login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+    session_destroy();
+    header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +43,7 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-                Nombre del Cliente
+                <?php echo $usuarioActual ?>
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -48,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="agregarDominio.php">
                         <i class="bi bi-window"></i>
                         <p>Agregar Dominio</p>
                     </a>
