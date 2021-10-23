@@ -274,10 +274,10 @@
                                 </div>-->
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
+                                        <button name="actualizar" type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
                                     </div>
                                     <div class="update ml-auto mr-auto">
-                                        <button type="button" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                        <button name="borrar" type="butmit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                                     </div>
                                 </div>
                         </form>

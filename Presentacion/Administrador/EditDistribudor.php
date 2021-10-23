@@ -85,7 +85,7 @@
         <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">EDITAR EMPLEADO</a>
+                    <a class="navbar-brand" href="javascript:;">EDITAR DISTRIBUIDOR</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
@@ -180,10 +180,10 @@
             <div class="col-md-8">
                 <div class="card card-user">
                     <div class="card-header">
-                        <h5 class="card-title">Editar Empleado</h5>
+                        <h5 class="card-title">Editar Distribuidor</h5>
                     </div>
                     <div class="card-body">
-                        <form action="../../logica/EE.php" method="post">
+                        <form action="../../logica/ED.php" method="post">
                             <div class="row">
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
@@ -200,7 +200,7 @@
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" placeholder="Apellido">
+                                        <input name="Cantidad" type="text" class="form-control" placeholder="Cantidad Dominios">
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input name="Correo" type="text" class="form-control" placeholder="Correo">
+                                        <input name="Extencion" type="text" class="form-control" placeholder="Extencion">
                                     </div>
                                     <!--</div>
                                     <div class="col-md-6 pl-1">
@@ -274,11 +274,11 @@
                                 </div>-->
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button name="actualizar" type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
+                                        <button type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
                                     </div>
-                                    <div class="update ml-auto mr-auto">
-                                        <button name="borrar" type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
-                                    </div>
+                                    <!--<div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                    </div>-->
                                 </div>
                         </form>
                     </div>
