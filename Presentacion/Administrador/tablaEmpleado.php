@@ -176,14 +176,14 @@ if(isset($_POST['btcerrarS'])){
                                             Correo
                                         </th>
                                         <th>
-                                            Cantidad Dominios
+                                            Cantidad Tickets
                                         </th>
                                         <!--<th>
                                             Fecha Ingreso
                                         </th>-->
-                                        <th>
+                                        <!--<th>
                                             Accion
-                                        </th>
+                                        </th>-->
                                         <?php
 
                                         include_once "../../persistencia/conexion.php";
@@ -220,12 +220,13 @@ if(isset($_POST['btcerrarS'])){
                                         <!--<td >
                                             <?php /*echo $fila[7] */?>
                                         </td>-->
-                                        <td >
+                                        <!--<td >
                                             <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
-                                        </td>
+                                        </td>-->
                                     </tr>
                                     <?php } ?>
                                 </table>
+                                <button type="button" class="btn btn-success" onclick="location.href='EditEmpleado.php'">Editar</button>
                             </div>
                         </div>
                     </div>

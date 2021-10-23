@@ -97,7 +97,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li class="active ">
-            <a href="trazabilidadTickets.php">
+          <a href="trazabilidadTickets.php">
             <i class="bi bi-menu-up"></i>
               <p>Trazabilidad Tickets</p>
             </a>
@@ -106,107 +106,99 @@ if(isset($_POST['btcerrarS'])){
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid" style="background-color: #CA5B09;">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Trazabilidad de Usuarios</a>
+            <a class="navbar-brand"style="color: white">TRAZABILIDAD DE TICKETS </a>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-              <form method="POST">
-                  <input type="submit" class="btn btn-link" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                  </form> </a>
+                <form method="POST">
+                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                  </form>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php 
-
-        include_once "../Persistencia/conexion.php";
-        $query = $bd->prepare('SELECT * from "Cliente"'  );
-        $query -> execute();
-        $clientes = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_clientes = count($clientes);  
-
-        $query = $bd->prepare('SELECT * from "Empleado"'  );
-        $query -> execute();
-        $empleados = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_empleados = count($empleados);    
-        
-        $query = $bd->prepare('SELECT * from "Distribuidor"'  );
-        $query -> execute();
-        $distribuidores = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_distribuidores = count($distribuidores);    
-
-        $query = $bd->prepare('SELECT * from "Ticket"'  );
-        $query -> execute();
-        $tickets = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_tickets = count($tickets); 
-        
-      ?>
-
-
-        <!-- ===============================================MODIFICAN DESDE ACA ============================================
+      
+  <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
+     
       <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class=" card-body table-responsive">
-                <table class="table table-striped table-bordered table-hover" id="myTable">
-                <thead>
-                <tr class=" text-success">
-                    <th>Fecha de Modificación</th>
-                    <th>Usuario</th>
-                    <th>Accion</th>
-                    <th>Ip</th>
-                    <th>Valor Anterior</th>
-                    <th>Valor Actual</th>
-                </tr>
-                </thead>
-                <?php 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"> Últimos Registros</h4>
+                        </div>
+                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar por fecha..." onkeyup="myFunction()">
+                        </div>
 
-                        include_once "../Persistencia/conexion.php";
-                        $query = $bd->prepare('SELECT "Fecha_Mod", "Id_Usu","Accion","IP", "Valor_Anterior","Valor_Actual"
-                        from "Auditoria_Usuario";');
-                        $query -> execute();
-                        while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-                      ?>
-                <tbody>
-                <tr>
-                    <td>
-                      <?php echo $fila[0] ?>
-                    </td>
-                    <td>
-                      <?php echo $fila[1] ?>
-                    </td>
-                    <td >
-                      <?php echo $fila[2] ?>
-                    </td>
-                    <td >
-                      <?php echo $fila[3] ?>
-                    </td>
-                    <td >
-                      <?php echo $fila[4] ?>
-                    </td>
-                    <td >
-                      <?php echo $fila[5] ?>
-                    </td>
-                </tr>
-               <?php } ?>
-                </tbody>
-                </table>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="myTable" class="table table-striped table-bordered table-hover " style="table-layout: fixed" >
+                                    <tr class=" text-success" id="row">
+                                        <th>
+                                            Fecha de Modificación
+                                        </th>
+                                        <th>
+                                            Empleado
+                                        </th>
+                                        <th>
+                                            Acción
+                                        </th>
+                                        <th>
+                                            Ticket
+                                        </th>
+                                        <th width="250px">
+                                            Comentario
+                                        </th>
+                                        <th>
+                                            Nivel
+                                        </th>
+                                        <?php 
+                                          include_once "../Persistencia/conexion.php";
+                                          $query = $bd->prepare('SELECT "Fecha_Mod", "Empleado"."Nombre", "Accion","Id_Ticket", comentario, nivel_actual 
+                                          FROM "Auditoria_Tickets", "Empleado"
+                                          WHERE "Auditoria_Tickets"."id_Emp"="Empleado"."Id";');
+                                          $query -> execute();
+                                          while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                                        ?>
+                                    </tr>
+                                <tr>
+                                    <td>
+                                      <?php echo $fila[0] ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $fila[1] ?>
+                                    </td>
+                                    <td >
+                                      <?php echo $fila[2]?>
+                                    </td>
+                                    <td >
+                                      <?php echo $fila[3] ?>
+                                    </td>
+                                    <td >
+                                      <?php echo $fila[4] ?>
+                                    </td>
+                                    <td >
+                                      <?php echo $fila[5] ?>
+                                    </td>
+                                </tr>
+                              <?php } ?>
+                                </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <script>
-            $(document).ready( function () {
-            $('#myTable').DataTable();
-            } );
-        </script>
+        </div>
+     
 
        <!-- ===============================================MODIFICAN HASTA ACA ============================================
       ================================================================================================================ -->
@@ -230,3 +222,26 @@ if(isset($_POST['btcerrarS'])){
 </body>
 
 </html>
+
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0 ];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
