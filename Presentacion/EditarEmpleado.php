@@ -81,7 +81,7 @@ include_once "../Persistencia/conexion.php";
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-            <?php echo $user ?> 
+            <?php echo $usuarioActual ?> 
             </a>
         </div>
         <div class="sidebar-wrapper">
