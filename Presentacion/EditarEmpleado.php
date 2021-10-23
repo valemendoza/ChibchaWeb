@@ -150,8 +150,7 @@
                                 <div class="col-lg-2 ml-auto mr-auto ">
                                     <h5>1<br><small>Correos</small></h5>
                                 </div>-->
-                                <h5>Paquete Chibcha Oro CAMBIAR</h5>
-                                <h5>Mensual CAMBIAR </h5>
+                              
                             </div>
                         </div>
                     </div>
@@ -206,49 +205,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 px-1">
-                                        <div class="form-group">
-                                            <label>Tipo de Plan</label>
-                                            <br>
-                                            <select class="btn btn-neutral dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <option value="1" class="dropdown-item">Mensual</option>
-                                                <option value="2" class="dropdown-item">Anual</option>
-                                            </select>
-                                            <div class="form-group">
-                                            <label>Tipo de Paquete</label>
-                                            <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <option value="1" class="dropdown-item">Chibcha Plata</option>
-                                                <option value="2" class="dropdown-item">Chibcha Oro</option>
-                                                <option value="3" class="dropdown-item">Chibcha Platino</option>
-                                            </select>
-                        <!--<div class="row">
-                            <div class="col-md-4 pr-1">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" class="form-control" placeholder="City" value="Melbourne">
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-1">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <input type="text" class="form-control" placeholder="Country" value="Australia">
-                                </div>
-                            </div>
-                            <div class="col-md-4 pl-1">
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                </div>
-                            </div>
-                        </div>-->
-                        <!--<div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>About Me</label>
-                                    <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
-                                </div>
-                            </div>
-                        </div>-->
+                        
+                       
                         <div class="row">
                             <div class="update ml-auto mr-auto">
                                 <button type="submit" class="btn btn-primary btn-round" style="background: green; border-color: green">Actualizar Perfil</button>
