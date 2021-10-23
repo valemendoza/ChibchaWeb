@@ -3,12 +3,12 @@ session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['nombreUsuario'];
 }else{
-    header('location: login.php');
+    header('location: ../login.php');
 }
 
 if(isset($_POST['btcerrarS'])){
     session_destroy();
-    header('location: login.php');
+    header('location: ../login.php');
 }
 ?>
 
@@ -181,9 +181,9 @@ if(isset($_POST['btcerrarS'])){
                                         <th>
                                             Fecha Ingreso
                                         </th>
-                                        <th>
+                                        <!--<th>
                                             Accion
-                                        </th>
+                                        </th>-->
                                         <?php
 
                                         include_once "../../persistencia/conexion.php";
@@ -220,9 +220,9 @@ if(isset($_POST['btcerrarS'])){
                                         <td >
                                             <?php echo $fila[7] ?>
                                         </td>
-                                        <td >
+                                        <!--<td >
                                             <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
-                                        </td>
+                                        </td>-->
                                     </tr>
                                     <?php } ?>
                                 </table>

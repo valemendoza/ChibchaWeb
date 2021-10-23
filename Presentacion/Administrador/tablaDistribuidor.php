@@ -3,12 +3,12 @@ session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['nombreUsuario'];
 }else{
-    header('location: login.php');
+    header('location: ../login.php');
 }
 
 if(isset($_POST['btcerrarS'])){
     session_destroy();
-    header('location: login.php');
+    header('location: ../login.php');
 }
 ?>
 
@@ -241,11 +241,12 @@ if(isset($_POST['btcerrarS'])){
                                             }*/?>
                                         </td>-->
                                         <!--<td >
-                                            <button type="button" class="btn btn-success" onclick="location.href='EditCliente.php'">Editar</button>
+
                                         </td>-->
                                     </tr>
                                     <?php } ?>
                                 </table>
+                                <button type="button" class="btn btn-success" onclick="location.href='EditDistribudor.php'">Editar</button>
                             </div>
                         </div>
                     </div>
