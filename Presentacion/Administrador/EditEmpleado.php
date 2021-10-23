@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+    $usuarioActual=$_SESSION['nombreUsuario'];
+}else{
+    header('location: ../login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+    session_destroy();
+    header('location: ../login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +45,7 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-                Nombre del Admin
+                <?php echo $usuarioActual?>
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -278,9 +291,10 @@
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
                                         <button name="actualizar" type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
+                                        <button name="borrar" type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                                     </div>
                                     <div class="update ml-auto mr-auto">
-                                        <button name="borrar" type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                        <button type="button" onclick="location.href='tablaEmpleado.php'" class="btn btn-danger" style="background: orangered; border-color: orangered">Volver</button>
                                     </div>
                                 </div>
                         </form>

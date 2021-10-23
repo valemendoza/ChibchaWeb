@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634942811152</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Archivos phpStorm, Cambio Varios">
+      <created>1635012887853</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1635012887853</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
