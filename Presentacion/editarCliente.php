@@ -13,7 +13,6 @@ if(isset($_POST['btcerrarS'])){
 ?>
 <?php
     include_once "../Persistencia/conexion.php";
-    session_start();
     $user = $_SESSION['emailUsuario'];
     $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo"
      , "Forma_Pago_Id_Forma_Pago" , "Tipo_Plan_Id_Tipo_Plan",
@@ -21,18 +20,23 @@ if(isset($_POST['btcerrarS'])){
     $query -> bindParam(":user",$user);
     $query -> execute();
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
-
     if(!empty($_POST)){
         if(!empty($_POST["password"])) {
             $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido,
              "Correo"=:Correo, "Clave"=:Clave, "Forma_Pago_Id_Forma_Pago"=:formap ,
               "Tipo_Plan_Id_Tipo_Plan"=:plan ,"Tipo_Paquete_Id_Tipo_Paquete"=:paquete
                WHERE "Id"=:Id');
+               
             $query1 -> bindParam(":Clave",$_POST["password"]);
             $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo, "Clave"=:Clave WHERE "Correo"=:CorreoAntiguo');
             $query2 -> bindParam(":Clave",$_POST["password"]);
         }
         else{
+            if(($_POST["delete"]=="delete")){
+                $querydelete= $bd-> prepare('UPDATE "Cliente" SET "Estado"=2 WHERE "Correo"=:correo  ');
+                $querydelete-> bindParam(":correo",$user);
+                $querydelete -> execute();
+            }
             $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo,
              "Forma_Pago_Id_Forma_Pago"=:formap ,
             "Tipo_Plan_Id_Tipo_Plan"=:plan ,
@@ -407,40 +411,13 @@ if(isset($_POST['btcerrarS'])){
                                             </select>
                                             </div>
                                              </div>
-                        <!--<div class="row">
-                            <div class="col-md-4 pr-1">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" class="form-control" placeholder="City" value="Melbourne">
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-1">
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <input type="text" class="form-control" placeholder="Country" value="Australia">
-                                </div>
-                            </div>
-                            <div class="col-md-4 pl-1">
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                </div>
-                            </div>
-                        </div>-->
-                        <!--<div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>About Me</label>
-                                    <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
-                                </div>
-                            </div>
-                        </div>-->
+                   
                         <div class="row">
                             <div class="update ml-auto mr-auto">
                                 <button type="submit" class="btn btn-primary btn-round" style="background: green; border-color: green">Actualizar Perfil</button>
                             </div>
                             <div class="update ml-auto mr-auto">
-                                <button type="button" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                <button type="submit" name="delete" value= "delete" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                             </div>
                         </div>
                     </form>
