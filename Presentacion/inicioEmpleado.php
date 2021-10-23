@@ -56,7 +56,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="EditarEmpleado.php">
               <i class="nc-icon nc-single-02"></i>
               <p>Editar Información</p>
             </a>

@@ -2,28 +2,21 @@
     include_once "../Persistencia/conexion.php";
     session_start();
     $user = $_SESSION['emailUsuario'];
-    $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo"
-     , "Forma_Pago_Id_Forma_Pago" , "Tipo_Plan_Id_Tipo_Plan",
-      "Tipo_Paquete_Id_Tipo_Paquete" FROM "Cliente" WHERE "Correo"=:user ' );
+    $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user ' );
     $query -> bindParam(":user",$user);
     $query -> execute();
-    $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+    $empleados = $query->fetchAll(PDO::FETCH_ASSOC);
 
     if(!empty($_POST)){
         if(!empty($_POST["password"])) {
-            $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido,
-             "Correo"=:Correo, "Clave"=:Clave, "Forma_Pago_Id_Forma_Pago"=:formap ,
-              "Tipo_Plan_Id_Tipo_Plan"=:plan ,"Tipo_Paquete_Id_Tipo_Paquete"=:paquete
-               WHERE "Id"=:Id');
+            $query1 = $bd->prepare('UPDATE "Empleado" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo, "Clave"=:Clave WHERE "Id"=:Id');
             $query1 -> bindParam(":Clave",$_POST["password"]);
             $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo, "Clave"=:Clave WHERE "Correo"=:CorreoAntiguo');
             $query2 -> bindParam(":Clave",$_POST["password"]);
+                
         }
         else{
-            $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo,
-             "Forma_Pago_Id_Forma_Pago"=:formap ,
-            "Tipo_Plan_Id_Tipo_Plan"=:plan ,
-            "Tipo_Paquete_Id_Tipo_Paquete"=:paquete WHERE "Id"=:Id');
+            $query1 = $bd->prepare('UPDATE "Empleado" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo WHERE "Id"=:Id');
             $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo WHERE "Correo"=:CorreoAntiguo');
             
         }
@@ -31,30 +24,24 @@
         $query1-> bindParam(":Nombre",$_POST["Nombre"] );
         $query1-> bindParam(":Apellido",$_POST["Apellido"] );
         $query1-> bindParam(":Correo",$_POST["Correo"] );
-        $query1-> bindParam(":formap",$_POST["formap"] );
-        $query1-> bindParam(":plan",$_POST["plan"] );
-        $query1-> bindParam(":paquete",$_POST["paquete"] );
-        $query1-> bindParam(":Id",$usuarios[0]["Id"] );
+        $query1-> bindParam(":Id",$empleados[0]["Id"] );
         $query1 -> execute();
         //usuario
         $query2-> bindParam(":Nombre",$_POST["Nombre"] );
         $query2-> bindParam(":Correo",$_POST["Correo"] );
-        $query2-> bindParam(":CorreoAntiguo",$usuarios[0]["Correo"] );
+        $query2-> bindParam(":CorreoAntiguo",$empleados[0]["Correo"] );
         $query2 -> execute();
 
         $_SESSION['emailUsuario'] = $_POST["Correo"];
         $user = $_SESSION['emailUsuario'];
-        $query   = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" , "Forma_Pago_Id_Forma_Pago" ,"Tipo_Plan_Id_Tipo_Plan" ,
-        "Tipo_Paquete_Id_Tipo_Paquete" FROM "Cliente" WHERE "Correo"=:user ' );
+        $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user ' );
     $query -> bindParam(":user",$user);
     $query -> execute();
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -70,9 +57,7 @@
     <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
 
     <link rel="shortcut icon" href="../Img/logo.png" />
-
 </head>
-
 <body class="">
 <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
@@ -84,51 +69,20 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-            <?php echo $usuarios[0]["Correo"]  ?>
+            <?php echo $user ?> 
             </a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li >
-                    <a href="inicioCliente.php">
+                    <a href="inicioEmpleado.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
                     </a>
-                </li>
-                <li>
-                    <a href="paquetes.php">
-                        <i class="bi bi-bag-check"></i>
-                        <p>Selección de Paquete</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="bi bi-window"></i>
-                        <p>Agregar Dominio</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="misDominios.php">
-                        <i class="bi bi-menu-button-wide"></i>
-                        <p>Mis Dominios</p>
-                    </a>
-                </li>
                 <li class="active">
                     <a href="editarCliente.php">
                         <i class="nc-icon nc-single-02"></i>
                         <p>Editar Información</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="generarTicket.php">
-                        <i class="bi bi-receipt-cutoff"></i>
-                        <p>Generar Ticket</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="misTickets.php">
-                        <i class="bi bi-question-octagon"></i>
-                        <p>Seguimiento de Tickets</p>
                     </a>
                 </li>
             </ul>
@@ -154,9 +108,6 @@
         </div>
       </nav>
         <!-- End Navbar -->
-
-
-
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
         <br><br><br><br>
@@ -170,13 +121,11 @@
                         <div class="author">
                             <p href="#">
                                 <img class="avatar border-gray" src="../Img/iconoPerfil.png" alt="...">
-                                <h5 class="title"><?php echo $usuarios[0]["Nombre"]  ?></h5>
+                                <h5 class="title"><?php echo $empleados[0]["Nombre"]  ?></h5>
                             </p>
                             <br>
                             <p class="description">
-                               <?php echo $usuarios[0]["Correo"]  ?>
-
-                              
+                               <?php echo $empleados[0]["Correo"]  ?>                             
                             </p>
                         </div>
                         <!--<p class="description text-center">
@@ -201,29 +150,8 @@
                                 <div class="col-lg-2 ml-auto mr-auto ">
                                     <h5>1<br><small>Correos</small></h5>
                                 </div>-->
-                                <h5>
-                                <?php
-                                if( $usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="1") {  
-                                print_r("Plata");
-                                }
-                                elseif($usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="2"){
-                                print_r("oro");
-                                }
-                                elseif($usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="3"){
-                                    print_r("Platino");
-                                    }
-                                ?>
-                                </h5>
-                                <h5>
-                                <?php
-                                if( $usuarios[0] ["Tipo_Plan_Id_Tipo_Plan"]=="1") {  
-                                print_r("Mensual");
-                                }
-                                elseif($usuarios[0] ["Tipo_Plan_Id_Tipo_Plan"]=="2"){
-                                print_r("Anual");
-                                }
-                                 ?> 
-                                 </h5>
+                                <h5>Paquete Chibcha Oro CAMBIAR</h5>
+                                <h5>Mensual CAMBIAR </h5>
                             </div>
                         </div>
                     </div>
@@ -246,13 +174,13 @@
                             <div class="col-md-3 px-1">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" value="<?php echo $usuarios[0]["Nombre"]  ?>">
+                                    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" value="<?php echo $empleados[0]["Nombre"]  ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="text" name="Apellido" class="form-control" placeholder="Apellido" value="<?php echo $usuarios[0]["Apellido"]  ?>">
+                                    <input type="text" name="Apellido" class="form-control" placeholder="Apellido" value="<?php echo $empleados[0]["Apellido"]  ?>">
                                 </div>
                             </div>
                         </div>
@@ -260,7 +188,7 @@
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Correo</label>
-                                    <input type="text" name="Correo" class="form-control" placeholder="Correo" value= "<?php echo $usuarios[0]["Correo"]  ?>">
+                                    <input type="text" name="Correo" class="form-control" placeholder="Correo" value= "<?php echo $empleados[0]["Correo"]  ?>">
                                 </div>
                             <!--</div>
                             <div class="col-md-6 pl-1">
@@ -270,7 +198,6 @@
                                 </div>
                             </div>-->
                         </div>
-                         
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -279,121 +206,21 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- FORMA DE PAGO  -->
-                        <div class="row">
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Forma de Pago</label>
-                                            <br>
-                                            <select class="btn btn-neutral dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <?php 
-                                            if( $usuarios[0] ["Forma_Pago_Id_Forma_Pago"]=="Credito") {  
-                                            ?>
-
-                                                <option selected value="1" class="dropdown-item">Credito</option>
-                                                <option value="2" class="dropdown-item">Contado</option>
-
-                                                <?php 
-                                            }
-                                                elseif( $usuarios[0] ["Forma_Pago_Id_Forma_Pago"]=="0"){
-                                                ?>
-
-                                                <option selected value="0" class="dropdown-item">Sin seleccionar</option>
-
-                                                <?php 
-
-                                                }
-                                                else{
-
-                                                ?>
-
-                                                <option value="1" class="dropdown-item">Credito</option>
-                                                <option selected value="2" class="dropdown-item">Contado</option>
-
-                                                <?php 
-                                                }
-                                                ?>
-                                            </select>
-                                            <!--<label>Forma de Pago</label>
-                                            <input name="FP" type="text" class="form-control" placeholder="Forma de Pago">-->
-                                        </div>
-                                    </div>
-                        <!-- TIPO DE PLAN -->
                         <div class="col-md-4 px-1">
                                         <div class="form-group">
                                             <label>Tipo de Plan</label>
                                             <br>
                                             <select class="btn btn-neutral dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <?php 
-                                            if( $usuarios[0] ["Tipo_Plan_Id_Tipo_Plan"]=="1") {  
-                                            ?>
-                                                <option selected value="1" class="dropdown-item">Mensual</option>
-                                                <option value="2" class="dropdown-item">Anual</option>
-                                                <?php 
-                                            }
-                                                elseif( $usuarios[0] ["Tipo_Plan_Id_Tipo_Plan"]=="0"){
-                                                ?>
-                                                 <option selected value="0" class="dropdown-item">Sin seleccionar</option>
-
-                                                <?php                                             
-                                            }
-                                                else{
-                                                ?>
                                                 <option value="1" class="dropdown-item">Mensual</option>
-                                                <option selected value="2" class="dropdown-item">Anual</option>
-
-                                                <?php 
-                                                }
-                                                ?>
+                                                <option value="2" class="dropdown-item">Anual</option>
                                             </select>
-                                        </div>
-                                            </div>
-                                             <!-- TIPO DE PAQUETE -->
-                                             <div class="col-md-4 px-1">
-
                                             <div class="form-group">
                                             <label>Tipo de Paquete</label>
                                             <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <?php 
-                                            if( $usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="1") {  
-                                            ?>
-                                                <option selected value="1" class="dropdown-item">Chibcha Plata</option>
-                                                <option value="2" class="dropdown-item">Chibcha Oro</option>
-                                                <option value="3" class="dropdown-item">Chibcha Platino</option>
-
-                                                <?php 
-                                            }
-                                                elseif( $usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="0"){
-                                                ?>
-
-                                                <option selected value="0" class="dropdown-item">Sin seleccionar</option>
                                                 <option value="1" class="dropdown-item">Chibcha Plata</option>
                                                 <option value="2" class="dropdown-item">Chibcha Oro</option>
                                                 <option value="3" class="dropdown-item">Chibcha Platino</option>
-
-                                                <?php                                             
-                                            }
-                                                elseif( $usuarios[0] ["Tipo_Paquete_Id_Tipo_Paquete"]=="2"){
-                                                ?>
-                                                <option  value="1" class="dropdown-item">Chibcha Plata</option>
-                                                <option selected value="2" class="dropdown-item">Chibcha Oro</option>
-                                                <option value="3" class="dropdown-item">Chibcha Platino</option>
-                                                
-                                                <?php 
-                                            }
-                                                else{
-                                                ?>
-                                                <option  value="1" class="dropdown-item">Chibcha Plata</option>
-                                                <option  value="2" class="dropdown-item">Chibcha Oro</option>
-                                                <option selected value="3" class="dropdown-item">Chibcha Platino</option>
-                                                <?php 
-                                            }   
-                                                ?> 
-
                                             </select>
-                                            </div>
-                                             </div>
                         <!--<div class="row">
                             <div class="col-md-4 pr-1">
                                 <div class="form-group">
