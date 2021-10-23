@@ -1,5 +1,18 @@
 <?php
-    include_once "../Persistencia/conexion.php";
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+  $usuarioActual=$_SESSION['nombreUsuario'];
+}else{
+  header('location: login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+  session_destroy();
+  header('location: login.php');
+}
+?>
+<?php
+include_once "../Persistencia/conexion.php";
     session_start();
     $user = $_SESSION['emailUsuario'];
     $query = $bd->prepare('SELECT "Id","Nombre", "Apellido", "Correo" FROM "Empleado" WHERE "Correo"=:user ' );
