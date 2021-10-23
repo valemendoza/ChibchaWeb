@@ -251,7 +251,6 @@ if(isset($_POST['btcerrarS'])){
                   $newEmpleado= $fila[0];
                 }
 
-                echo $newEmpleado;
 
                 //CAMBIAR EL TICKET A OTRO EMPLEADO
                 $ticket=$_POST['ticket'];
@@ -277,7 +276,8 @@ if(isset($_POST['btcerrarS'])){
 
 
                 echo "<script>
-                 alertify.success('Transferido con exito.');
+                alert('Transferido con exito.');
+                window.location= 'inicioEmpleado.php'
                 </script>";
               }
 
