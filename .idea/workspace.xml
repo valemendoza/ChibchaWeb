@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
-      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/EditDistribudor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logica/ED.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logica/EC.php" beforeDir="false" afterPath="$PROJECT_DIR$/logica/EC.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logica/EE.php" beforeDir="false" afterPath="$PROJECT_DIR$/logica/EE.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Js/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" afterDir="false" />
     </list>

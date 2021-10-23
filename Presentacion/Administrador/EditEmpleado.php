@@ -20,6 +20,8 @@
 </head>
 
 <body class="">
+
+
 <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
@@ -36,7 +38,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active ">
-                    <a href="../../inicioAdmon.php">
+                    <a href="../inicioAdmon.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
                     </a>
@@ -60,19 +62,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./user.html">
+                    <a href="tablaTickets.php">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Tickets</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
+                    <a href="../trazabilidadUsuarios.php">
                         <i class="bi bi-layout-text-window"></i>
                         <p>Trazabilidad Usuarios</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./typography.html">
+                    <a href="../trazabilidadTickets.php">
                         <i class="bi bi-menu-up"></i>
                         <p>Trazabilidad Tickets</p>
                     </a>
@@ -90,8 +92,9 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <button type="button" onclick="location.href='../index.html'" class="btn btn-link" >Cerrar Sesión</button>
-                            </a>
+                            <form method="POST">
+                                <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                            </form>
                         </li>
                     </ul>
                 </div>

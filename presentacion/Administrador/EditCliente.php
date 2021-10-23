@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION['emailUsuario'])){
+    $usuarioActual=$_SESSION['nombreUsuario'];
+}else{
+    header('location: ../login.php');
+}
+
+if(isset($_POST['btcerrarS'])){
+    session_destroy();
+    header('location: ../login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,13 +43,13 @@
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-                Nombre del Admin
+                <?php echo $usuarioActual?>
             </a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active ">
-                    <a href="../../inicioAdmon.php">
+                    <a href="../inicioAdmon.php">
                         <i class="bi bi-house-door-fill"></i>
                         <p>Inicio</p>
                     </a>
@@ -60,19 +73,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./user.html">
+                    <a href="tablaTickets.php">
                         <i class="bi bi-receipt-cutoff"></i>
                         <p>Tickets</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
+                    <a href="../trazabilidadUsuarios.php">
                         <i class="bi bi-layout-text-window"></i>
                         <p>Trazabilidad Usuarios</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./typography.html">
+                    <a href="../trazabilidadTickets.php">
                         <i class="bi bi-menu-up"></i>
                         <p>Trazabilidad Tickets</p>
                     </a>
@@ -90,8 +103,9 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <button type="button" onclick="location.href='../index.html'" class="btn btn-link" >Cerrar Sesión</button>
-                            </a>
+                            <form method="POST">
+                                <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -275,9 +289,10 @@
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
                                         <button name="actualizar" type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
+                                        <button name="borrar" type="butmit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
                                     </div>
                                     <div class="update ml-auto mr-auto">
-                                        <button name="borrar" type="butmit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                        <button type="button" onclick="location.href='tablaCliente.php'" class="btn btn-danger" style="background: orangered; border-color: orangered">Volver</button>
                                     </div>
                                 </div>
                         </form>

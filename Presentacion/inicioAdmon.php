@@ -117,12 +117,12 @@ if(isset($_POST['btcerrarS'])){
       <?php 
 
         include_once "../Persistencia/conexion.php";
-        $query = $bd->prepare('SELECT * from "Cliente"'  );
+        $query = $bd->prepare('SELECT * from "Cliente" WHERE "Estado"=1;'  );
         $query -> execute();
         $clientes = $query->fetchAll(PDO::FETCH_OBJ);
         $cant_clientes = count($clientes);  
 
-        $query = $bd->prepare('SELECT * from "Empleado"'  );
+        $query = $bd->prepare('SELECT * from "Empleado" WHERE "Estado"=1'  );
         $query -> execute();
         $empleados = $query->fetchAll(PDO::FETCH_OBJ);
         $cant_empleados = count($empleados);    
@@ -132,7 +132,7 @@ if(isset($_POST['btcerrarS'])){
         $distribuidores = $query->fetchAll(PDO::FETCH_OBJ);
         $cant_distribuidores = count($distribuidores);    
 
-        $query = $bd->prepare('SELECT * from "Ticket"'  );
+        $query = $bd->prepare('SELECT * from "Ticket" WHERE "Estado"=1'  );
         $query -> execute();
         $tickets = $query->fetchAll(PDO::FETCH_OBJ);
         $cant_tickets = count($tickets); 
