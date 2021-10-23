@@ -125,33 +125,8 @@ if(isset($_POST['btcerrarS'])){
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php 
-
-        include_once "../Persistencia/conexion.php";
-        $query = $bd->prepare('SELECT * from "Cliente"'  );
-        $query -> execute();
-        $clientes = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_clientes = count($clientes);  
-
-        $query = $bd->prepare('SELECT * from "Empleado"'  );
-        $query -> execute();
-        $empleados = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_empleados = count($empleados);    
-        
-        $query = $bd->prepare('SELECT * from "Distribuidor"'  );
-        $query -> execute();
-        $distribuidores = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_distribuidores = count($distribuidores);    
-
-        $query = $bd->prepare('SELECT * from "Ticket"'  );
-        $query -> execute();
-        $tickets = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_tickets = count($tickets); 
-        
-      ?>
-
-
-        <!-- ===============================================MODIFICAN DESDE ACA ============================================
+      
+  <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
      
       <div class="content">
@@ -166,30 +141,31 @@ if(isset($_POST['btcerrarS'])){
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="myTable" class="table table-striped table-bordered table-hover">
+                                <table id="myTable" class="table table-striped table-bordered table-hover " style="table-layout: fixed" >
                                     <tr class=" text-success" id="row">
                                         <th>
                                             Fecha de Modificación
                                         </th>
                                         <th>
-                                            Usuario
+                                            Empleado
                                         </th>
                                         <th>
                                             Acción
                                         </th>
                                         <th>
-                                            Sobre Tabla
+                                            Ticket
                                         </th>
-                                        <th width="10px">
-                                            Valor Anterior
+                                        <th width="250px">
+                                            Comentario
                                         </th>
                                         <th>
-                                            Valor Actual
+                                            Nivel
                                         </th>
                                         <?php 
                                           include_once "../Persistencia/conexion.php";
-                                          $query = $bd->prepare('SELECT action_tstamp, user_name,action, table_name, original_data,new_data
-                                          from audit.logged_actions;');
+                                          $query = $bd->prepare('SELECT "Fecha_Mod", "Empleado"."Nombre", "Accion","Id_Ticket", comentario, nivel_actual 
+                                          FROM "Auditoria_Tickets", "Empleado"
+                                          WHERE "Auditoria_Tickets"."id_Emp"="Empleado"."Id";');
                                           $query -> execute();
                                           while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                                         ?>
@@ -202,13 +178,7 @@ if(isset($_POST['btcerrarS'])){
                                       <?php echo $fila[1] ?>
                                     </td>
                                     <td >
-                                      <?php if ($fila[2]=='I') {
-                                          echo "Insertar";
-                                      }elseif($fila[2]=='U') {
-                                        echo "Actualizar";
-                                    }elseif($fila[2]=='D') {
-                                        echo "Eliminar";
-                                    } ?>
+                                      <?php echo $fila[2]?>
                                     </td>
                                     <td >
                                       <?php echo $fila[3] ?>

@@ -163,7 +163,9 @@ if(isset($_POST['btcerrarS'])){
               $titulo=$_POST["titulo"];
               $descripcion=$_POST["descripcion"];
               //Encontrar el empleado con menor cantidad de tickets
-              $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado"  GROUP BY "Id" ORDER BY "min" DESC;'  );
+              $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado" 
+              WHERE "Tipo_Empleado_Id_Tipo_Empleado"=1
+              GROUP BY "Id" ORDER BY "min" DESC;'  );
               $queryEmpleado -> execute();
               while ($fila = $queryEmpleado->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                 $empleadoId= $fila[0];

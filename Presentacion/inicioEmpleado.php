@@ -29,6 +29,10 @@ if(isset($_POST['btcerrarS'])){
    <script src="../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../Librerias/Bootstrap/css/bootstrap.css">
     
+      <!-- ALERTIFY -->
+      <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/themes/default.css">
+  <script src="../Librerias/Alertify/alertify.js"></script>
   <link rel="shortcut icon" href="../Img/logo.png" />
 
 </head>
@@ -97,7 +101,9 @@ if(isset($_POST['btcerrarS'])){
               </div>
               <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar..." onkeyup="myFunction()">
                   </div>
-            
+                  
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="transferir">Transferir Ticket</button>
+                        
               <div class="card-body">
                 <div class="table-responsive">
                 <table id="myTable" class="table table-striped table-bordered table-hover">
@@ -120,23 +126,17 @@ if(isset($_POST['btcerrarS'])){
                       <th>
                         Comentario Anterior
                       </th>
-                      <th>
-                        Cambiar Nivel
-                      </th>
                       <?php 
 
                         include_once "../Persistencia/conexion.php";
-                        $query = $bd->prepare('SELECT "Ticket"."Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre", "Auditoria_Tickets".comentario
-                        from "Ticket", "Nivel_Ticket","Estado", "Detalle_Ticket", "Auditoria_Tickets"
-                        WHERE "Nivel_Ticket"."Id_Nivel_Ticket"="Ticket"."Nivel_Ticket_Id_Nivel_Ticket" AND
-                              "Estado"."id_estado" = "Ticket"."Estado" AND
-                              "Auditoria_Tickets"."Id_Ticket" = "Ticket"."Id_Ticket" AND
-                              "Ticket"."Id_Ticket" = "Detalle_Ticket"."Ticket_Id_Ticket" AND
-                              "Detalle_Ticket"."Empleado_Id_Empleado"=:id;'  );
+                        $query = $bd->prepare('SELECT "Id_Ticket", "Nivel_Ticket_Id_Nivel_Ticket", fecha_ingreso,"Descripcion","Estado", comentario
+                        FROM "Ticket", "Detalle_Ticket"
+                        WHERE "Ticket"."Id_Ticket" = "Detalle_Ticket"."Ticket_Id_Ticket"
+                        AND "Detalle_Ticket"."Empleado_Id_Empleado" =:id;'  );
                         $query -> bindParam(":id", $_SESSION['idUsuario']);
                         $query -> execute();
                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
-                            $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
+
                       ?>
                     </tr>
                       <tr>
@@ -158,9 +158,6 @@ if(isset($_POST['btcerrarS'])){
                         <td >
                         <?php echo $fila[5] ?>
                         </td>
-                        <td >
-                        <center><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="transferir">Transferir</button></center>
-                        </td>
                       </tr>
                       <?php } ?>
                   </table>
@@ -179,18 +176,114 @@ if(isset($_POST['btcerrarS'])){
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                  <select name="ticket" id="ticket" autofocus required="True" class="form-select form-select-md" aria-label=".form-select-lg example">
+                      <option value="0" >Selecciona el id del ticket a transferir</option>
+                      <?php   
+                          include_once "../Persistencia/conexion.php";
+                          $querySelect = $bd->prepare('SELECT "Ticket_Id_Ticket" FROM "Detalle_Ticket", "Empleado"
+                          where "Detalle_Ticket"."Empleado_Id_Empleado" =:id
+                          GROUP BY "Ticket_Id_Ticket" ORDER BY "Ticket_Id_Ticket" ASC;');
+                          $querySelect -> bindParam(":id", $_SESSION['idUsuario']);
+                          $querySelect -> execute();
+                          while ($fila = $querySelect->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) 
+                          { ?>
+                              <option autofocus required="True" style="color:black" value="<?php echo $fila[0];?>"><?php echo $fila[0];?></option>;
+                      <?php } ?>
+                  </select>
                   <label for="exampleFormControlTextarea1">Debe agregar un comentario sobre su transferencia:</label>
                     <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True"></textarea>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button type="submit" id="enviar" name="enviar" class="btn btn-success">Enviar</button>
                   </div>
                 </div>
               </div>
             </div>
           </form>
-      
+
+          <?php
+        if(isset($_POST['enviar'])){
+                $descripcion=$_POST['descripcion'];
+                $ticket=$_POST['ticket'];
+                
+                if($ticket==0){
+                  ?> <div class="container bg-danger text-white"> <label style="text-align:center;"> <?php echo "Debe seleccionar el id del ticket a transferir. <br>";
+                  ?> </label></div> <?php
+                }else{
+
+                  //VER EL NIVEL DEL TICKET SELECCIONADO
+                $queryVer= $bd->prepare('SELECT "Nivel_Ticket_Id_Nivel_Ticket" FROM "Ticket" where "Id_Ticket"=:ticketId');
+                $queryVer -> bindParam(":ticketId", $ticket);
+
+                $queryVer -> execute();
+
+                while ($fila = $queryVer->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                  $nivelId= $fila[0];
+                }
+                $nivelId= $nivelId+1;
+
+
+                //AUDITORIA DEL TICKET
+                $date=date("Y-m-d");
+                $accion="Transferencia";
+                $queryAudi = $bd->prepare('INSERT INTO "Auditoria_Tickets" 
+                ("Id_Ticket", "Fecha_Mod", "Accion", nivel_actual,"comentario", "id_Emp") 
+                VALUES (:ticketId, :fecha, :creacion, :nivelId, :comentario, :empleadoId );');
+                $queryAudi -> bindParam(":ticketId", $ticket);
+                $queryAudi -> bindParam(":fecha", $date);
+                $queryAudi -> bindParam(":empleadoId", $_SESSION['idUsuario']);
+                $queryAudi -> bindParam(":creacion", $accion);
+                $queryAudi -> bindParam(":comentario", $descripcion);
+                $queryAudi -> bindParam(":nivelId", $nivelId);
+                
+                $queryAudi -> execute();
+
+                //BUSCAR EMPLEADO CON MENOS TICKETS DEL SIGUIENTE NIVEL
+                $queryBuscar= $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado"
+                WHERE "Tipo_Empleado_Id_Tipo_Empleado"=:nivelId
+                GROUP BY "Id" ORDER BY "min" DESC;');
+                $queryBuscar -> bindParam(":nivelId", $nivelId);
+
+                $queryBuscar -> execute();
+                
+                while ($fila = $queryBuscar->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                  $newEmpleado= $fila[0];
+                }
+
+                echo $newEmpleado;
+
+                //CAMBIAR EL TICKET A OTRO EMPLEADO
+                $ticket=$_POST['ticket'];
+                $queryActualizar = $bd->prepare('UPDATE "Detalle_Ticket" 
+                set "Empleado_Id_Empleado"=:newEmpleado
+                WHERE "Ticket_Id_Ticket"=:ticketId;');
+
+                $queryActualizar -> bindParam(":ticketId", $ticket);
+                $queryActualizar -> bindParam(":newEmpleado", $newEmpleado);
+
+                $queryActualizar -> execute();
+
+                //CAMBIAR COMENTARIO DEL TICKET
+                $descripcion=$_POST['descripcion'];
+                $queryComentario = $bd -> prepare('UPDATE "Ticket"
+                set comentario = :descripcion, "Nivel_Ticket_Id_Nivel_Ticket"=:nivelId
+                WHERE "Id_Ticket"=:ticketId ;');
+                $queryComentario -> bindParam(":descripcion", $descripcion);
+                $queryComentario -> bindParam(":ticketId", $ticket);
+                $queryComentario -> bindParam(":nivelId", $nivelId);
+
+                $queryComentario -> execute();
+
+
+                echo "<script>
+                 alertify.success('Transferido con exito.');
+                </script>";
+              }
+
+            
+        }
+        ?>
 
        <!-- ===============================================MODIFICAN HASTA ACA ============================================
       ================================================================================================================ -->

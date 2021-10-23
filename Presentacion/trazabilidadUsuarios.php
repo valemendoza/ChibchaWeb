@@ -125,31 +125,7 @@ if(isset($_POST['btcerrarS'])){
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php 
-
-        include_once "../Persistencia/conexion.php";
-        $query = $bd->prepare('SELECT * from "Cliente"'  );
-        $query -> execute();
-        $clientes = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_clientes = count($clientes);  
-
-        $query = $bd->prepare('SELECT * from "Empleado"'  );
-        $query -> execute();
-        $empleados = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_empleados = count($empleados);    
-        
-        $query = $bd->prepare('SELECT * from "Distribuidor"'  );
-        $query -> execute();
-        $distribuidores = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_distribuidores = count($distribuidores);    
-
-        $query = $bd->prepare('SELECT * from "Ticket"'  );
-        $query -> execute();
-        $tickets = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_tickets = count($tickets); 
-        
-      ?>
-
+     
 
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
       ================================================================================================================ -->
@@ -166,9 +142,9 @@ if(isset($_POST['btcerrarS'])){
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="myTable" class="table table-striped table-bordered table-hover">
+                                <table id="myTable" class="table table-striped table-bordered table-hover" style="table-layout: fixed">
                                     <tr class=" text-success" id="row">
-                                        <th>
+                                        <th width="17%">
                                             Fecha de Modificación
                                         </th>
                                         <th>
@@ -180,10 +156,10 @@ if(isset($_POST['btcerrarS'])){
                                         <th>
                                             Sobre Tabla
                                         </th>
-                                        <th width="10px">
+                                        <th width="26%">
                                             Valor Anterior
                                         </th>
-                                        <th>
+                                        <th width="26%">
                                             Valor Actual
                                         </th>
                                         <?php 
