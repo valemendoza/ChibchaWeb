@@ -205,19 +205,19 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
                                         <label>ID</label>
-                                        <input name="ID" type="text" class="form-control" placeholder="Ingrese el Id del empleado a editar">
+                                        <input name="ID" type="number" class="form-control" maxlength="12" minlength="8" min="0" autofocus required="True" placeholder="Ingrese el Id del empleado a editar">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Nombre">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" placeholder="Apellido">
+                                        <input name="Apellido" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Apellido">
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input name="Correo" type="text" class="form-control" placeholder="Correo">
+                                        <input name="Correo" type="email"  autofocus required="True" class="form-control" placeholder="Correo">
                                     </div>
                                     </div>
                                     <div class="col-md-6 pl-1">

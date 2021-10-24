@@ -203,27 +203,27 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
                                         <label>ID</label>
-                                        <input name="ID" type="text" class="form-control" placeholder="Ingrese el Id del empleado a editar">
+                                        <input name="ID" type="number" maxlength="12" minlength="8" min="0" autofocus required="True" class="form-control" placeholder="Ingrese el Id del empleado a editar">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Nombre">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Cantidad" type="text" class="form-control" placeholder="Cantidad Dominios">
+                                        <label for="exampleInputEmail1">Cant Dominios</label>
+                                        <input name="Cantidad" type="number" class="form-control" min="0" autofocus required="True"  placeholder="Cantidad Dominios">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
-                                        <label>Correo</label>
-                                        <input name="Extencion" type="text" class="form-control" placeholder="Extencion">
+                                        <label>Extensión </label>
+                                        <input name="Extencion" type="text" class="form-control" autofocus required="True" placeholder="Extencion">
                                     </div>
                                     <!--</div>
                                     <div class="col-md-6 pl-1">

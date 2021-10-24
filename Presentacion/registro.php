@@ -32,15 +32,15 @@
               <form action="" method="POST" >
                 <div class="form-group">
                     <label for="nombre" class="sr-only">nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" autofocus required="True">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" autofocus required="True" pattern="[A-Za-z]+">
                   </div>
                   <div class="form-group">
                     <label for="apellido" class="sr-only">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" autofocus required="True">
+                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" autofocus required="True" pattern="[A-Za-z]+">
                   </div>
                   <div class="form-group">
                     <label for="cedula" class="sr-only">Cedula</label>
-                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" maxlength="12" minlength="8" min="0" autofocus required="True">
+                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" maxlength="12" minlength="8" min="0" autofocus required="True" pattern="[0-9]+">
                   </div>
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>

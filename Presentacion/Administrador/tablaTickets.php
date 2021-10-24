@@ -150,7 +150,7 @@ if(isset($_POST['btcerrarS'])){
                         <div class="card-header">
                             <h4 class="card-title"> Tabla de Tickets</h4>
                         </div>
-                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar..." onkeyup="myFunction()">
+                        <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar por id..." onkeyup="myFunction()">
                         </div>
 
                         <div class="card-body">

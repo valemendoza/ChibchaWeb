@@ -279,13 +279,13 @@ if(isset($_POST['btcerrarS'])){
                             <div class="col-md-3 px-1">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" value="<?php echo $usuarios[0]["Nombre"]  ?>">
+                                    <input type="text" name="Nombre" class="form-control" autofocus required="True" placeholder="Nombre" pattern="[A-Za-z]+" value="<?php echo $usuarios[0]["Nombre"]  ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="text" name="Apellido" class="form-control" placeholder="Apellido" value="<?php echo $usuarios[0]["Apellido"]  ?>">
+                                    <input type="text" name="Apellido" class="form-control" autofocus required="True" placeholder="Apellido" pattern="[A-Za-z]+" value="<?php echo $usuarios[0]["Apellido"]  ?>">
                                 </div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@ if(isset($_POST['btcerrarS'])){
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Correo</label>
-                                    <input type="text" name="Correo" class="form-control" placeholder="Correo" value= "<?php echo $usuarios[0]["Correo"]  ?>">
+                                    <input type="email" autofocus required="True" name="Correo" class="form-control" placeholder="Correo"  value= "<?php echo $usuarios[0]["Correo"]  ?>">
                                 </div>
                             <!--</div>
                             <div class="col-md-6 pl-1">
@@ -308,7 +308,7 @@ if(isset($_POST['btcerrarS'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                                    <input type="password"  name="password" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" class="form-control" placeholder="********">
                                 </div>
                             </div>
                         </div>
