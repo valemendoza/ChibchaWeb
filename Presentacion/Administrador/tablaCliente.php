@@ -248,8 +248,8 @@ if(isset($_POST['btcerrarS'])){
                                     </tr>
                                     <?php } ?>
                                 </table>
-                                <form method="POST">
-                                <button type="submit" class="btn btn-success" id="cliente" name="cliente">Editar</button>
+                                <form method="POST" action="">
+                                <input type="submit" class="btn btn-success" id="cliente" name="cliente" value="Editar">
                                         </form>
                                 <?php 
                                 if(isset ($_POST['cliente'])){

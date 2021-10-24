@@ -27,26 +27,26 @@
               <form action="" method="POST" >
                 <div class="form-group">
                     <label for="nombre" class="sr-only">nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" autofocus required="True">
                   </div>
                   <div class="form-group">
                     <label for="apellido" class="sr-only">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido">
+                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" autofocus required="True">
                   </div>
                   <div class="form-group">
                     <label for="cedula" class="sr-only">Cedula</label>
-                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula">
+                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" autofocus required="True">
                   </div>
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" autofocus required="True">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Clave</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" autofocus required="True">
                   </div>
                   <div class="form-group mb-4">
-                    <label for="repassword" class="sr-only">Confirmar Clave</label>
+                    <label for="repassword" class="sr-only">Confirmar Clave</label autofocus required="True">
                     <input type="password" name="repassword" id="repassword" class="form-control" placeholder="Confirmar Contraseña">
                   </div>
                   <input name="registro" id="registro" class="btn btn-block login-btn mb-4" style="background-color: green;" type="submit" value="Registrate" >
