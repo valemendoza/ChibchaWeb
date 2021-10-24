@@ -160,7 +160,9 @@ if(isset($_POST['btcerrarS'])){
                               "Ticket"."Cliente_Id_Cliente"="Cliente"."Id" AND
                               "Cliente"."Id"=:id
                         ORDER BY "fecha_ingreso" DESC;'  );
-                        $query ->binParam(":id", $_SESSION['idUsuario']);
+
+                        echo  $_SESSION['idUsuario'];
+                        $query ->bindParam(":id", $_SESSION['idUsuario']);
                         $query -> execute();
                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                             $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
