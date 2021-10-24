@@ -1,5 +1,5 @@
 <?php
-include_once "../persistencia/conexion.php";
+include_once "../Persistencia/conexion.php";
 /*session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['emailUsuario'];

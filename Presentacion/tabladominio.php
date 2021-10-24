@@ -147,7 +147,7 @@
                                         </th>
                                         <?php
 
-                                        include_once "../persistencia/conexion.php";
+                                        include_once "../Persistencia/conexion.php";
                                         $query = $bd->prepare('SELECT * FROM "Dominio"');
                                         $query -> execute();
                                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {

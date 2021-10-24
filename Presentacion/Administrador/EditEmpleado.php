@@ -117,7 +117,7 @@ if(isset($_POST['btcerrarS'])){
       <!-- End Navbar -->
         <?php
 
-        include_once "../../persistencia/conexion.php";
+        include_once "../../Persistencia/conexion.php";
         $query = $bd->prepare('SELECT * from "Cliente"'  );
         $query -> execute();
         $clientes = $query->fetchAll(PDO::FETCH_OBJ);
@@ -144,7 +144,7 @@ if(isset($_POST['btcerrarS'])){
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
         <?php
-        include_once "../../persistencia/conexion.php";
+        include_once "../../Persistencia/conexion.php";
 
         ?>
         <br><br><br><br>

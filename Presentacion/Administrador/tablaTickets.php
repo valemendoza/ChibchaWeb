@@ -116,7 +116,7 @@ if(isset($_POST['btcerrarS'])){
       <!-- End Navbar -->
         <?php
 
-        include_once "../../persistencia/conexion.php";
+        include_once "../../Persistencia/conexion.php";
         $query = $bd->prepare('SELECT * from "Cliente"'  );
         $query -> execute();
         $clientes = $query->fetchAll(PDO::FETCH_OBJ);
@@ -186,7 +186,7 @@ if(isset($_POST['btcerrarS'])){
                                         </th>-->
                                         <?php
 
-                                        include_once "../../persistencia/conexion.php";
+                                        include_once "../../Persistencia/conexion.php";
                                         $query = $bd->prepare('SELECT * FROM "Ticket" WHERE "Estado" = 1');
                                         $query -> execute();
                                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
