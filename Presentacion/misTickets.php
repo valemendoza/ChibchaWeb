@@ -161,7 +161,6 @@ if(isset($_POST['btcerrarS'])){
                               "Cliente"."Id"=:id
                         ORDER BY "fecha_ingreso" DESC;'  );
 
-                        echo  $_SESSION['idUsuario'];
                         $query ->bindParam(":id", $_SESSION['idUsuario']);
                         $query -> execute();
                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
