@@ -50,6 +50,7 @@ include_once "../Persistencia/conexion.php";
     $query -> bindParam(":user",$user);
     $query -> execute();
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+    header('location: EditarEmpleado.php');
     }
 ?>
 <!DOCTYPE html>
@@ -81,7 +82,7 @@ include_once "../Persistencia/conexion.php";
                 <!-- <p>CT</p> -->
             </a>
             <a class="simple-text logo-normal">
-            <?php echo $usuarioActual ?> 
+            <?php  echo $empleados[0]["Nombre"] ?> 
             </a>
         </div>
         <div class="sidebar-wrapper">

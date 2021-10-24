@@ -101,7 +101,7 @@ if(isset($_POST['btcerrarS'])){
         <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
             <div class="container-fluid" style="background-color: #CA5B09;">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" style="color: white" >SEGUIMIENTO DE TICKETS</a>
+                    <a class="navbar-brand" style="color: white" >MIS DOMINIOS</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav"  >
@@ -127,7 +127,7 @@ if(isset($_POST['btcerrarS'])){
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Seguimiento de Tickets</h4>
+                            <h4 class="card-title"> Dominios Registrados</h4>
                         </div>
                         <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar por id..." onkeyup="myFunction()">
                         </div>
