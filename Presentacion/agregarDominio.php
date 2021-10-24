@@ -146,7 +146,35 @@ if(isset($_POST['btcerrarS'])){
 
                 <?php } ?>
             </select>
-           
+            <?php
+        if(isset($_POST['enviart'])){
+                $buscaweb=$_POST['dominio'];
+                $distribuidor=$_POST['distribuidor'];
+                $distribuidorPartes=explode(',', $distribuidor);
+                $extension=$distribuidorPartes[1];
+                $id=$distribuidorPartes[0];
+                
+                
+                $pagina = 'www.'.$buscaweb.$extension;
+                if (gethostbyname($pagina) != $pagina){
+                ?> <br> <div class="container-sm bg-danger text-white"> <label style="text-align:center;"> <?php echo "La pagina con el dominio ".$pagina." no está disponible, por favor intenta con otro distribuidor u otro nombre.<br>";
+                ?> </label></div> <?php
+            }else{
+                ?> <br> <div class="container-sm bg-success text-white"> <label style="text-align:center;"> <?php echo "¡Enhorabuena! La pagina con el dominio ".$pagina." está disponible.<br>";
+                ?> </label></div> <?php
+                $query = $bd->prepare('INSERT INTO "Dominio" ("Nombre", "Cliente_Id_Cliente", "Distribuidor_Id_Distribuidor") VALUES
+                (:nombre,:id_cliente,:id_distribuidor);');
+                $query -> bindParam(":nombre",$buscaweb);
+                $query -> bindParam(":id_distribuidor",$id);
+                $query -> bindParam(":id_cliente", $_SESSION['idUsuario']);
+                $query -> execute();
+                echo "<script>
+                 alertify.success('Agregado con exito.');
+                </script>";
+            }
+        }
+        ?>
+            
             <center><input name="enviart" id="enviart" class="btn btn-success" type="submit" value="Enviar"></center>
         </form>
 
@@ -162,34 +190,3 @@ if(isset($_POST['btcerrarS'])){
 
 </html>
 
-<?php
-        if(isset($_POST['enviart'])){
-                $buscaweb=$_POST['dominio'];
-                $distribuidor=$_POST['distribuidor'];
-                $distribuidorPartes=explode(',', $distribuidor);
-                $extension=$distribuidorPartes[1];
-                $id=$distribuidorPartes[0];
-               
-                
-                $pagina = 'www.'.$buscaweb.$extension;
-                if (gethostbyname($pagina) != $pagina){
-                  echo "<script>
-                alert('El dominio no está disponible.');
-                </script>";
-            }else{
-              echo "<script>
-              alert('Es tuyo!!!!');
-              </script>";
-                $query = $bd->prepare('INSERT INTO "Dominio" ("Nombre", "Cliente_Id_Cliente", "Distribuidor_Id_Distribuidor") VALUES
-                (:nombre,:id_cliente,:id_distribuidor);');
-                $query -> bindParam(":nombre",$buscaweb);
-                $query -> bindParam(":id_distribuidor",$id);
-                $query -> bindParam(":id_cliente", $_SESSION['idUsuario']);
-                $query -> execute();
-                echo "<script>
-                 alertify.success('Agregado con exito.');
-                </script>";
-            }
-        }
-        ?>
-            
