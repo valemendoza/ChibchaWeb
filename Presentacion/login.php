@@ -77,7 +77,6 @@
 session_start();
 if(isset($_SESSION['emailUsuario'])){
   if($_SESSION['tipoUsuario']=="C"){
-    $_SESSION['nombreUsuario']="hola";
     header("location:../Presentacion/inicioCliente.php");  
   }elseif($_SESSION['tipoUsuario']=="A"){
     header("location:../Presentacion/inicioAdmon.php");  
