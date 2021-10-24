@@ -146,7 +146,23 @@ if(isset($_POST['btcerrarS'])){
 
                 <?php } ?>
             </select>
-            <?php
+           
+            <center><input name="enviart" id="enviart" class="btn btn-success" type="submit" value="Enviar"></center>
+        </form>
+
+    </div>
+    </div>
+       <!-- ===============================================MODIFICAN HASTA ACA============================================
+      ================================================================================================================ -->
+    
+    </div>
+  </div>
+ 
+</body>
+
+</html>
+
+<?php
         if(isset($_POST['enviart'])){
                 $buscaweb=$_POST['dominio'];
                 $distribuidor=$_POST['distribuidor'];
@@ -179,18 +195,3 @@ if(isset($_POST['btcerrarS'])){
         }
         ?>
             
-            <center><input name="enviart" id="enviart" class="btn btn-success" type="submit" value="Enviar"></center>
-        </form>
-
-    </div>
-    </div>
-       <!-- ===============================================MODIFICAN HASTA ACA============================================
-      ================================================================================================================ -->
-    
-    </div>
-  </div>
- 
-</body>
-
-</html>
-
