@@ -39,7 +39,7 @@
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Clave</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="***********" maxlength="8" minlength="3" required="True">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="***********" maxlength="15" minlength="3" required="True">
                   </div>
                   <br>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Ingresar">

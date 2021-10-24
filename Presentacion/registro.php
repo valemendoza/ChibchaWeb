@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="../Css/registro.css">
+   <!-- ALERTIFY -->
+   <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="../Librerias/Alertify/css/themes/default.css">
+  <script src="../Librerias/Alertify/alertify.js"></script>
+  <link rel="shortcut icon" href="../Img/logo.png" />
 </head>
 <body>
   <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -43,11 +48,11 @@
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Clave</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" autofocus required="True">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" placeholder="***********" maxlength="15" minlength="3" autofocus required="True">
                   </div>
                   <div class="form-group mb-4">
                     <label for="repassword" class="sr-only">Confirmar Clave</label autofocus required="True">
-                    <input type="password" name="repassword" id="repassword" class="form-control" placeholder="Confirmar Contraseña">
+                    <input type="password" name="repassword" id="repassword" class="form-control" placeholder="Confirmar Contraseña" placeholder="***********" maxlength="15" minlength="3">
                   </div>
                   <input name="registro" id="registro" class="btn btn-block login-btn mb-4" style="background-color: green;" type="submit" value="Registrate" >
                 </form>
@@ -55,7 +60,8 @@
                 include_once "../Persistencia/conexion.php";
                 
                 if (isset($_POST['registro'])) {
-                  
+                
+                  if($_POST['repassword']==$_POST['password']){
                 
                 $cedula=$_POST["cedula"];
                 $nombre=$_POST["nombre"];
@@ -94,7 +100,12 @@
                         echo "Error: " . $e->getMessage();
                 }
                 header("location:../Presentacion/login.php");  
+              }else{
+                echo "<script>
+                alertify.error('Las contraseñas NO coinciden');
+                </script>";
               }
+            }
                 ?>
 
 
