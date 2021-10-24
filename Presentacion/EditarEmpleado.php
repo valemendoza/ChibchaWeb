@@ -186,13 +186,13 @@ include_once "../Persistencia/conexion.php";
                             <div class="col-md-3 px-1">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" name="Nombre" class="form-control" placeholder="Nombre" value="<?php echo $empleados[0]["Nombre"]  ?>">
+                                    <input type="text" name="Nombre" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Nombre" value="<?php echo $empleados[0]["Nombre"]  ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="text" name="Apellido" class="form-control" placeholder="Apellido" value="<?php echo $empleados[0]["Apellido"]  ?>">
+                                    <input type="text" name="Apellido" class="form-control" pattern="[A-Za-z]+" autofocus required="True"  placeholder="Apellido" value="<?php echo $empleados[0]["Apellido"]  ?>">
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@ include_once "../Persistencia/conexion.php";
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Correo</label>
-                                    <input type="text" name="Correo" class="form-control" placeholder="Correo" value= "<?php echo $empleados[0]["Correo"]  ?>">
+                                    <input type="email" name="Correo" class="form-control" placeholder="Correo" autofocus required="True" value= "<?php echo $empleados[0]["Correo"]  ?>">
                                 </div>
                             <!--</div>
                             <div class="col-md-6 pl-1">
@@ -214,7 +214,7 @@ include_once "../Persistencia/conexion.php";
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                                    <input type="password" name="password" class="form-control" placeholder="********">
                                 </div>
                             </div>
                         </div>
