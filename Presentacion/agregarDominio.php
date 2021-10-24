@@ -129,7 +129,7 @@ if(isset($_POST['btcerrarS'])){
         <img src="../Img/AgregarDominio.png" alt="" width= "90%" ></center>
         <form method="POST" >
             <label >Nombre del dominio: </label>
-            <input type="text" class="form-control" id="dominio" name="dominio" autofocus required="True">
+            <input type="text" class="form-control" id="dominio" name="dominio" autofocus required="True" pattern="[A-Za-z]+">
            
             <label>Distribuidor: </label>
             <select name="distribuidor" id="distribuidor" autofocus required="True" class="form-select form-select-md" aria-label=".form-select-lg example">
