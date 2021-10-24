@@ -157,10 +157,13 @@ if(isset($_POST['btcerrarS'])){
                 
                 $pagina = 'http://www.'.$buscaweb.$extension;
                 if (@fopen($pagina,»r»)){
-                  echo "<script>alert('NNOOOOO')</script>";
+                  echo "<script>
+                alert('El dominio no está disponible.');
+                </script>";
             }else{
-                ?> <br> <div class="container-sm bg-success text-white"> <label style="text-align:center;"> <?php echo "¡Enhorabuena! La pagina con el dominio ".$pagina." está disponible.<br>";
-                ?> </label></div> <?php
+              echo "<script>
+              alert('Es tuyo!!!!');
+              </script>";
                 $query = $bd->prepare('INSERT INTO "Dominio" ("Nombre", "Cliente_Id_Cliente", "Distribuidor_Id_Distribuidor") VALUES
                 (:nombre,:id_cliente,:id_distribuidor);');
                 $query -> bindParam(":nombre",$buscaweb);
