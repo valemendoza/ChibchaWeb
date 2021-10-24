@@ -100,7 +100,7 @@
 
 
 
-                <p class="login-card-back"><a href="../index.html" class="text-reset">Regresar a la Página Principal.</a></p>
+                <p class="login-card-back"><a href="../index.php" class="text-reset">Regresar a la Página Principal.</a></p>
                 <center>
             </div>
           </div>

@@ -46,7 +46,7 @@
                 </form>
                 <p class="login-card-footer-text"><a href="registro.php" class="text-reset">No tengo cuenta. Registrarme Ahora.</a></p>
                
-                <p class="login-card-back"><a href="../index.html" class="text-reset">Regresar a la Página Principal.</a></p>
+                <p class="login-card-back"><a href="../index.php" class="text-reset">Regresar a la Página Principal.</a></p>
                 <center>
             </div>
           </div>
