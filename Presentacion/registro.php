@@ -40,7 +40,7 @@
                   </div>
                   <div class="form-group">
                     <label for="cedula" class="sr-only">Cedula</label>
-                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" autofocus required="True">
+                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" maxlength="12" minlength="8" min="0" autofocus required="True">
                   </div>
                   <div class="form-group">
                     <label for="email" class="sr-only">Correo</label>
@@ -62,6 +62,18 @@
                 if (isset($_POST['registro'])) {
                 
                   if($_POST['repassword']==$_POST['password']){
+
+                    $queryCorreo= $bd -> prepare('SELECT "Correo" FROM "Cliente" where "Correo"=:correo;');
+                    $queryCorreo -> bindParam(":correo",$_POST['email']);
+                    $queryCorreo-> execute();
+                    $resultado = $queryCorreo->fetchAll(PDO::FETCH_ASSOC);
+                    if($resultado[0]["Correo"]!=null){
+                      echo "<script>
+                      alertify.error('Este correo ya se encuentra asociado a una cuenta');
+                      </script>";
+                    }else{
+
+
                 
                 $cedula=$_POST["cedula"];
                 $nombre=$_POST["nombre"];
@@ -99,7 +111,8 @@
                 } catch (PDOException $e){
                         echo "Error: " . $e->getMessage();
                 }
-                header("location:../Presentacion/login.php");  
+                //header("location:../Presentacion/login.php");  
+              }
               }else{
                 echo "<script>
                 alertify.error('Las contraseñas NO coinciden');
