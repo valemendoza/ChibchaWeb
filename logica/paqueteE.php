@@ -1,5 +1,5 @@
 <?php
-include_once "../persistencia/conexion.php";
+include_once "../Persistencia/conexion.php";
 session_start();
 if(isset($_SESSION['emailUsuario'])){
     $usuarioActual=$_SESSION['emailUsuario'];
@@ -13,7 +13,6 @@ if(isset($_POST['btcerrarS'])){
 }
 $paquete = $_POST ['paquetes'];
 $plan = $_POST ['plan'];
-?><br> <?php
 $query = $bd->prepare('UPDATE "Cliente" SET "Tipo_Plan_Id_Tipo_Plan" ='.$plan.', "Tipo_Paquete_Id_Tipo_Paquete" ='.$paquete.' WHERE "Correo" =:sesion ;');
 $query->bindParam(":sesion", $usuarioActual);
 $query->execute();
