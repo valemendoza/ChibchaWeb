@@ -175,13 +175,14 @@ if(isset($_POST['btcerrarS'])){
               $date=date("Y-m-d");
               
               //Insertar Ticket a ese empleado
-              $queryTicket = $bd->prepare('INSERT INTO "Ticket" ("Titulo", "Descripcion", "Estado", "Nivel_Ticket_Id_Nivel_Ticket", "Cliente_Id_Cliente", "Id_Dominio", fecha_ingreso)
-              VALUES (:titulo, :descripcion, 1, 1, :id, :dominio, :fecha);');
+              $queryTicket = $bd->prepare('INSERT INTO "Ticket" ("Titulo", "Descripcion", "Estado", "Nivel_Ticket_Id_Nivel_Ticket", "Cliente_Id_Cliente", "Id_Dominio", fecha_ingreso,comentario)
+              VALUES (:titulo, :descripcion, 1, 1, :id, :dominio, :fecha,:comentario);');
               $queryTicket -> bindParam(":dominio",$dominio);
               $queryTicket -> bindParam(":titulo",$titulo);
               $queryTicket -> bindParam(":descripcion",$descripcion);
               $queryTicket -> bindParam(":id", $_SESSION['idUsuario']);
               $queryTicket -> bindParam(":fecha", $date);
+              $queryTicket -> bindParam(":comentario", "N.A.");
               $queryTicket -> execute();
 
 
