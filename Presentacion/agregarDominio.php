@@ -153,7 +153,9 @@ if(isset($_POST['btcerrarS'])){
                 $distribuidorPartes=explode(',', $distribuidor);
                 $extension=$distribuidorPartes[1];
                 $id=$distribuidorPartes[0];
-                
+                echo "<script>
+                alert('Aqui si funciona.');
+                </script>";
                 
                 $pagina = 'http://www.'.$buscaweb.$extension;
                 if (@fopen($pagina,»r»)){
