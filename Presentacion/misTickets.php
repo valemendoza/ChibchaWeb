@@ -154,10 +154,13 @@ if(isset($_POST['btcerrarS'])){
 
                         include_once "../Persistencia/conexion.php";
                         $query = $bd->prepare('SELECT "Id_Ticket", "Nivel_Ticket"."Nombre","fecha_ingreso","Descripcion", "Estado"."nombre"
-                        from "Ticket", "Nivel_Ticket","Estado"
+                        from "Ticket", "Nivel_Ticket","Estado", "Cliente"
                         WHERE "Nivel_Ticket"."Id_Nivel_Ticket"="Ticket"."Nivel_Ticket_Id_Nivel_Ticket" AND
-                              "Estado"."id_estado" = "Ticket"."Estado"
+                              "Estado"."id_estado" = "Ticket"."Estado" AND
+                              "Ticket"."Cliente_Id_Cliente"="Cliente"."Id" AND
+                              "Cliente"."Id"=:id
                         ORDER BY "fecha_ingreso" DESC;'  );
+                        $query ->binParam(":id",$_SESSION['idUsuario']);
                         $query -> execute();
                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                             $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
