@@ -157,8 +157,7 @@ if(isset($_POST['btcerrarS'])){
                 
                 $pagina = 'http://www.'.$buscaweb.$extension;
                 if (@fopen($pagina,»r»)){
-                ?> <br> <div class="container-sm bg-danger text-white"> <label style="text-align:center;"> <?php echo "La pagina con el dominio ".$pagina." no está disponible, por favor intenta con otro distribuidor u otro nombre.<br>";
-                ?> </label></div> <?php
+                  echo "<script>alert('NNOOOOO')</script>";
             }else{
                 ?> <br> <div class="container-sm bg-success text-white"> <label style="text-align:center;"> <?php echo "¡Enhorabuena! La pagina con el dominio ".$pagina." está disponible.<br>";
                 ?> </label></div> <?php
