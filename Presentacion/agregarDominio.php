@@ -171,8 +171,8 @@ if(isset($_POST['btcerrarS'])){
                 $id=$distribuidorPartes[0];
                
                 
-                $pagina = 'http://www.'.$buscaweb.$extension;
-                if (@fopen($pagina,»r»)){
+                $pagina = 'www.'.$buscaweb.$extension;
+                if (gethostbyname($pagina) != $pagina){
                   echo "<script>
                 alert('El dominio no está disponible.');
                 </script>";
