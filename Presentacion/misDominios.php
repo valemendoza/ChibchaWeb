@@ -69,7 +69,7 @@ if(isset($_POST['btcerrarS'])){
                         <p>Agregar Dominio</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="misDominios.php">
                         <i class="bi bi-menu-button-wide"></i>
                         <p>Mis Dominios</p>
