@@ -36,10 +36,15 @@ if(isset($_POST['btcerrarS'])){
                 $querydelete= $bd-> prepare('UPDATE "Cliente" SET "Estado"=2 WHERE "Id"=:id ');
                 $querydelete-> bindParam(":id",$_SESSION['idUsuario']);
                 $querydelete -> execute();
+
+                $queryEstadoUsu = $bd ->prepare('UPDATE "Usuario" SET estado=2 WHERE id_usuario=:id');
+                $queryEstadoUsu-> bindParam(":id",$_SESSION['idUsuario']);
+                $queryEstadoUsu -> execute();
+                
                 echo "<script>
-            alert('Eliminado');
-            </script>";
-            session_destroy();
+                 alert('Eliminado');
+                </script>";
+                session_destroy();
             }
             $query1 = $bd->prepare('UPDATE "Cliente" set "Nombre"=:Nombre, "Apellido"=:Apellido, "Correo"=:Correo,
              "Forma_Pago_Id_Forma_Pago"=:formap ,
@@ -47,9 +52,7 @@ if(isset($_POST['btcerrarS'])){
             "Tipo_Paquete_Id_Tipo_Paquete"=:paquete WHERE "Id"=:Id');
             $query2 = $bd->prepare('UPDATE "Usuario" set "Nombre"=:Nombre, "Correo"=:Correo WHERE "Correo"=:CorreoAntiguo');
             
-            $queryEstadoUsu = $bd ->prepare('UPDATE "Usuario" SET estado=2 WHERE id_usuario=:id');
-            $queryEstadoUsu-> bindParam(":id",$_SESSION['idUsuario']);
-            $queryEstadoUsu -> execute();
+         
             
 
         }
