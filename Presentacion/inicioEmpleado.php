@@ -223,7 +223,7 @@ if(isset($_POST['btcerrarS'])){
                 }
                 $nivelId= $nivelId+1;
 
-                if($nivelId==3){
+                if($nivelId==4){
                   echo "<script>
                 alert('No puede transferir el ticket.');
                 </script>";
