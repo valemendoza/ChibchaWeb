@@ -152,7 +152,9 @@ if(isset($_POST['btcerrarS'])){
                                         </th>-->
                                         <?php
                                         include_once "../Persistencia/conexion.php";
-                                        $query = $bd->prepare('SELECT * FROM "Dominio" WHERE "Id_Dominio"=:id ');
+                                        $query = $bd->prepare('    SELECT * FROM "Dominio", "Cliente"
+                                        where "Dominio"."Cliente_Id_Cliente" = "Cliente"."Id" AND
+                                              "Cliente"."Id"=:id;');
                                         $query -> bindParam(":id",$_SESSION['idUsuario']);
                                         $query -> execute();
                                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
