@@ -41,7 +41,6 @@
                     <label for="password" class="sr-only">Clave</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="***********" maxlength="8" minlength="3" required="True">
                   </div>
-                  <div class="g-recaptcha" data-sitekey="6LdhRdsaAAAAALlJOdMRmtH-46XvwYys6f1KsZlb" require></div>
                   <br>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Ingresar">
                 </form>
