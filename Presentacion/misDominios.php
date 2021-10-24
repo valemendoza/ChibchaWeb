@@ -152,7 +152,8 @@ if(isset($_POST['btcerrarS'])){
                                         </th>-->
                                         <?php
                                         include_once "../Persistencia/conexion.php";
-                                        $query = $bd->prepare('SELECT * FROM "Dominio"');
+                                        $query = $bd->prepare('SELECT * FROM "Dominio" WHERE "Id_Dominio"=:id ');
+                                        $query -> bindParam(":id",$_SESSION['idUsuario']);
                                         $query -> execute();
                                         while ($fila = $query->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
                                         $datos = $fila[0] . "\t" . $fila[1] . "\t" . $fila[2] . "\n";
