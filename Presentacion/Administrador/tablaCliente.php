@@ -248,7 +248,9 @@ if(isset($_POST['btcerrarS'])){
                                     </tr>
                                     <?php } ?>
                                 </table>
-                                <button type="button" class="btn btn-success" id="cliente" name="cliente">Editar</button>
+                                <form method="POST">
+                                <button type="submit" class="btn btn-success" id="cliente" name="cliente">Editar</button>
+                                        </form>
                                 <?php 
                                 if(isset ($_POST['cliente'])){
                                     header('location: EditCliente.php');
