@@ -148,30 +148,76 @@ if(isset($_POST['btcerrarS'])){
             </select>
             <?php
         if(isset($_POST['enviart'])){
+
+          //VER CANTINDAD DE SITIOS EN SU PAQUETE
+          $SQLcant_dominios = $bd ->prepare('SELECT "Paquete"."Cant_Sitios_Web" FROM "Cliente", "Paquete"
+          WHERE "Cliente"."Tipo_Paquete_Id_Tipo_Paquete" = "Paquete"."Id_Paquete" AND
+                "Cliente"."Id"=:id_cliente');
+          $SQLcant_dominios -> bindParam(":id_cliente", $_SESSION['idUsuario']);
+          $SQLcant_dominios -> execute();
+          $cant_dominios = $SQLcant_dominios->fetchAll(PDO::FETCH_ASSOC);
+
+          //VER CANTIDAD DE SITIOS ACTUALES
+          $SQLSitiosActuales = $bd -> prepare('SELECT cant_sitios from "Cliente" where "Id"=:id_cliente');
+          $SQLSitiosActuales -> bindParam(":id_cliente", $_SESSION['idUsuario']);
+          $SQLSitiosActuales -> execute();
+          $SitiosActuales = $SQLSitiosActuales->fetchAll(PDO::FETCH_ASSOC);
+
+
+          if( $cant_dominios[0] ["Cant_Sitios_Web"]>$SitiosActuales[0] ["cant_sitios"]){
+                
                 $buscaweb=$_POST['dominio'];
                 $distribuidor=$_POST['distribuidor'];
                 $distribuidorPartes=explode(',', $distribuidor);
                 $extension=$distribuidorPartes[1];
                 $id=$distribuidorPartes[0];
-                
-                
                 $pagina = 'www.'.$buscaweb.$extension;
-                if (gethostbyname($pagina) != $pagina){
-                ?> <br> <div class="container-sm bg-danger text-white"> <label style="text-align:center;"> <?php echo "La pagina con el dominio ".$pagina." no está disponible, por favor intenta con otro distribuidor u otro nombre.<br>";
-                ?> </label></div> <?php
-            }else{
-                ?> <br> <div class="container-sm bg-success text-white"> <label style="text-align:center;"> <?php echo "¡Enhorabuena! La pagina con el dominio ".$pagina." está disponible.<br>";
-                ?> </label></div> <?php
-                $query = $bd->prepare('INSERT INTO "Dominio" ("Nombre", "Cliente_Id_Cliente", "Distribuidor_Id_Distribuidor") VALUES
-                (:nombre,:id_cliente,:id_distribuidor);');
-                $query -> bindParam(":nombre",$buscaweb);
-                $query -> bindParam(":id_distribuidor",$id);
-                $query -> bindParam(":id_cliente", $_SESSION['idUsuario']);
-                $query -> execute();
-                echo "<script>
-                 alertify.success('Agregado con exito.');
+                $cont=0;
+
+                //BUSQUEDA DE LA EXISTENCIA DE ESE DOMINIO EN NUESTRA BD
+                $queryDominio = $bd->prepare('SELECT "Nombre" FROM "Dominio";');
+                $queryDominio -> execute();
+                
+                while ($fila = $queryDominio->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                  if($fila[0]==$buscaweb){
+                    $cont= 1;
+                  }
+                }
+
+                //BUSQUEDA DE LA EXISTENCIA DE ESE DOMINIO EN LA WEB
+              if ((gethostbyname($pagina) != $pagina) || ($cont == 1)){
+                  
+                  ?> <br> <div class="container-sm bg-danger text-white"> <label style="text-align:center;"> <?php echo "La pagina con el dominio ".$pagina." no está disponible, por favor intenta con otro distribuidor u otro nombre.<br>";
+                  ?> </label></div> <?php
+              }else{
+                  ?> <br> <div class="container-sm bg-success text-white"> <label style="text-align:center;"> <?php echo "¡Enhorabuena! La pagina con el dominio ".$pagina." está disponible.<br>";
+                  ?> </label></div> <?php
+                  $query = $bd->prepare('INSERT INTO "Dominio" ("Nombre", "Cliente_Id_Cliente", "Distribuidor_Id_Distribuidor") VALUES
+                  (:nombre,:id_cliente,:id_distribuidor);');
+                  $query -> bindParam(":nombre",$buscaweb);
+                  $query -> bindParam(":id_distribuidor",$id);
+                  $query -> bindParam(":id_cliente", $_SESSION['idUsuario']);
+                  $query -> execute();
+                  echo "<script>
+                  alertify.success('Agregado con exito.');
+                  </script>";
+                  //SUMARLE 1 DOMINIO AL ACTUAL 
+                  $cant_sitios_actuales = $SitiosActuales[0] ["cant_sitios"] + 1;
+                  $queriActualiza = $bd->prepare('UPDATE "Cliente" set "cant_sitios"=:sitios  WHERE "Id"=:id_cliente');
+                  $queriActualiza -> bindParam(":sitios",$cant_sitios_actuales);
+                  $queriActualiza -> bindParam(":id_cliente", $_SESSION['idUsuario']);
+                  $queriActualiza -> execute();
+                }
+                    
+
+                  
+
+          }else{
+            echo "<script>
+                 alertify.error('Ha superdao su limite de dominos, actualice su paquete para agregar más.');
                 </script>";
-            }
+          }
+
         }
         ?>
             
