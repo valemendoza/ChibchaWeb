@@ -67,7 +67,7 @@ if(isset($_POST['btcerrarS'])){
                     </a>
                 </li>
                 <li>
-                    <a href="misDominios.php">
+                    <a href="tablaDistribuidor.php">
                         <i class="bi bi-truck"></i>
                         <p>Distribuidores</p>
                     </a>
