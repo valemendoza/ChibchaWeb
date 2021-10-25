@@ -27,14 +27,11 @@ if(isset($_POST['btcerrarS'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="../../Librerias/Bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="../../Librerias/Bootstrap/css/bootstrap.css">
-
     <link rel="shortcut icon" href="../../Img/logo.png" />
 
 </head>
 
 <body class="">
-
-
 <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
@@ -46,6 +43,7 @@ if(isset($_POST['btcerrarS'])){
             </a>
             <a class="simple-text logo-normal">
                 <?php echo $usuarioActual?>
+
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -97,24 +95,24 @@ if(isset($_POST['btcerrarS'])){
     </div>
     <div class="main-panel">
         <!-- Navbar -->
-       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid" style="background-color: #CA5B09;">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand"style="color: white">EDITAR EMPLEADO </a>
-          </div>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <form method="POST">
-                  <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
-                  </form>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid" style="background-color: #CA5B09;">
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand"style="color: white">AGREGAR DISTRIBUIDOR </a>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form method="POST">
+                                <input type="submit" class="btn btn-link" style="color: white" name="btcerrarS" id="btcerrarS" value="Cerrar Sesión" />
+                            </form>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
         <?php
 
         include_once "../../Persistencia/conexion.php";
@@ -197,15 +195,15 @@ if(isset($_POST['btcerrarS'])){
             <div class="col-md-8">
                 <div class="card card-user">
                     <div class="card-header">
-                        <h5 class="card-title">Editar Empleado</h5>
+                        <h5 class="card-title">Agregar Distribuidor</h5>
                     </div>
                     <div class="card-body">
-                        <form action="../../logica/EE.php" method="post">
+                        <form action="../../logica/AD.php" method="post">
                             <div class="row">
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
-                                        <label>ID</label>
-                                        <input name="ID" type="number" class="form-control" maxlength="12" minlength="8" min="0" autofocus required="True" placeholder="Ingrese el Id del empleado a editar">
+                                        <label>Identificacion</label>
+                                        <input name="ID" type="number" maxlength="12" minlength="8" min="0" autofocus required="True" class="form-control" placeholder="Identificacion">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
@@ -216,28 +214,24 @@ if(isset($_POST['btcerrarS'])){
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Apellido">
+                                        <label for="exampleInputEmail1">Cant Dominios</label>
+                                        <input name="Cantidad" type="number" class="form-control" min="0" autofocus required="True"  placeholder="Cantidad Dominios">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
-                                        <label>Correo</label>
-                                        <input name="Correo" type="email"  autofocus required="True" class="form-control" placeholder="Correo">
+                                        <label>Extensión </label>
+                                        <input name="Extencion" type="text" class="form-control" autofocus required="True" placeholder="Extencion">
                                     </div>
-                                    </div>
+                                    <!--</div>
                                     <div class="col-md-6 pl-1">
                                         <div class="form-group">
-                                            <label>Nivel Empleado</label>
-                                            <select class="btn btn-neutral dropdown-toggle" name="nivel" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <option value="1" class="dropdown-item">Nivel 1</option>
-                                                <option value="2" class="dropdown-item">Nivel 2</option>
-                                                <option value="3" class="dropdown-item">Nivel 3</option>
-                                            </select>
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Last Name" value="Faker">
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <!--<div class="row">
                                     <div class="col-md-6">
@@ -295,12 +289,14 @@ if(isset($_POST['btcerrarS'])){
                                 </div>-->
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button name="actualizar" type="submit" class="btn btn-success" style="background: green; border-color: green">Actualizar Perfil</button>
-                                        <button name="borrar" type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                        <button type="submit" class="btn btn-success" style="background: green; border-color: green">Agregar Distribuidor</button>
                                     </div>
                                     <div class="update ml-auto mr-auto">
-                                        <button type="button" onclick="location.href='tablaEmpleado.php'" class="btn btn-danger" style="background: orangered; border-color: orangered">Volver</button>
+                                        <button type="button" onclick="location.href='tablaDistribuidor.php'" class="btn btn-danger" style="background: orangered; border-color: orangered">Volver</button>
                                     </div>
+                                    <!--<div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-danger" style="background: orangered; border-color: orangered">Eliminar Perfil</button>
+                                    </div>-->
                                 </div>
                         </form>
                     </div>

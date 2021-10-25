@@ -247,6 +247,7 @@ if(isset($_POST['btcerrarS'])){
                                     <?php } ?>
                                 </table>
                                 <button type="button" class="btn btn-success" onclick="location.href='EditDistribudor.php'">Editar</button>
+                                <button type="button" class="btn btn-success" onclick="location.href='agregarDistribuidor.php'">Agregar</button>
                             </div>
                         </div>
                     </div>
