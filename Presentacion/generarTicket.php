@@ -129,12 +129,12 @@ if(isset($_POST['btcerrarS'])){
         <img src="../Img/PQR.png" alt=""></center>
         <form method="POST" >
             <label >Titulo: </label>
-            <input type="text" class="form-control" id="titulo" name="titulo" autofocus required="True">
+            <input type="text" class="form-control" id="titulo" name="titulo" autofocus required="True" pattern="[A-Za-z]+">
             <label for="exampleFormControlTextarea1">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True"></textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True" pattern="[A-Za-z]+" ></textarea>
             <label>Dominio: </label>
               <select name="dominio" class="form-control" style="color:black" id="dominio" autofocus required="True">
-              <option disabled selected>Selecciona una opción</option>
+              <option value="nohay">Selecciona una opción</option>
                 <?php   
                     include_once "../Persistencia/conexion.php";
                     $query = $bd->prepare('
@@ -162,6 +162,13 @@ if(isset($_POST['btcerrarS'])){
               $dominio=$_POST["dominio"];
               $titulo=$_POST["titulo"];
               $descripcion=$_POST["descripcion"];
+
+              if($dominio == "nohay"){
+                echo "<script>
+                      alertify.error('Debe seleccionar un dominio.');
+                      </script>";
+              }else{
+
               //Encontrar el empleado con menor cantidad de tickets
               $queryEmpleado = $bd->prepare('SELECT "Id", MIN(cant_tickets) min FROM "Empleado" 
               WHERE "Tipo_Empleado_Id_Tipo_Empleado"=1
@@ -231,8 +238,8 @@ if(isset($_POST['btcerrarS'])){
                       alertify.success('Ticket Generado');
                       </script>";
 
-              
-              }
+            }
+          }
         ?>
 
 
