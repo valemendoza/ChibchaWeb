@@ -211,13 +211,13 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+"  placeholder="Nombre">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Apellido">
+                                        <input name="Apellido" type="text" class="form-control" pattern="[A-Za-z]+"  placeholder="Apellido">
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input name="Correo" type="email"  autofocus required="True" class="form-control" placeholder="Correo">
+                                        <input name="Correo" type="email"  class="form-control" placeholder="Correo">
                                     </div>
                                     </div>
                                     <div class="col-md-6 pl-1">
