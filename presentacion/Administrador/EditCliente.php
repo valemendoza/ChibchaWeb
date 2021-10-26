@@ -113,31 +113,6 @@ if(isset($_POST['btcerrarS'])){
         </div>
       </nav>
       <!-- End Navbar -->
-        <?php
-
-        include_once "../../Persistencia/conexion.php";
-        $query = $bd->prepare('SELECT * from "Cliente"'  );
-        $query -> execute();
-        $clientes = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_clientes = count($clientes);
-
-        $query = $bd->prepare('SELECT * from "Empleado"'  );
-        $query -> execute();
-        $empleados = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_empleados = count($empleados);
-
-        $query = $bd->prepare('SELECT * from "Distribuidor"'  );
-        $query -> execute();
-        $distribuidores = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_distribuidores = count($distribuidores);
-
-        $query = $bd->prepare('SELECT * from "Ticket"'  );
-        $query -> execute();
-        $tickets = $query->fetchAll(PDO::FETCH_OBJ);
-        $cant_tickets = count($tickets);
-
-        ?>
-
 
         <!-- ===============================================MODIFICAN DESDE ACA ============================================
         ================================================================================================================ -->
@@ -148,74 +123,48 @@ if(isset($_POST['btcerrarS'])){
         <br><br><br><br>
         <div class="row">
             <div class="col-md-2">
-                <!--<div class="card card-user">
-                    <div class="image">
-                        <img src="../../Img/fondo2.png" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <div class="author">
-                            <p href="#">
-                                <img class="avatar border-gray" src="../../Img/iconoPerfil.png" alt="...">
-                            <h5 class="title">Nombre</h5>
-                            </p>
-                            <br>
-                            <p class="description">
-                                Correo
-                            </p>
-                        </div>
-                        <p class="description text-center">
-                            "I like the way you work it <br>
-                            No diggity <br>
-                            I wanna bag it up"
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <hr>
-                        <div class="button-container">
-                            <div class="row">
-                                <div class="col-lg-3 ml-auto">
-                                    <h5>1<br><small>Correos</small></h5>
-                                </div>
-                                <div class="col-lg-4 ml-auto mr-auto">
-                                    <h5>2<br><small>Bases de datos</small></h5>
-                                </div>
-                                <div class="col-lg-3 ml-auto">
-                                    <h5>1<br><small>Almacenamiento</small></h5>
-                                </div>
-                                <div class="col-lg-2 ml-auto mr-auto ">
-                                    <h5>1<br><small>Correos</small></h5>
-                                </div>
-                                <h5>Paquete Chibcha Oro</h5>
-                                <h5>Mensual</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+
             </div>
             <div class="col-md-8">
                 <div class="card card-user">
                     <div class="card-header">
                         <h5 class="card-title">Editar Cliente</h5>
                     </div>
+                    <?php 
+                        if(isset( $_POST['cargar'])){
+                        include_once "../../Persistencia/conexion.php";
+                        $query = $bd->prepare('SELECT "Id","Cliente"."Nombre", "Apellido", "Correo" , "Forma_Pago_Id_Forma_Pago" , "Tipo_Plan_Id_Tipo_Plan",
+                        "Tipo_Paquete_Id_Tipo_Paquete", "Forma_Pago"."Nombre" fnombre, "Tipo_Paquete"."Nombre" pnombre, "Tipo_Plan"."Nombre" plnombre
+                        FROM "Cliente", "Tipo_Paquete", "Forma_Pago", "Tipo_Plan"
+                        WHERE "Cliente"."Tipo_Paquete_Id_Tipo_Paquete" = "Tipo_Paquete"."Id_Tipo_Paquete" AND
+                              "Cliente"."Tipo_Plan_Id_Tipo_Plan" = "Tipo_Plan"."Id_Tipo_Plan" AND
+                              "Cliente"."Forma_Pago_Id_Forma_Pago" = "Forma_Pago"."Id_Forma_Pago" AND
+                              "Id"=:id ' );
+                        $query -> bindParam(":id",$_POST['ID']);
+                        $query -> execute();
+                        $clientes = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        }
+                        ?>
                     <div class="card-body">
                         <form action="../../logica/EC.php" method="post">
                             <div class="row">
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
                                         <label>ID</label>
-                                        <input name="ID" type="number" class="form-control" min="0" autofocus required="True" placeholder="Ingrese el Id del cliente a editar">
+                                        <input name="ID" type="number" class="form-control" min="0" autofocus required="True" placeholder="Ingrese el Id del cliente a editar" value="<?php echo $clientes[0]["Id"]  ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+" placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+" placeholder="Nombre" value="<?php echo $clientes[0]["Nombre"]  ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+" placeholder="Apellido">
+                                        <input name="Apellido" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+" placeholder="Apellido" value="<?php echo $clientes[0]["Apellido"]  ?>">
                                     </div>
                                 </div>
                             </div>
@@ -223,30 +172,18 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input name="Correo" type="email" class="form-control" autofocus required="True" placeholder="Correo">
+                                        <input name="Correo" type="email" class="form-control" autofocus required="True" placeholder="Correo" value="<?php echo $clientes[0]["Correo"]  ?>">
                                     </div>
-                                    <!--</div>
-                                    <div class="col-md-6 pl-1">
-                                        <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name" value="Faker">
-                                        </div>
-                                    </div>-->
+
                                 </div>
-                                <!--<div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Contraseña</label>
-                                            <input type="password" class="form-control" placeholder="Contraseña">
-                                        </div>
-                                    </div>
-                                </div>-->
+
                                 <div class="row">
                                     <div class="col-md-4 pr-1">
                                         <div class="form-group">
                                             <label>Forma de Pago</label>
                                             <br>
-                                            <select class="btn btn-neutral dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="formap" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value="<?php echo $clientes[0]["Forma_Pago_Id_Forma_Pago"]  ?>">
+                                            <option disabled selected value="<?php echo $clientes[0]['Forma_Pago_Id_Forma_Pago']  ?>" class="dropdown-item"><?php echo $clientes[0]['fnombre']  ?></option>
                                                 <option value="1" class="dropdown-item">Credito</option>
                                                 <option value="2" class="dropdown-item">Contado</option>
                                             </select>
@@ -258,7 +195,8 @@ if(isset($_POST['btcerrarS'])){
                                         <div class="form-group">
                                             <label>Tipo de Plan</label>
                                             <br>
-                                            <select class="btn btn-neutral dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="plan" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+                                                <option disabled selected value="<?php echo $clientes[0]['Tipo_Plan_Id_Tipo_Plan']  ?>" class="dropdown-item"><?php echo $clientes[0]['plnombre']  ?></option>
                                                 <option value="1" class="dropdown-item">Mensual</option>
                                                 <option value="2" class="dropdown-item">Anual</option>
                                             </select>
@@ -269,7 +207,10 @@ if(isset($_POST['btcerrarS'])){
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Tipo de Paquete</label>
-                                            <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value="<?php echo $clientes[0]["Tipo_Paquete_Id_Tipo_Paquete"]  ?>">
+                                            <option disabled selected value="<?php echo $clientes[0]['Tipo_Paquete_Id_Tipo_Paquete']  ?>" class="dropdown-item"><?php echo $clientes[0]['pnombre']  ?></option>
+                                                   
+                                            <option value="0" class="dropdown-item">Sin seleccionar</option>
                                                 <option value="1" class="dropdown-item">Chibcha Plata</option>
                                                 <option value="2" class="dropdown-item">Chibcha Oro</option>
                                                 <option value="3" class="dropdown-item">Chibcha Platino</option>

@@ -153,7 +153,7 @@ if(isset($_POST['btcerrarS'])){
                         </div>
                         <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar por id..." onkeyup="myFunction()">
                         </div>
-
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="transferir">Editar Cliente</button>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-striped table-bordered table-hover">
@@ -249,8 +249,42 @@ if(isset($_POST['btcerrarS'])){
                                     <?php } ?>
                                 </table>
                                 <form method="POST" action="EditCliente.php">
-                                <input type="submit" class="btn btn-success" id="cliente" name="cliente" value="Editar">
+                                <input type="submit" class="btn btn-success" id="cliente" name="cliente" value="Editar" >
                                         </form>
+
+
+                                 <!-- Modal -->
+          
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST" action="EditCliente.php">
+                            <div class="row">
+                                    <div class="form-group">
+                                    <select name="ID" id="ID" autofocus required="True" class="form-select form-select-md" aria-label=".form-select-lg example">
+                                        <option value="0" >Id</option>
+                                        <?php   
+                                            include_once "../Persistencia/conexion.php";
+                                            $querySelect = $bd->prepare('SELECT "Id" FROM "Cliente"
+                                            GROUP BY "Id" ORDER BY "Id" ASC;');
+                                            $querySelect -> execute();
+                                            while ($fila = $querySelect->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) 
+                                            { ?>
+                                                <option autofocus required="True" style="color:black" value="<?php echo $fila[0];?>"><?php echo $fila[0];?></option>;
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <button type="submit" id="cargar" name="cargar" class="btn btn-success">Cargar Información</button>
+                            </div>
+                        </form>
+        
                                 
                             </div>
                         </div>
