@@ -129,7 +129,7 @@ if(isset($_POST['btcerrarS'])){
         <img src="../Img/PQR.png" alt=""></center>
         <form method="POST" >
             <label >Titulo: </label>
-            <input type="text" class="form-control" id="titulo" name="titulo" autofocus required="True" pattern="[A-Za-z]+">
+            <input type="text" class="form-control" id="titulo" name="titulo" autofocus required="True" pattern="[A-Za-z ]+">
             <label for="exampleFormControlTextarea1">Descripción:</label>
             <textarea class="form-control" id="descripcion" name="descripcion" rows="3" autofocus required="True" pattern="[A-Za-z]+" ></textarea>
             <label>Dominio: </label>
