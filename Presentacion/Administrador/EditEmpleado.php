@@ -150,49 +150,19 @@ if(isset($_POST['btcerrarS'])){
         <br><br><br><br>
         <div class="row">
             <div class="col-md-2">
-                <!--<div class="card card-user">
-                    <div class="image">
-                        <img src="../../Img/fondo2.png" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <div class="author">
-                            <p href="#">
-                                <img class="avatar border-gray" src="../../Img/iconoPerfil.png" alt="...">
-                            <h5 class="title">Nombre</h5>
-                            </p>
-                            <br>
-                            <p class="description">
-                                Correo
-                            </p>
-                        </div>
-                        <p class="description text-center">
-                            "I like the way you work it <br>
-                            No diggity <br>
-                            I wanna bag it up"
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <hr>
-                        <div class="button-container">
-                            <div class="row">
-                                <div class="col-lg-3 ml-auto">
-                                    <h5>1<br><small>Correos</small></h5>
-                                </div>
-                                <div class="col-lg-4 ml-auto mr-auto">
-                                    <h5>2<br><small>Bases de datos</small></h5>
-                                </div>
-                                <div class="col-lg-3 ml-auto">
-                                    <h5>1<br><small>Almacenamiento</small></h5>
-                                </div>
-                                <div class="col-lg-2 ml-auto mr-auto ">
-                                    <h5>1<br><small>Correos</small></h5>
-                                </div>
-                                <h5>Paquete Chibcha Oro</h5>
-                                <h5>Mensual</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+            <?php 
+                        if(isset( $_POST['cargar'])){
+                        include_once "../../Persistencia/conexion.php";
+                        $query = $bd->prepare('SELECT "Id", "Empleado"."Nombre" nombre, "Apellido", "Correo", "Tipo_Empleado"."Nombre" templeado, "Tipo_Empleado_Id_Tipo_Empleado" idtipo
+                        FROM "Empleado", "Tipo_Empleado" WHERE 
+                        "Empleado"."Tipo_Empleado_Id_Tipo_Empleado" = "Tipo_Empleado"."Id_Tipo_Empleado" 
+                        AND "Empleado"."Id"=:id ' );
+                        $query -> bindParam(":id",$_POST['ID']);
+                        $query -> execute();
+                        $empleados = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        }
+                        ?>
             </div>
             <div class="col-md-8">
                 <div class="card card-user">
@@ -205,19 +175,19 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
                                         <label>ID</label>
-                                        <input name="ID" type="number" class="form-control" maxlength="12" minlength="8" min="0" autofocus required="True" placeholder="Ingrese el Id del empleado a editar">
+                                        <input name="ID" type="number" class="form-control" maxlength="12" minlength="8" min="0" autofocus required="True" value="<?php echo $empleados[0]["Id"]?>">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+"  placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+"  value="<?php echo $empleados[0]["nombre"]?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Apellido</label>
-                                        <input name="Apellido" type="text" class="form-control" pattern="[A-Za-z]+"  placeholder="Apellido">
+                                        <input name="Apellido" type="text" class="form-control" autofocus required="True" pattern="[A-Za-z]+" value="<?php echo $empleados[0]["Apellido"]?>">
                                     </div>
                                 </div>
                             </div>
@@ -225,16 +195,17 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Correo</label>
-                                        <input name="Correo" type="email"  class="form-control" placeholder="Correo">
+                                        <input name="Correo" type="email"  class="form-control" autofocus required="True" value="<?php echo $empleados[0]["Correo"]?>">
                                     </div>
                                     </div>
                                     <div class="col-md-6 pl-1">
                                         <div class="form-group">
                                             <label>Nivel Empleado</label>
                                             <select class="btn btn-neutral dropdown-toggle" name="nivel" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <option value="1" class="dropdown-item">Nivel 1</option>
-                                                <option value="2" class="dropdown-item">Nivel 2</option>
-                                                <option value="3" class="dropdown-item">Nivel 3</option>
+                                            <option disabled selected value="<?php echo $empleados[0]['idtipo']  ?>" class="dropdown-item"><?php echo $empleados[0]['templeado']  ?></option>
+                                                <option value="1" class="dropdown-item">Nivel Básico</option>
+                                                <option value="2" class="dropdown-item">Nivel Medio</option>
+                                                <option value="3" class="dropdown-item">Nivel Superior</option>
                                             </select>
                                         </div>
                                     </div>
