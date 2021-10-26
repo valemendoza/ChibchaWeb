@@ -197,25 +197,35 @@ if(isset($_POST['btcerrarS'])){
                     <div class="card-header">
                         <h5 class="card-title">Editar Distribuidor</h5>
                     </div>
+                    <?php 
+                        if(isset( $_POST['cargar'])){
+                        include_once "../../Persistencia/conexion.php";
+                        $query = $bd->prepare('SELECT * from "Distribuidor" WHERE "Id_Distribuidor"=:id ' );
+                        $query -> bindParam(":id",$_POST['ID']);
+                        $query -> execute();
+                        $distribuidores = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                        }
+                        ?>
                     <div class="card-body">
                         <form action="../../logica/ED.php" method="post">
                             <div class="row">
                                 <div class="col-md-5 pr-1">
                                     <div class="form-group">
                                         <label>ID</label>
-                                        <input name="ID" type="number" maxlength="12" minlength="8" min="0" autofocus required="True" class="form-control" placeholder="Ingrese el Id del empleado a editar">
+                                        <input name="ID" type="number" maxlength="12" minlength="8" min="0" autofocus required="True" class="form-control" value="<?php echo $distribuidores[0]["Id_Distribuidor"]?>">
                                     </div>
                                 </div>
                                 <div class="col-md-3 px-1">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True" placeholder="Nombre">
+                                        <input name="Nombre" type="text" class="form-control" pattern="[A-Za-z]+" autofocus required="True"  value="<?php echo $distribuidores[0]["Nombre"]?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4 pl-1">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Cant Dominios</label>
-                                        <input name="Cantidad" type="number" class="form-control" min="0" autofocus required="True"  placeholder="Cantidad Dominios">
+                                        <input name="Cantidad" type="number" class="form-control" min="0" autofocus required="True"   value="<?php echo $distribuidores[0]["Cant_Dom"]?>">
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +233,7 @@ if(isset($_POST['btcerrarS'])){
                                 <div class="col-md-6 pr-1">
                                     <div class="form-group">
                                         <label>Extensión </label>
-                                        <input name="Extencion" type="text" class="form-control" autofocus required="True" placeholder="Extencion">
+                                        <input name="Extencion" type="text" class="form-control" autofocus required="True"  value="<?php echo $distribuidores[0]["Extencion"]?>">
                                     </div>
                                     <!--</div>
                                     <div class="col-md-6 pl-1">

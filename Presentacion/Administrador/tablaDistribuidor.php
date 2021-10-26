@@ -152,7 +152,8 @@ if(isset($_POST['btcerrarS'])){
                         </div>
                         <div><input  class="form-control" id="myInput" type="text" placeholder="Buscar por id..." onkeyup="myFunction()">
                         </div>
-
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="transferir">Editar Distribuidor</button>
+                        
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-striped table-bordered table-hover">
@@ -169,21 +170,7 @@ if(isset($_POST['btcerrarS'])){
                                         <th>
                                             Extencion
                                         </th>
-                                        <!--<th>
-                                            Estado
-                                        </th>
-                                        <th>
-                                            Forma de Pago
-                                        </th>
-                                        <th>
-                                            Tipo de Plan
-                                        </th>
-                                        <th>
-                                            Tipo de Paquete
-                                        </th>-->
-                                        <!--<th>
-                                            Accion
-                                        </th>-->
+                                       
                                         <?php
 
                                         include_once "../../Persistencia/conexion.php";
@@ -246,8 +233,40 @@ if(isset($_POST['btcerrarS'])){
                                     </tr>
                                     <?php } ?>
                                 </table>
-                                <button type="button" class="btn btn-success" onclick="location.href='EditDistribudor.php'">Editar</button>
-                                <button type="button" class="btn btn-success" onclick="location.href='agregarDistribuidor.php'">Agregar</button>
+                                
+                                 <!-- Modal -->
+          
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Distribuidor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST" action="EditDistribudor.php">
+                            <div class="row">
+                                    <div class="form-group">
+                                    <select name="ID" id="ID" autofocus required="True" class="form-select form-select-md" aria-label=".form-select-lg example">
+                                        <option value="1" >Id</option>
+                                        <?php   
+                                            include_once "../Persistencia/conexion.php";
+                                            $querySelect = $bd->prepare('Select "Id_Distribuidor" from "Distribuidor"
+                                            GROUP BY "Id_Distribuidor" ORDER BY "Id_Distribuidor" ASC;');
+                                            $querySelect -> execute();
+                                            while ($fila = $querySelect->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) 
+                                            { ?>
+                                                <option autofocus required="True" style="color:black" value="<?php echo $fila[0];?>"><?php echo $fila[0];?></option>;
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <button type="submit" id="cargar" name="cargar" class="btn btn-success">Cargar Información</button>
+                            </div>
+                        </form>
+        
+                                
                             </div>
                         </div>
                     </div>

@@ -210,7 +210,6 @@ if(isset($_POST['btcerrarS'])){
                                             <select class="btn btn-neutral dropdown-toggle" name="paquete" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value="<?php echo $clientes[0]["Tipo_Paquete_Id_Tipo_Paquete"]  ?>">
                                             <option disabled selected value="<?php echo $clientes[0]['Tipo_Paquete_Id_Tipo_Paquete']  ?>" class="dropdown-item"><?php echo $clientes[0]['pnombre']  ?></option>
                                                    
-                                            <option value="0" class="dropdown-item">Sin seleccionar</option>
                                                 <option value="1" class="dropdown-item">Chibcha Plata</option>
                                                 <option value="2" class="dropdown-item">Chibcha Oro</option>
                                                 <option value="3" class="dropdown-item">Chibcha Platino</option>
