@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fc2f70-1cc4-4025-b017-4af77b3a2a42" name="Changes" comment="Archivos phpStorm, Cambio Varios">
-      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/agregarDistribuidor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logica/AD.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Presentacion/Administrador/agregarEmpleado.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logica/AE.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentacion/Administrador/tablaDistribuidor.php" beforeDir="false" afterPath="$PROJECT_DIR$/Presentacion/Administrador/tablaDistribuidor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditCliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditDistribudor.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditDistribudor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" beforeDir="false" afterPath="$PROJECT_DIR$/presentacion/Administrador/EditEmpleado.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +100,7 @@
       <workItem from="1634851341487" duration="801000" />
       <workItem from="1634941402731" duration="3953000" />
       <workItem from="1635192122911" duration="2641000" />
+      <workItem from="1635213179855" duration="2802000" />
     </task>
     <task id="LOCAL-00001" summary="Archivos phpStorm">
       <created>1633494138143</created>
